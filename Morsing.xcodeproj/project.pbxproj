@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */; };
 		2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33E21E3EE0E008978CF /* ViewController.swift */; };
-		2FFBC34221E3EE0E008978CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34021E3EE0E008978CF /* Main.storyboard */; };
 		2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC34321E3EE0E008978CF /* Morsing.xcdatamodeld */; };
 		2FFBC34721E3EE12008978CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34621E3EE12008978CF /* Assets.xcassets */; };
 		2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34821E3EE12008978CF /* LaunchScreen.storyboard */; };
+		2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC35421E3F3EB008978CF /* LearningViewController.swift */; };
+		2FFBC35721E5236D008978CF /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC35621E5236D008978CF /* CharactersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2FFBC33921E3EE0E008978CF /* Morsing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morsing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FFBC33E21E3EE0E008978CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2FFBC34121E3EE0E008978CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2FFBC34421E3EE0E008978CF /* Morsing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Morsing.xcdatamodel; sourceTree = "<group>"; };
 		2FFBC34621E3EE12008978CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FFBC34921E3EE12008978CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FFBC34B21E3EE12008978CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FFBC35421E3F3EB008978CF /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
+		2FFBC35621E5236D008978CF /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,32 @@
 		2FFBC33B21E3EE0E008978CF /* Morsing */ = {
 			isa = PBXGroup;
 			children = (
+				2FFBC35121E3F386008978CF /* Learning */,
 				2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */,
 				2FFBC33E21E3EE0E008978CF /* ViewController.swift */,
-				2FFBC34021E3EE0E008978CF /* Main.storyboard */,
 				2FFBC34621E3EE12008978CF /* Assets.xcassets */,
 				2FFBC34821E3EE12008978CF /* LaunchScreen.storyboard */,
 				2FFBC34B21E3EE12008978CF /* Info.plist */,
 				2FFBC34321E3EE0E008978CF /* Morsing.xcdatamodeld */,
 			);
 			path = Morsing;
+			sourceTree = "<group>";
+		};
+		2FFBC35121E3F386008978CF /* Learning */ = {
+			isa = PBXGroup;
+			children = (
+				2FFBC35321E3F3CF008978CF /* Controller */,
+			);
+			path = Learning;
+			sourceTree = "<group>";
+		};
+		2FFBC35321E3F3CF008978CF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2FFBC35421E3F3EB008978CF /* LearningViewController.swift */,
+				2FFBC35621E5236D008978CF /* CharactersViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +146,6 @@
 			files = (
 				2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */,
 				2FFBC34721E3EE12008978CF /* Assets.xcassets in Resources */,
-				2FFBC34221E3EE0E008978CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +158,8 @@
 			files = (
 				2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */,
 				2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */,
+				2FFBC35721E5236D008978CF /* CharactersViewController.swift in Sources */,
+				2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */,
 				2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +167,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2FFBC34021E3EE0E008978CF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2FFBC34121E3EE0E008978CF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2FFBC34821E3EE12008978CF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

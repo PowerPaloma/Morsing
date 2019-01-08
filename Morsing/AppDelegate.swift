@@ -13,10 +13,17 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var learningTabNavControler: UINavigationController!
+    var translateTabNavControler: UINavigationController!
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let tabBarController = UITabBarController()
+        setup(tabBarController: tabBarController)
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+
         return true
     }
 
@@ -42,6 +49,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    // MARK: - TabBar Setup
+    
+    func setup(tabBarController: UITabBarController){
+        let learningViewController = LearningViewController()
+        let translateViewController = UIViewController()
+        learningViewController.title = "Learning"
+        translateViewController.title = "Translate"
+        let learningItem = UITabBarItem(title: "Learning", image: #imageLiteral(resourceName: "learning"), tag: 0)
+        let translateItem = UITabBarItem(title: "Translate", image: #imageLiteral(resourceName: "translate"), tag: 1)
+        learningTabNavControler = UINavigationController.init(rootViewController: learningViewController)
+        translateTabNavControler = UINavigationController.init(rootViewController: translateViewController)
+        learningTabNavControler.tabBarItem = learningItem
+        translateTabNavControler.tabBarItem = translateItem
+        tabBarController.viewControllers = [learningTabNavControler, translateTabNavControler]
     }
 
     // MARK: - Core Data stack
