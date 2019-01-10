@@ -42,6 +42,7 @@ class LearningViewController: UIViewController {
     fileprivate func setUp(){
         addViews()
         setUPConstrants()
+        boxView.setUp()
     }
     fileprivate func addViews(){
         view.addSubview(boxView)
