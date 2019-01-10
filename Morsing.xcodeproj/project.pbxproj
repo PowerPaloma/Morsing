@@ -14,6 +14,7 @@
 		2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34821E3EE12008978CF /* LaunchScreen.storyboard */; };
 		2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC35421E3F3EB008978CF /* LearningViewController.swift */; };
 		2FFBC35721E5236D008978CF /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC35621E5236D008978CF /* CharactersViewController.swift */; };
+		D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2FFBC34B21E3EE12008978CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FFBC35421E3F3EB008978CF /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
 		2FFBC35621E5236D008978CF /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
+		D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				2FFBC35121E3F386008978CF /* Learning */,
+				D7CA6D0621E7F5DC00376E65 /* Extensions */,
 				2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */,
 				2FFBC33E21E3EE0E008978CF /* ViewController.swift */,
 				2FFBC34621E3EE12008978CF /* Assets.xcassets */,
@@ -84,6 +87,14 @@
 				2FFBC35621E5236D008978CF /* CharactersViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		D7CA6D0621E7F5DC00376E65 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +170,7 @@
 				2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */,
 				2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */,
 				2FFBC35721E5236D008978CF /* CharactersViewController.swift in Sources */,
+				D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */,
 				2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */,
 				2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */,
 			);
