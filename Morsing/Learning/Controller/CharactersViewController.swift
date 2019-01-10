@@ -10,7 +10,7 @@ import UIKit
 
 class CharactersViewController: UIViewController {
     
-    var isLetters: Bool?
+    var isLetters: Bool? = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
