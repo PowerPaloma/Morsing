@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         let tabBarController = UITabBarController()
         setup(tabBarController: tabBarController)
@@ -55,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setup(tabBarController: UITabBarController){
         let learningViewController = LearningViewController()
-        let translateViewController = UIViewController()
+        let translateViewController = TranslateViewController()
         learningViewController.title = "Learning"
         translateViewController.title = "Translate"
         let learningItem = UITabBarItem(title: "Learning", image: #imageLiteral(resourceName: "learning"), tag: 0)
