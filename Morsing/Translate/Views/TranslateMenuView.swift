@@ -12,7 +12,6 @@ class TranslateMenuView: UIView {
 
     public lazy var textButton: UIButton = {
         let button = UIButton()
-        //button.addTarget(self, action: #selector(textButtonDidClicled), for: UIControl.Event.touchUpInside)
         button.layer.cornerRadius = 20
         button.setTitle("Text", for: UIControl.State.normal)
         button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.25)

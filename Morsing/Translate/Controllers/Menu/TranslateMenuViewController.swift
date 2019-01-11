@@ -24,6 +24,8 @@ class TranslateMenuViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setUP()
         translateMenuView.setUP()
+        navigationBarSetup()
+        tabBarSetup()
     }
     
     fileprivate func setUP(){
@@ -51,5 +53,17 @@ class TranslateMenuViewController: UIViewController {
         let destination = TranslateViewController()
         destination.isTranslateToMorse = true
         navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    fileprivate func navigationBarSetup(){
+        navigationController?.navigationBar.barTintColor = nil
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.isOpaque = true
+        
+    }
+    fileprivate func tabBarSetup(){
+        tabBarController?.tabBar.barTintColor = nil
+        tabBarController?.tabBar.isTranslucent = true
+        tabBarController?.tabBar.isOpaque = true
     }
 }
