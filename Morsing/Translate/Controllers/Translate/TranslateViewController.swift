@@ -9,8 +9,25 @@
 import UIKit
 
 class TranslateViewController: UIViewController {
+    
     public var isTranslateToMorse: Bool = false
     
+    fileprivate lazy var scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.backgroundColor = .clear
+        scroll.bounces = true
+        scroll.alwaysBounceVertical = true
+    
+        return scroll
+    }()
+    
+    fileprivate lazy var conteinerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .gray
+        return view
+    }()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:0.93, green:0.95, blue:0.96, alpha:1.0)
@@ -30,11 +47,25 @@ class TranslateViewController: UIViewController {
     }
      
     fileprivate func addViews(){
-        
+        view.addSubview(scrollView)
+        scrollView.addSubview(conteinerView)
+        //conteinerView.addSubview(view2)
     }
     
     fileprivate func setUPConstraints(){
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        scrollView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         
+        conteinerView.translatesAutoresizingMaskIntoConstraints = false
+        conteinerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        conteinerView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        conteinerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        conteinerView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 1, constant: 0).isActive = true
+        
+
     }
 
     fileprivate func navigationBarSetup(name: String) {
