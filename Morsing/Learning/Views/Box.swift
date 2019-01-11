@@ -44,7 +44,7 @@ class Box: UIView {
     fileprivate var numbersButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
-        button.setTitle("Letters", for: UIControl.State.normal)
+        button.setTitle("Numbers", for: UIControl.State.normal)
         button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.25)
         button.setTitleColor(UIColor.white, for: UIControl.State.normal)
         //button.setTitleColor(UIColor(red:0.12, green:0.27, blue:0.24, alpha:1.0), for: UIControl.State.highlighted)

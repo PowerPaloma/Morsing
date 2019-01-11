@@ -11,6 +11,8 @@
 		2FA4584921E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */; };
 		2FA4584B21E9505700C2FCCB /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */; };
 		2FA4584E21E950B600C2FCCB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584D21E950B600C2FCCB /* Data.swift */; };
+		2FA4585121E9510F00C2FCCB /* LettersData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FA4585021E9510F00C2FCCB /* LettersData.json */; };
+		2FA4585321E9513700C2FCCB /* NumbersData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FA4585221E9513700C2FCCB /* NumbersData.json */; };
 		2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */; };
 		2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33E21E3EE0E008978CF /* ViewController.swift */; };
 		2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC34321E3EE0E008978CF /* Morsing.xcdatamodeld */; };
@@ -31,6 +33,8 @@
 		2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersViewController+CollectionViewDelegateDataSource.swift"; sourceTree = "<group>"; };
 		2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		2FA4584D21E950B600C2FCCB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		2FA4585021E9510F00C2FCCB /* LettersData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LettersData.json; sourceTree = "<group>"; };
+		2FA4585221E9513700C2FCCB /* NumbersData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NumbersData.json; sourceTree = "<group>"; };
 		2FFBC33921E3EE0E008978CF /* Morsing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morsing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FFBC33E21E3EE0E008978CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,9 +66,9 @@
 		2FA4584421E94EEA00C2FCCB /* Choosing Character */ = {
 			isa = PBXGroup;
 			children = (
+				2FA4585521E9519700C2FCCB /* dataSource&delegate */,
+				2FA4585421E9518A00C2FCCB /* Controllers */,
 				2FA4584521E94EFD00C2FCCB /* Views */,
-				2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */,
-				2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */,
 			);
 			path = "Choosing Character";
 			sourceTree = "<group>";
@@ -83,6 +87,31 @@
 				2FA4584D21E950B600C2FCCB /* Data.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2FA4584F21E950F000C2FCCB /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				2FA4585021E9510F00C2FCCB /* LettersData.json */,
+				2FA4585221E9513700C2FCCB /* NumbersData.json */,
+			);
+			path = Recources;
+			sourceTree = "<group>";
+		};
+		2FA4585421E9518A00C2FCCB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2FA4585521E9519700C2FCCB /* dataSource&delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */,
+			);
+			path = "dataSource&delegate";
 			sourceTree = "<group>";
 		};
 		2FFBC33021E3EE0E008978CF = {
@@ -104,6 +133,7 @@
 		2FFBC33B21E3EE0E008978CF /* Morsing */ = {
 			isa = PBXGroup;
 			children = (
+				2FA4584F21E950F000C2FCCB /* Recources */,
 				2FA4584C21E9509D00C2FCCB /* Model */,
 				2FA4584421E94EEA00C2FCCB /* Choosing Character */,
 				2FFBC35121E3F386008978CF /* Learning */,
@@ -255,6 +285,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */,
+				2FA4585321E9513700C2FCCB /* NumbersData.json in Resources */,
+				2FA4585121E9510F00C2FCCB /* LettersData.json in Resources */,
 				2FFBC34721E3EE12008978CF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

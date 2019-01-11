@@ -57,7 +57,7 @@ class CharactersViewController: UIViewController {
     }
     
     private func settingCollectionConstraints(){
-        if let superview = self.view.superview {
+        if let superview = self.collectionView.superview {
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             collectionView.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor).isActive = true
             collectionView.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor).isActive = true
