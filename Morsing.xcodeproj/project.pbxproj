@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		2FA4584721E94F9D00C2FCCB /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */; };
+		2FA4584921E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */; };
+		2FA4584B21E9505700C2FCCB /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */; };
+		2FA4584E21E950B600C2FCCB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584D21E950B600C2FCCB /* Data.swift */; };
 		2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */; };
 		2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33E21E3EE0E008978CF /* ViewController.swift */; };
 		2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC34321E3EE0E008978CF /* Morsing.xcdatamodeld */; };
 		2FFBC34721E3EE12008978CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34621E3EE12008978CF /* Assets.xcassets */; };
 		2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34821E3EE12008978CF /* LaunchScreen.storyboard */; };
 		2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC35421E3F3EB008978CF /* LearningViewController.swift */; };
-		2FFBC35721E5236D008978CF /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC35621E5236D008978CF /* CharactersViewController.swift */; };
 		D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */; };
 		D7CA6D0C21E7F86800376E65 /* UIView+GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */; };
 		D7CA6D0E21E7FA0A00376E65 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0D21E7FA0A00376E65 /* Box.swift */; };
@@ -26,6 +28,9 @@
 
 /* Begin PBXFileReference section */
 		2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersViewController+CollectionViewDelegateDataSource.swift"; sourceTree = "<group>"; };
+		2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
+		2FA4584D21E950B600C2FCCB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		2FFBC33921E3EE0E008978CF /* Morsing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morsing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FFBC33E21E3EE0E008978CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,7 +39,6 @@
 		2FFBC34921E3EE12008978CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FFBC34B21E3EE12008978CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FFBC35421E3F3EB008978CF /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
-		2FFBC35621E5236D008978CF /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+GradientLayer.swift"; sourceTree = "<group>"; };
 		D7CA6D0D21E7FA0A00376E65 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				2FA4584521E94EFD00C2FCCB /* Views */,
+				2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */,
+				2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */,
 			);
 			path = "Choosing Character";
 			sourceTree = "<group>";
@@ -69,6 +75,14 @@
 				2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2FA4584C21E9509D00C2FCCB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FA4584D21E950B600C2FCCB /* Data.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2FFBC33021E3EE0E008978CF = {
@@ -90,6 +104,7 @@
 		2FFBC33B21E3EE0E008978CF /* Morsing */ = {
 			isa = PBXGroup;
 			children = (
+				2FA4584C21E9509D00C2FCCB /* Model */,
 				2FA4584421E94EEA00C2FCCB /* Choosing Character */,
 				2FFBC35121E3F386008978CF /* Learning */,
 				D7CA6D1121E80DE200376E65 /* Translate */,
@@ -117,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				2FFBC35421E3F3EB008978CF /* LearningViewController.swift */,
-				2FFBC35621E5236D008978CF /* CharactersViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -253,12 +267,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */,
+				2FA4584E21E950B600C2FCCB /* Data.swift in Sources */,
 				2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */,
-				2FFBC35721E5236D008978CF /* CharactersViewController.swift in Sources */,
 				2FA4584721E94F9D00C2FCCB /* CharactersCollectionViewCell.swift in Sources */,
 				D7CA6D0C21E7F86800376E65 /* UIView+GradientLayer.swift in Sources */,
 				D7CA6D1621E80F6800376E65 /* TranslateMenuView.swift in Sources */,
 				D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */,
+				2FA4584921E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift in Sources */,
+				2FA4584B21E9505700C2FCCB /* CharactersViewController.swift in Sources */,
 				D7CA6D1321E80E3600376E65 /* TranslateMenuViewController.swift in Sources */,
 				D7CA6D1D21E91E9300376E65 /* TranslateView.swift in Sources */,
 				D7CA6D1921E91D3400376E65 /* TranslateViewController.swift in Sources */,
