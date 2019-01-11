@@ -70,6 +70,8 @@ class LearningViewController: UIViewController {
         
         if tapWasInLetter(area: boxView.frame.size, tapLocation: tapLocation){
             charactersVC.isLetters = true
+        }else{
+            charactersVC.isLetters = false
         }
         navigationController?.pushViewController(charactersVC, animated: true)
     }
