@@ -24,7 +24,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     lazy var textLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 60)
+        label.font = UIFont.boldSystemFont(ofSize: 65)
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
