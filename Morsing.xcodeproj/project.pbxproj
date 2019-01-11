@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FA4584721E94F9D00C2FCCB /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */; };
 		2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */; };
 		2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33E21E3EE0E008978CF /* ViewController.swift */; };
 		2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC34321E3EE0E008978CF /* Morsing.xcdatamodeld */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FFBC33921E3EE0E008978CF /* Morsing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morsing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FFBC33E21E3EE0E008978CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FA4584421E94EEA00C2FCCB /* Choosing Character */ = {
+			isa = PBXGroup;
+			children = (
+				2FA4584521E94EFD00C2FCCB /* Views */,
+			);
+			path = "Choosing Character";
+			sourceTree = "<group>";
+		};
+		2FA4584521E94EFD00C2FCCB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2FFBC33021E3EE0E008978CF = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +90,7 @@
 		2FFBC33B21E3EE0E008978CF /* Morsing */ = {
 			isa = PBXGroup;
 			children = (
+				2FA4584421E94EEA00C2FCCB /* Choosing Character */,
 				2FFBC35121E3F386008978CF /* Learning */,
 				D7CA6D1121E80DE200376E65 /* Translate */,
 				D7CA6D0621E7F5DC00376E65 /* Extensions */,
@@ -236,6 +255,7 @@
 				2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */,
 				2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */,
 				2FFBC35721E5236D008978CF /* CharactersViewController.swift in Sources */,
+				2FA4584721E94F9D00C2FCCB /* CharactersCollectionViewCell.swift in Sources */,
 				D7CA6D0C21E7F86800376E65 /* UIView+GradientLayer.swift in Sources */,
 				D7CA6D1621E80F6800376E65 /* TranslateMenuView.swift in Sources */,
 				D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */,
