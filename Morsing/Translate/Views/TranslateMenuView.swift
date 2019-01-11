@@ -8,10 +8,11 @@
 
 import UIKit
 
-class Translate: UIView {
+class TranslateMenuView: UIView {
 
-    fileprivate var textButton: UIButton = {
+    public lazy var textButton: UIButton = {
         let button = UIButton()
+        //button.addTarget(self, action: #selector(textButtonDidClicled), for: UIControl.Event.touchUpInside)
         button.layer.cornerRadius = 20
         button.setTitle("Text", for: UIControl.State.normal)
         button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.25)
@@ -22,7 +23,7 @@ class Translate: UIView {
         return button
     }()
     
-    fileprivate var morseButton: UIButton = {
+    public lazy var morseButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
         button.setTitle("Morse", for: UIControl.State.normal)
@@ -69,4 +70,6 @@ class Translate: UIView {
         arrowsImage.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
         arrowsImage.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor).isActive = true
     }
+    
+    
 }

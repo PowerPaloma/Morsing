@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setup(tabBarController: UITabBarController){
         let learningViewController = LearningViewController()
-        let translateViewController = TranslateViewController()
+        let translateViewController = TranslateMenuViewController()
         learningViewController.title = "Learning"
         translateViewController.title = "Translate"
         let learningItem = UITabBarItem(title: "Learning", image: #imageLiteral(resourceName: "learning"), tag: 0)
