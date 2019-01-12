@@ -22,17 +22,15 @@ class TranslateViewController: UIViewController {
         return scroll
     }()
     
-    fileprivate lazy var conteinerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray
+    fileprivate lazy var translateView: TranslateView = {
+        let view = TranslateView()
+        view.backgroundColor = .clear
         return view
     }()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red:0.93, green:0.95, blue:0.96, alpha:1.0)
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,12 +42,13 @@ class TranslateViewController: UIViewController {
         tabBarSetup()
         addViews()
         setUPConstraints()
+        translateView.setUP()
     }
      
     fileprivate func addViews(){
         view.addSubview(scrollView)
-        scrollView.addSubview(conteinerView)
-        //conteinerView.addSubview(view2)
+        scrollView.addSubview(translateView)
+        
     }
     
     fileprivate func setUPConstraints(){
@@ -59,11 +58,11 @@ class TranslateViewController: UIViewController {
         scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         scrollView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         
-        conteinerView.translatesAutoresizingMaskIntoConstraints = false
-        conteinerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        conteinerView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        conteinerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        conteinerView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 1, constant: 0).isActive = true
+        translateView.translatesAutoresizingMaskIntoConstraints = false
+        translateView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        translateView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        translateView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        translateView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 1, constant: 0).isActive = true
         
 
     }
