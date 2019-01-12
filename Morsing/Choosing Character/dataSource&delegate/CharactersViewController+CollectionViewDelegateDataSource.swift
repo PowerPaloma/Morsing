@@ -39,5 +39,13 @@ extension CharactersViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let indexSelect = indexPath.row
+        let practicingVC = PracticingViewController()
+        practicingVC.indexItem = indexSelect
+        practicingVC.data = self.data
+        practicingVC.isLetter = self.isLetter
+        self.present(practicingVC, animated: true, completion: nil)
+    }
     
 }

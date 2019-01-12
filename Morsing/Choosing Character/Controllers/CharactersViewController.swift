@@ -10,7 +10,7 @@ import UIKit
 
 class CharactersViewController: UIViewController {
     
-    var isLetters: Bool!
+    var isLetter: Bool!
     var data: [Item] = []
     var backgroundColor = UIColor()
     var textColor = UIColor()
@@ -43,7 +43,7 @@ class CharactersViewController: UIViewController {
     // MARK: - Settings
     
     private func settingData(){
-        if isLetters {
+        if isLetter {
             guard let letters = Item.letters() else {return}
             data = letters
             textColor = UIColor(red: 50/255, green: 77/255, blue: 92/255, alpha: 1)

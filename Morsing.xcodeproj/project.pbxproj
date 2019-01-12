@@ -13,6 +13,10 @@
 		2FA4584E21E950B600C2FCCB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584D21E950B600C2FCCB /* Data.swift */; };
 		2FA4585121E9510F00C2FCCB /* LettersData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FA4585021E9510F00C2FCCB /* LettersData.json */; };
 		2FA4585321E9513700C2FCCB /* NumbersData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FA4585221E9513700C2FCCB /* NumbersData.json */; };
+		2FA4585A21E968E900C2FCCB /* PracticingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4585921E968E900C2FCCB /* PracticingViewController.swift */; };
+		2FA4585D21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4585C21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift */; };
+		2FA4585F21EA506900C2FCCB /* CodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4585E21EA506900C2FCCB /* CodeCollectionViewCell.swift */; };
+		2FA4586221EA548700C2FCCB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4586121EA548700C2FCCB /* CoreDataManager.swift */; };
 		2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */; };
 		2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33E21E3EE0E008978CF /* ViewController.swift */; };
 		2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC34321E3EE0E008978CF /* Morsing.xcdatamodeld */; };
@@ -35,6 +39,10 @@
 		2FA4584D21E950B600C2FCCB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		2FA4585021E9510F00C2FCCB /* LettersData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LettersData.json; sourceTree = "<group>"; };
 		2FA4585221E9513700C2FCCB /* NumbersData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NumbersData.json; sourceTree = "<group>"; };
+		2FA4585921E968E900C2FCCB /* PracticingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticingViewController.swift; sourceTree = "<group>"; };
+		2FA4585C21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PracticingViewController+CollectionViewDelegateDataSource.swift"; sourceTree = "<group>"; };
+		2FA4585E21EA506900C2FCCB /* CodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FA4586121EA548700C2FCCB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2FFBC33921E3EE0E008978CF /* Morsing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morsing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FFBC33E21E3EE0E008978CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				2FA4584D21E950B600C2FCCB /* Data.swift */,
+				2FA4586121EA548700C2FCCB /* CoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,6 +123,40 @@
 			path = "dataSource&delegate";
 			sourceTree = "<group>";
 		};
+		2FA4585621E9682400C2FCCB /* Practicing */ = {
+			isa = PBXGroup;
+			children = (
+				2FA4585B21EA4F4700C2FCCB /* dataSource&delegate */,
+				2FA4585821E9683500C2FCCB /* Controllers */,
+				2FA4585721E9682D00C2FCCB /* Views */,
+			);
+			path = Practicing;
+			sourceTree = "<group>";
+		};
+		2FA4585721E9682D00C2FCCB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2FA4585E21EA506900C2FCCB /* CodeCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2FA4585821E9683500C2FCCB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2FA4585921E968E900C2FCCB /* PracticingViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2FA4585B21EA4F4700C2FCCB /* dataSource&delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2FA4585C21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift */,
+			);
+			path = "dataSource&delegate";
+			sourceTree = "<group>";
+		};
 		2FFBC33021E3EE0E008978CF = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +176,7 @@
 		2FFBC33B21E3EE0E008978CF /* Morsing */ = {
 			isa = PBXGroup;
 			children = (
+				2FA4585621E9682400C2FCCB /* Practicing */,
 				2FA4584F21E950F000C2FCCB /* Recources */,
 				2FA4584C21E9509D00C2FCCB /* Model */,
 				2FA4584421E94EEA00C2FCCB /* Choosing Character */,
@@ -301,6 +345,7 @@
 				2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */,
 				2FA4584E21E950B600C2FCCB /* Data.swift in Sources */,
 				2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */,
+				2FA4586221EA548700C2FCCB /* CoreDataManager.swift in Sources */,
 				2FA4584721E94F9D00C2FCCB /* CharactersCollectionViewCell.swift in Sources */,
 				D7CA6D0C21E7F86800376E65 /* UIView+GradientLayer.swift in Sources */,
 				D7CA6D1621E80F6800376E65 /* TranslateMenuView.swift in Sources */,
@@ -310,7 +355,10 @@
 				D7CA6D1321E80E3600376E65 /* TranslateMenuViewController.swift in Sources */,
 				D7CA6D1D21E91E9300376E65 /* TranslateView.swift in Sources */,
 				D7CA6D1921E91D3400376E65 /* TranslateViewController.swift in Sources */,
+				2FA4585A21E968E900C2FCCB /* PracticingViewController.swift in Sources */,
 				D7CA6D0E21E7FA0A00376E65 /* Box.swift in Sources */,
+				2FA4585D21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift in Sources */,
+				2FA4585F21EA506900C2FCCB /* CodeCollectionViewCell.swift in Sources */,
 				2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */,
 				2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */,
 			);
@@ -453,6 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MQ922JMCL6;
 				INFOPLIST_FILE = Morsing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,6 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MQ922JMCL6;
 				INFOPLIST_FILE = Morsing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
