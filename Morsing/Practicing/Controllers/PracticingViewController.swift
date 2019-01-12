@@ -125,20 +125,20 @@ class PracticingViewController: UIViewController {
     }
     
     @objc func nextAction(){
-        
+//        currentIndex = 0
+//        print(currentIndex)
+//        self.indexItem += 1
+//        if (indexItem > data.count - 1){
+//            self.indexItem = 0
+//            label.text = data[indexItem].name
+//            codeCollection.reloadData()
+//        }else{
+//            label.text = array[indexItem].name
+//            codeCollection.reloadData()
+//            
+//        }
     }
     @objc func backAction(){
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
