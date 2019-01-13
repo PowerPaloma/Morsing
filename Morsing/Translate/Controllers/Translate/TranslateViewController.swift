@@ -30,7 +30,7 @@ class TranslateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red:0.93, green:0.95, blue:0.96, alpha:1.0)
+        view.backgroundColor = .backgoundGray
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,11 +38,12 @@ class TranslateViewController: UIViewController {
     }
     
     fileprivate func setUp(){
-        isTranslateToMorse ? navigationBarSetup(name: "Morse") :  navigationBarSetup(name: "Text")
         tabBarSetup()
         addViews()
         setUPConstraints()
         translateView.setUP()
+        _ = isTranslateToMorse ? (navigationBarSetup(name: "Morse"), translateView.setUPMorse()) :  (navigationBarSetup(name: "Text"), translateView.setUPText())
+        
     }
      
     fileprivate func addViews(){

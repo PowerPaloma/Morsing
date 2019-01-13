@@ -8,7 +8,7 @@
 import UIKit
 
 enum AppGradientsVariantions {
-    case defalt
+    case Default
 }
 
 extension AppGradientsVariantions: RawRepresentable {
@@ -16,14 +16,14 @@ extension AppGradientsVariantions: RawRepresentable {
     
     init?(rawValue: RawValue) {
         switch rawValue {
-        case [UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0).cgColor, UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0).cgColor]: self = .defalt
+        case [UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0).cgColor, UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0).cgColor]: self = .Default
         default: return nil
         }
     }
     
     var rawValue: RawValue {
         switch self {
-        case .defalt: return [UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0).cgColor, UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0).cgColor]
+        case .Default: return [UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0).cgColor, UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0).cgColor]
         }
     }
 }

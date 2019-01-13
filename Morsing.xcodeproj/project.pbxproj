@@ -19,6 +19,7 @@
 		2FFBC34721E3EE12008978CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34621E3EE12008978CF /* Assets.xcassets */; };
 		2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34821E3EE12008978CF /* LaunchScreen.storyboard */; };
 		2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC35421E3F3EB008978CF /* LearningViewController.swift */; };
+		D72AC6AE21EAD3A30049ADA6 /* UIColor+Morsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */; };
 		D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */; };
 		D7CA6D0C21E7F86800376E65 /* UIView+GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */; };
 		D7CA6D0E21E7FA0A00376E65 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0D21E7FA0A00376E65 /* Box.swift */; };
@@ -43,6 +44,7 @@
 		2FFBC34921E3EE12008978CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FFBC34B21E3EE12008978CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FFBC35421E3F3EB008978CF /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
+		D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Morsing.swift"; sourceTree = "<group>"; };
 		D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+GradientLayer.swift"; sourceTree = "<group>"; };
 		D7CA6D0D21E7FA0A00376E65 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */,
 				D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */,
+				D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				D7CA6D0C21E7F86800376E65 /* UIView+GradientLayer.swift in Sources */,
 				D7CA6D1621E80F6800376E65 /* TranslateMenuView.swift in Sources */,
 				D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */,
+				D72AC6AE21EAD3A30049ADA6 /* UIColor+Morsing.swift in Sources */,
 				2FA4584921E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift in Sources */,
 				2FA4584B21E9505700C2FCCB /* CharactersViewController.swift in Sources */,
 				D7CA6D1321E80E3600376E65 /* TranslateMenuViewController.swift in Sources */,

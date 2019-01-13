@@ -26,7 +26,7 @@ class TranslateView: UIView {
     
     fileprivate lazy var fristLabel: UILabel = {
         let label = UILabel()
-        label.text = "fristLabel"
+        label.text = "Text"
         label.numberOfLines = 1
         label.textColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -35,7 +35,7 @@ class TranslateView: UIView {
     
     fileprivate lazy var secondLabel: UILabel = {
         let label = UILabel()
-        label.text = "secondLabel"
+        label.text = "Morse"
         label.numberOfLines = 1
         label.textColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -152,9 +152,9 @@ class TranslateView: UIView {
         super.layoutSubviews()
         fristView.layoutSubviews()
         buttonsStackView.layoutSubviews()
-        hearButton.setGradientToView(opition: .defalt)
-        copyButton.setGradientToView(opition: .defalt)
-        sharedButton.setGradientToView(opition: .defalt)
+        hearButton.setGradientToView(opition: .Default)
+        copyButton.setGradientToView(opition: .Default)
+        sharedButton.setGradientToView(opition: .Default)
 
         configureShadow()
     }
@@ -163,6 +163,14 @@ class TranslateView: UIView {
         addViews()
         setUpConstraints()
         imputTextView.delegate = self
+    }
+    
+    public func setUPText(){
+        translateLabel.text = "Morse"
+    }
+    
+    public func setUPMorse(){
+        translateLabel.text = "Text"
     }
     
     fileprivate func addViews(){
