@@ -56,8 +56,7 @@ class PracticingViewController: UIViewController {
     lazy var soundButton: UIButton = {
         let sound = UIButton()
         sound.translatesAutoresizingMaskIntoConstraints = false
-        sound.vi
-        setGradientToView(colors: [UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0).cgColor,UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0).cgColor])
+        sound.setGradientToView(colors: [UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0).cgColor,UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0).cgColor])
         sound.translatesAutoresizingMaskIntoConstraints = false
         sound.setImage(UIImage(named: "sound"), for: .normal)
         sound.target(forAction: #selector(soundAction), withSender: nil)
