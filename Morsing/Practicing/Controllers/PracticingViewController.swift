@@ -26,29 +26,40 @@ class PracticingViewController: UIViewController {
         return toolBar
     }()
     
-    lazy var navigationBar: UINavigationBar = {
-       let navigation = UINavigationBar()
-        navigation.translatesAutoresizingMaskIntoConstraints = false
-        return navigation
-    }()
-    
-    lazy var naviItem: UINavigationItem = {
-        let nav = UINavigationItem()
-         let reset = UIBarButtonItem(title: "Reset", style: UIBarButtonItem.Style.plain, target: nil, action: #selector(resetAction))
-        reset.tintColor = UIColor(red: 226/255, green: 17/255, blue: 17/255, alpha: 1.0)
-        let done = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: nil, action: #selector(doneAction))
-        done.tintColor = UIColor(red: 50/255, green: 77/255, blue: 92/255, alpha: 1.0)
-        nav.rightBarButtonItem = done
-        nav.leftBarButtonItem = reset
+    lazy var custonNaviBar: UIView = {
+       let nav = UIView()
+        nav.translatesAutoresizingMaskIntoConstraints = false
+        nav.backgroundColor = UIColor.white
         return nav
     }()
     
-    lazy var doneButton: UINavigationItem = {
-        let done = UINavigationItem()
-        let button = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: nil, action: #selector(doneAction))
-        button.tintColor = UIColor(red: 50/255, green: 77/255, blue: 92/255, alpha: 1.0)
-        done.rightBarButtonItem = button
+    lazy var resetButton: UIButton = {
+        let reset = UIButton()
+        reset.translatesAutoresizingMaskIntoConstraints = false
+        reset.setTitle("Reset", for: UIControl.State.normal)
+        reset.setTitleColor(UIColor(red: 226/255, green: 17/255, blue: 17/255, alpha: 1.0), for: UIControl.State.normal)
+        reset.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        reset.target(forAction: #selector(resetAction), withSender: nil)
+        return reset
+    }()
+    
+    lazy var doneButton: UIButton = {
+        let done = UIButton()
+        done.translatesAutoresizingMaskIntoConstraints = false
+        done.setTitle("Done", for: UIControl.State.normal)
+        done.setTitleColor(UIColor(red: 50/255, green: 77/255, blue: 92/255, alpha: 1.0), for: UIControl.State.normal)
+        done.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        done.target(forAction: #selector(doneAction), withSender: nil)
         return done
+    }()
+    
+    lazy var soundButton: UIButton = {
+        let sound = UIButton()
+        sound.setGradientToView(colors: [UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0).cgColor,UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0).cgColor])
+        sound.translatesAutoresizingMaskIntoConstraints = false
+        sound.setImage(UIImage(named: "sound"), for: .normal)
+        sound.target(forAction: #selector(soundAction), withSender: nil)
+        return sound
     }()
     
     lazy var tapView: UIView = {
@@ -78,7 +89,6 @@ class PracticingViewController: UIViewController {
         view.backgroundColor = UIColor(red:238/255, green:241/255, blue:245/255, alpha:1.0)
         addviews()
         settingToolBar()
-        settingNavigationBar()
         settingConstraints()
 
     }
@@ -93,28 +103,35 @@ class PracticingViewController: UIViewController {
     }
     
     private func addviews(){
-        view.addSubview(navigationBar)
+        view.addSubview(custonNaviBar)
         view.addSubview(toolBar)
         view.addSubview(tapView)
+        custonNaviBar.addSubview(doneButton)
+        custonNaviBar.addSubview(resetButton)
     }
     
-    private func settingNavigationBar(){
-        navigationBar.setItems([naviItem], animated: true)
-        
-    }
     
     private func settingConstraints(){
+        // constraints in toolBar
         if let superview = toolBar.superview{
             toolBar.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor).isActive = true
             toolBar.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor).isActive = true
             toolBar.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor).isActive = true
         }
-        if let superview = navigationBar.superview{
-            navigationBar.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor).isActive = true
-            navigationBar.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor).isActive = true
-            navigationBar.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor).isActive = true
+        //constraints in custonNavBar
+        if let superview = custonNaviBar.superview{
+            custonNaviBar.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor).isActive = true
+            custonNaviBar.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            custonNaviBar.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
+            custonNaviBar.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1).isActive = true
         }
-        
+        //constraints in doneButton
+        doneButton.trailingAnchor.constraint(equalTo: custonNaviBar.trailingAnchor, constant: -8).isActive = true
+        doneButton.leadingAnchor.constraint(greaterThanOrEqualTo: resetButton.trailingAnchor, constant: 8).isActive = true
+        doneButton.centerYAnchor.constraint(equalTo: custonNaviBar.centerYAnchor, constant: 8).isActive = true
+        //constraints in resetButton
+        resetButton.leadingAnchor.constraint(equalTo: custonNaviBar.leadingAnchor, constant: 8).isActive = true
+        resetButton.centerYAnchor.constraint(equalTo: doneButton.centerYAnchor).isActive = true
         
     }
     
@@ -145,6 +162,10 @@ class PracticingViewController: UIViewController {
 //        }
     }
     @objc func backAction(){
+        
+    }
+    
+    @objc func soundAction(){
         
     }
 }
