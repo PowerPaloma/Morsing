@@ -55,7 +55,9 @@ class PracticingViewController: UIViewController {
     
     lazy var soundButton: UIButton = {
         let sound = UIButton()
-        sound.setGradientToView(colors: [UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0).cgColor,UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0).cgColor])
+        sound.translatesAutoresizingMaskIntoConstraints = false
+        sound.vi
+        setGradientToView(colors: [UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0).cgColor,UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0).cgColor])
         sound.translatesAutoresizingMaskIntoConstraints = false
         sound.setImage(UIImage(named: "sound"), for: .normal)
         sound.target(forAction: #selector(soundAction), withSender: nil)
@@ -106,6 +108,7 @@ class PracticingViewController: UIViewController {
         view.addSubview(custonNaviBar)
         view.addSubview(toolBar)
         view.addSubview(tapView)
+        view.addSubview(soundButton)
         custonNaviBar.addSubview(doneButton)
         custonNaviBar.addSubview(resetButton)
     }
@@ -132,6 +135,13 @@ class PracticingViewController: UIViewController {
         //constraints in resetButton
         resetButton.leadingAnchor.constraint(equalTo: custonNaviBar.leadingAnchor, constant: 8).isActive = true
         resetButton.centerYAnchor.constraint(equalTo: doneButton.centerYAnchor).isActive = true
+        //constraints soundButton
+        if let superview = soundButton.superview{
+            soundButton.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
+             soundButton.topAnchor.constraint(equalTo: custonNaviBar.bottomAnchor, constant: 16).isActive = true
+            soundButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            soundButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        }
         
     }
     
