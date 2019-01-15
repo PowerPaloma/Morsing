@@ -51,7 +51,28 @@ class CoreDataManager: NSObject {
         return description
     }
     
-    func getAll(entity: NSEntityDescription) -> (success: Bool, objects: [NSManagedObject]){
+    func fetching(isLetterData: Bool) -> [NSManagedObject]?{
+        if isLetterData{
+            guard let entity = CoreDataManager.shared.getEntityDescription(entityName: "Letters") else {return nil}
+            let result = CoreDataManager.shared.getAll(entity: entity)
+            if result.success{
+                return result.objects
+            }else{
+                return nil
+            }
+            
+        }else{
+            guard let entity = CoreDataManager.shared.getEntityDescription(entityName: "Numbers") else {return nil}
+            let result = CoreDataManager.shared.getAll(entity: entity)
+            if result.success{
+                return result.objects
+            }else{
+                return nil
+            }
+        }
+    }
+    
+    private func getAll(entity: NSEntityDescription) -> (success: Bool, objects: [NSManagedObject]){
         let context = self.getContext()
         let request: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>()
         request.entity = entity
