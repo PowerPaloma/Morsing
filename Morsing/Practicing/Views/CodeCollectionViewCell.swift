@@ -13,13 +13,14 @@ class CodeCollectionViewCell: UICollectionViewCell {
     lazy var custonContainer: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.getBackgroundViewColor()
         return view
     }()
     
     lazy var codeImage: UIImageView = {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     

@@ -94,6 +94,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         character.text = "A"
         character.sizeToFit()
         character.font = UIFont.boldSystemFont(ofSize: 300)
+        character.applyGradientWith(startColor: UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0), endColor: UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0))
         return character
     }()
     
@@ -113,7 +114,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     lazy var codeCollectionView: UICollectionView = {
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: UICollectionViewFlowLayout())
-        collection.backgroundColor = .clear
+        collection.backgroundColor = UIColor.getBackgroundViewColor()
         collection.alwaysBounceVertical = false
         collection.alwaysBounceHorizontal = false
         collection.showsHorizontalScrollIndicator = false
@@ -127,8 +128,9 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red:238/255, green:241/255, blue:245/255, alpha:1.0)
+        view.backgroundColor = UIColor.getBackgroundViewColor()
         characterLabel.text = self.data[indexItem].text
+        settingCollection()
         addviews()
         settingConstraints()
         settingsGestures()
@@ -163,7 +165,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     private func settingCollection(){
         codeCollectionView.delegate = self
         codeCollectionView.dataSource = self
-        codeCollectionView.register(CharactersCollectionViewCell.self, forCellWithReuseIdentifier: "CodeCollectionViewCell")
+        codeCollectionView.register(CodeCollectionViewCell.self, forCellWithReuseIdentifier: "CodeCollectionViewCell")
         
     }
     
@@ -216,7 +218,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             codeCollectionView.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
             codeCollectionView.bottomAnchor.constraint(equalTo: tapView.topAnchor, constant: -10).isActive = true
             codeCollectionView.topAnchor.constraint(equalTo: characterLabel.bottomAnchor, constant: 10).isActive = true
-            codeCollectionView.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.06).isActive = true
+            codeCollectionView.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07).isActive = true
         }
         //constraints in characterLabel
         if let superview = characterLabel.superview{

@@ -14,5 +14,8 @@ extension UIColor {
     class func getActionColor() -> UIColor{
         return UIColor(red: 50/255, green: 77/255, blue: 92/255, alpha: 1.0)
     }
+    class func getBackgroundViewColor() -> UIColor{
+        return UIColor(red:238/255, green:241/255, blue:245/255, alpha:1.0)
+    }
     
 }
