@@ -160,6 +160,13 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         tapView.addGestureRecognizer(longPress)
     }
     
+    private func settingCollection(){
+        codeCollectionView.delegate = self
+        codeCollectionView.dataSource = self
+        codeCollectionView.register(CharactersCollectionViewCell.self, forCellWithReuseIdentifier: "CodeCollectionViewCell")
+        
+    }
+    
     private func settingConstraints(){
         // constraints in toolBar
         if let superview = custonToolBar.superview{
