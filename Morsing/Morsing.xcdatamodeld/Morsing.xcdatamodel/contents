@@ -2,14 +2,16 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Letters" representedClassName="Letters" syncable="YES" codeGenerationType="class">
         <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="letter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="morse" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <entity name="Numbers" representedClassName="Numbers" syncable="YES" codeGenerationType="class">
         <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="morse" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Letters" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="Numbers" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="Letters" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Numbers" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

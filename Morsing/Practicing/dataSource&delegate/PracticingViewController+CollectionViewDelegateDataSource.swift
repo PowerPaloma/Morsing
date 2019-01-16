@@ -15,28 +15,34 @@ extension PracticingViewController: UICollectionViewDelegate, UICollectionViewDa
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.data[indexItem].morse.count
+        guard let morse = data[indexItem].getMorse(isLetter: isLetter) else {return 0 }
+        return morse.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CodeCollectionViewCell", for: indexPath) as! CodeCollectionViewCell
-        let imageBit = self.data[self.indexItem].morse[indexPath.row]
+        guard let morse = data[indexItem].getMorse(isLetter: isLetter) else {return UICollectionViewCell()}
+        let imageBit = morse[indexPath.row]
         guard let characters = CoreDataManager.shared.fetching(isLetterData: isLetter), let done = characters[indexItem].getDone(isLetter: isLetter) else {return UICollectionViewCell()}
         if imageBit == 1{
             if done {
                 cell.codeImage.image = UIImage.init(named: "hyColorful")
                 self.resetButton.isHighlighted = false
+                self.resetButton.isEnabled = true
             }else{
                 cell.codeImage.image = UIImage.init(named: "hy")
                 self.resetButton.isHighlighted = true
+                self.resetButton.isEnabled = false
             }
         }else{
             if done{
                 cell.codeImage.image = UIImage.init(named: "dotColorful")
                 self.resetButton.isHighlighted = false
+                self.resetButton.isEnabled = true
             }else{
                 cell.codeImage.image = UIImage.init(named: "dot")
                 self.resetButton.isHighlighted = true
+                self.resetButton.isEnabled = false
             }
         }
         return cell

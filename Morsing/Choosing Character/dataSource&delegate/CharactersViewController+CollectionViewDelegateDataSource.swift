@@ -19,7 +19,7 @@ extension CharactersViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharactersCollectionViewCell", for: indexPath) as! CharactersCollectionViewCell
         cell.custonContent.backgroundColor = self.backgroundColor
         cell.textLabel.textColor = self.textColor
-        cell.textLabel.text = self.data[indexPath.row].text
+        cell.textLabel.text = self.data[indexPath.row].getCharacter(isLetter: isLetter)
         return cell
     }
     

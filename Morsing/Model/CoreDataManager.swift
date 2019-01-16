@@ -55,20 +55,11 @@ class CoreDataManager: NSObject {
         if isLetterData{
             guard let entity = CoreDataManager.shared.getEntityDescription(entityName: "Letters") else {return nil}
             let result = CoreDataManager.shared.getAll(entity: entity)
-            if result.success{
-                return result.objects
-            }else{
-                return nil
-            }
-            
+            return result.success ? result.objects : nil
         }else{
             guard let entity = CoreDataManager.shared.getEntityDescription(entityName: "Numbers") else {return nil}
             let result = CoreDataManager.shared.getAll(entity: entity)
-            if result.success{
-                return result.objects
-            }else{
-                return nil
-            }
+            return result.success ? result.objects : nil
         }
     }
     
@@ -84,8 +75,29 @@ class CoreDataManager: NSObject {
             print("Error in fetch objects")
             return (false, result!)
         }
-        
-        
+    }
+    
+    func delete(entity: NSEntityDescription) {
+        let managedContext = self.getContext()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.name!)
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results
+            {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                managedContext.delete(managedObjectData)
+            }
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
+        }
+    }
+    
+    func deleteAll(){
+        guard let entityLetters =  self.getEntityDescription(entityName: "Letters"), let entityNumbers = self.getEntityDescription(entityName: "Numbers") else{return}
+        self.delete(entity: entityLetters)
+        self.delete(entity: entityNumbers)
     }
     
 

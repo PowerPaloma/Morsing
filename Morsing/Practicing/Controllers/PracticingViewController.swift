@@ -14,7 +14,7 @@ import CoreData
 class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var player: AVQueuePlayer?
-    var data: [Item] = []
+    var data: [NSManagedObject] = []
     var currentIndex = 0
     var firtAccess = false
     var isLetter: Bool!
@@ -43,6 +43,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         reset.translatesAutoresizingMaskIntoConstraints = false
         reset.setTitle("Reset", for: UIControl.State.normal)
         reset.setTitleColor(UIColor(red: 226/255, green: 17/255, blue: 17/255, alpha: 1.0), for: UIControl.State.normal)
+        reset.setTitleColor(UIColor(red: 226/255, green: 17/255, blue: 17/255, alpha: 0.3), for: UIControl.State.highlighted)
         reset.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         reset.addTarget(self, action: #selector(resetAction), for: .touchUpInside)
         return reset
@@ -93,7 +94,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         character.translatesAutoresizingMaskIntoConstraints = false
         character.text = "A"
         character.sizeToFit()
-        character.font = UIFont.boldSystemFont(ofSize: 300)
+        character.font = UIFont.boldSystemFont(ofSize: 330)
         character.applyGradientWith(startColor: UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0), endColor: UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0))
         return character
     }()
@@ -128,8 +129,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.getBackgroundViewColor()
-        characterLabel.text = self.data[indexItem].text
+        initialSetup()
         settingCollection()
         addviews()
         settingConstraints()
@@ -138,6 +138,19 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Settings
+    
+    private func initialSetup(){
+        view.backgroundColor = UIColor.getBackgroundViewColor()
+        characterLabel.text = self.data[indexItem].getCharacter(isLetter: isLetter)
+        guard let itemCoreData: NSManagedObject = getItem(FromCoreDataInIndex: indexItem), let done =  itemCoreData.getDone(isLetter: isLetter) else {return}
+        if done {
+            self.resetButton.isHighlighted = false
+            self.resetButton.isEnabled = true
+        }else{
+            self.resetButton.isHighlighted = true
+            self.resetButton.isEnabled = false
+        }
+    }
     
     private func addviews(){
         view.addSubview(custonNaviBar)
@@ -185,11 +198,11 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             custonNaviBar.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1).isActive = true
         }
         //constraints in doneButton
-        doneButton.trailingAnchor.constraint(equalTo: custonNaviBar.trailingAnchor, constant: -8).isActive = true
+        doneButton.trailingAnchor.constraint(equalTo: custonNaviBar.trailingAnchor, constant: -16).isActive = true
         doneButton.leadingAnchor.constraint(greaterThanOrEqualTo: resetButton.trailingAnchor, constant: 8).isActive = true
         doneButton.centerYAnchor.constraint(equalTo: custonNaviBar.centerYAnchor, constant: 8).isActive = true
         //constraints in resetButton
-        resetButton.leadingAnchor.constraint(equalTo: custonNaviBar.leadingAnchor, constant: 8).isActive = true
+        resetButton.leadingAnchor.constraint(equalTo: custonNaviBar.leadingAnchor, constant: 16).isActive = true
         resetButton.centerYAnchor.constraint(equalTo: doneButton.centerYAnchor).isActive = true
         //constraints soundButton
         if let superview = soundButton.superview{
@@ -246,10 +259,10 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         self.indexItem += 1
         if (indexItem > data.count - 1){
             self.indexItem = 0
-            characterLabel.text = data[indexItem].text
+            characterLabel.text = data[indexItem].getCharacter(isLetter: isLetter)
             codeCollectionView.reloadData()
         }else{
-            characterLabel.text = data[indexItem].text
+            characterLabel.text = data[indexItem].getCharacter(isLetter: isLetter)
             codeCollectionView.reloadData()
         }
     }
@@ -258,16 +271,17 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         self.indexItem -= 1
         if (indexItem < 0){
             self.indexItem = data.count - 1
-            characterLabel.text = data[indexItem].text
+            characterLabel.text = data[indexItem].getCharacter(isLetter: isLetter)
             codeCollectionView.reloadData()
         }else{
-            characterLabel.text = data[indexItem].text
+            characterLabel.text = data[indexItem].getCharacter(isLetter: isLetter)
             codeCollectionView.reloadData()
         }
     }
     
     @objc func soundAction(){
-        speakTheCode(message: data[indexItem].morse)
+        guard let morse = data[indexItem].getMorse(isLetter: isLetter) else {return}
+        speakTheCode(message: morse)
     }
     
     @objc private func handleTap(sender: UITapGestureRecognizer? = nil) {
@@ -296,11 +310,14 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let itemCoreData: NSManagedObject = getItem(FromCoreDataInIndex: indexItem), let done =  itemCoreData.getDone(isLetter: isLetter) else {return}
         let item = data[indexItem]
         let aux = isTap ? 0 : 1
-        if(!done && item.morse[currentIndex] == aux){
+        guard let morse = item.getMorse(isLetter: isLetter) else {return}
+        if(!done && morse[currentIndex] == aux){
             let cell = codeCollectionView.cellForItem(at: IndexPath.init(row: currentIndex, section: 0)) as! CodeCollectionViewCell
-            cell.codeImage.image = UIImage.init(named: "dotGreen")
-            if (currentIndex == item.morse.count - 1){
+            cell.codeImage.image = isTap ? UIImage.init(named: "dotColorful") : UIImage.init(named: "hyColorful")
+            if (currentIndex == morse.count - 1){
                 itemCoreData.set(done: true, isLetter: isLetter)
+                self.resetButton.isHighlighted = false
+                self.resetButton.isEnabled = true
             }
             self.currentIndex += 1
             
@@ -308,7 +325,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             
         }
-        if (currentIndex == item.morse.count - 1){
+        if (currentIndex == morse.count - 1){
             self.resetButton.isHighlighted = true
         }
     }
@@ -332,28 +349,4 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         player = AVQueuePlayer(items: audioItems)
         player?.play()
     }
-}
-
-extension NSManagedObject {
-    
-    func getDone(isLetter: Bool) -> Bool?{
-        if isLetter {
-            guard let l = self as? Letters else {return nil}
-            return l.done
-        }else{
-            guard let n = self as? Numbers else {return nil}
-            return n.done
-        }
-    }
-    
-    func set(done: Bool, isLetter: Bool){
-        if isLetter {
-            guard let l = self as? Letters else {return}
-            l.done = done
-        }else{
-            guard let n = self as? Numbers else {return}
-            n.done = done
-        }
-    }
-    
 }

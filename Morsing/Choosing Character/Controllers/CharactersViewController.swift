@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class CharactersViewController: UIViewController {
     
     var isLetter: Bool!
-    var data: [Item] = []
     var backgroundColor = UIColor()
     var textColor = UIColor()
+    var data: [NSManagedObject] = []
     
     lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: UICollectionViewFlowLayout())
@@ -43,14 +44,12 @@ class CharactersViewController: UIViewController {
     // MARK: - Settings
     
     private func settingData(){
+        guard let data = CoreDataManager.shared.fetching(isLetterData: isLetter) else{return}
+        self.data = data
         if isLetter {
-            guard let letters = Item.letters() else {return}
-            data = letters
             textColor = UIColor(red: 50/255, green: 77/255, blue: 92/255, alpha: 1)
             backgroundColor = UIColor(red: 29/255, green: 229/255, blue: 226/255, alpha: 1)
         }else{
-            guard let numbers = Item.numbers() else {return}
-            data = numbers
             textColor = UIColor.white
             backgroundColor = UIColor(red: 181/255, green: 136/255, blue: 247/255, alpha: 1)
         }

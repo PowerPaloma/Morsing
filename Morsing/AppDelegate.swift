@@ -73,18 +73,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - CoreData Setup
     
     func setupCoreData(){
+        CoreDataManager.shared.deleteAll()
         guard let letters = Item.letters(), let numbers = Item.numbers() else {return}
-        for (index, _) in letters.enumerated() {
+        print(numbers)
+        for item in letters {
             let letter = Letters(context: CoreDataManager.shared.getContext())
             letter.done = false
-            letter.index = Int16(index)
+            letter.letter = item.text
+            do {
+            letter.morse = try NSKeyedArchiver.archivedData(withRootObject: item.morse, requiringSecureCoding: false)
+            }catch{
+                print(error)
+            }
+            CoreDataManager.shared.saveContext()
         }
-        for (index, _) in numbers.enumerated(){
+        for item in numbers{
             let number = Numbers(context: CoreDataManager.shared.getContext())
             number.done = false
-            number.index = Int16(index)
+            number.number = item.text
+            do {
+                number.morse = try NSKeyedArchiver.archivedData(withRootObject: item.morse, requiringSecureCoding: false)
+            }catch{
+                print(error)
+            }
+            CoreDataManager.shared.saveContext()
         }
     }
-
 }
 
