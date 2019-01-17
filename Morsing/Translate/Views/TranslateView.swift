@@ -46,7 +46,7 @@ class TranslateView: UIView {
         let imageView = UIImageView()
         let image = UIImage(named: "singleArrow")
         imageView.image = image
-        
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -69,7 +69,7 @@ class TranslateView: UIView {
         return stack
     }()
     
-    fileprivate lazy var imputTextView: UITextView = {
+    public lazy var inputTextView: UITextView = {
         let textView = UITextView()
         textView.text = "Type something..."
         textView.backgroundColor = .clear
@@ -87,7 +87,7 @@ class TranslateView: UIView {
         return label
     }()
     
-    fileprivate lazy var responseTextView: UITextView = {
+    public lazy var responseTextView: UITextView = {
         let textView = UITextView()
         textView.text = "Response goes here..."
         textView.backgroundColor = .clear
@@ -103,7 +103,6 @@ class TranslateView: UIView {
         stack.distribution = .fillEqually
         stack.alignment = .center
         stack.spacing = 3
-        stack.addArrangedSubview(hearButton)
         stack.addArrangedSubview(copyButton)
         stack.addArrangedSubview(sharedButton)
         
@@ -148,36 +147,56 @@ class TranslateView: UIView {
         return button
     }()
     
+    public lazy var tap: UITapGestureRecognizer = {
+        let tap = UITapGestureRecognizer()
+        tap.numberOfTouchesRequired = 1
+        return tap
+    }()
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         fristView.layoutSubviews()
         buttonsStackView.layoutSubviews()
-        hearButton.setGradientToView(opition: .Default)
-        copyButton.setGradientToView(opition: .Default)
-        sharedButton.setGradientToView(opition: .Default)
-
+        setGradientsToButtons()
         configureShadow()
     }
     
     public func setUP(){
         addViews()
         setUpConstraints()
-        imputTextView.delegate = self
+        arrowImage.addGestureRecognizer(tap)
     }
     
     public func setUPText(){
+        
+        if (hearButton.superview == nil){
+            buttonsStackView.addArrangedSubview(hearButton)
+        }
+        buttonsStackView.layoutSubviews()
+        setGradientsToButtons()
         translateLabel.text = "Morse"
+        responseTextView.text = "Response goes here..."
+        inputTextView.text = nil
+        animateRowToRight()
     }
     
     public func setUPMorse(){
+        if  (hearButton.superview != nil) {
+            hearButton.removeFromSuperview()
+        }
+        buttonsStackView.layoutSubviews()
+        setGradientsToButtons()
         translateLabel.text = "Text"
+        responseTextView.text = "Response goes here..."
+        inputTextView.text = nil
+        animateRowToleft()
     }
     
     fileprivate func addViews(){
         self.addSubview(fristView)
         fristView.addSubview(stackBackgorudView)
         stackBackgorudView.addSubview(labelsStackView)
-        fristView.addSubview(imputTextView)
+        fristView.addSubview(inputTextView)
         
         self.addSubview(responseView)
         responseView.addSubview(translateLabel)
@@ -207,7 +226,7 @@ class TranslateView: UIView {
                          padding: UIEdgeInsets(top: 8, left: 40, bottom: 0, right: 40),
                          size: .zero)
         
-        imputTextView.anchor(top: stackBackgorudView.safeAreaLayoutGuide.bottomAnchor,
+        inputTextView.anchor(top: stackBackgorudView.safeAreaLayoutGuide.bottomAnchor,
                              leading: fristView.safeAreaLayoutGuide.leadingAnchor,
                              bottom: fristView.safeAreaLayoutGuide.bottomAnchor,
                              trailing: fristView.safeAreaLayoutGuide.trailingAnchor,
@@ -265,21 +284,55 @@ class TranslateView: UIView {
         view.layer.shadowPath = shadowPath.cgPath
         
     }
-
-}
-
-extension TranslateView: UITextViewDelegate{
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "Type something..."
-            textView.textColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:0.5)
-        }
+    
+    fileprivate func animateRowToRight(){
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+            
+            self.arrowImage.transform = CGAffineTransform(scaleX: 1, y: 1)
+            
+        }, completion:{ _ in
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+                
+            }, completion: nil)
+        })
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor(red:0.20, green:0.30, blue:0.36, alpha:0.5) {
-            textView.text = nil
-            textView.textColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
-        }
+    fileprivate func animateRowToleft(){
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+          
+            self.arrowImage.transform = CGAffineTransform(scaleX: -1, y: 1)
+            
+        }, completion:{ _ in
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+                
+            }, completion: nil)
+        })
     }
+    
+    fileprivate func setGradientsToButtons(){
+        if let leyers1 = hearButton.layer.sublayers, let leyers2 = copyButton.layer.sublayers, let leyers3 = sharedButton.layer.sublayers{
+            
+            for layer in leyers1 {
+                if layer is CAGradientLayer {
+                    layer.removeFromSuperlayer()
+                }
+            }
+            for layer in leyers2 {
+                if layer is CAGradientLayer {
+                    layer.removeFromSuperlayer()
+                }
+            }
+            for layer in leyers3 {
+                if layer is CAGradientLayer {
+                    layer.removeFromSuperlayer()
+                }
+            }
+        
+        }
+        hearButton.setGradientToView(opition: .Default)
+        copyButton.setGradientToView(opition: .Default)
+        sharedButton.setGradientToView(opition: .Default)
+
+    }
+
 }
