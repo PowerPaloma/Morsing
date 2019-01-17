@@ -18,8 +18,8 @@ class TranslateMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       view.setGradientToView(colors: [UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0).cgColor,UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0).cgColor])
+       view.setGradientToView(opition: .Default)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         setUP()
