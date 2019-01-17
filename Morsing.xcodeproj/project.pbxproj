@@ -10,7 +10,7 @@
 		2FA4584721E94F9D00C2FCCB /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */; };
 		2FA4584921E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */; };
 		2FA4584B21E9505700C2FCCB /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */; };
-		2FA4584E21E950B600C2FCCB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584D21E950B600C2FCCB /* Item.swift */; };
+		2FA4584E21E950B600C2FCCB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584D21E950B600C2FCCB /* Data.swift */; };
 		2FA4585121E9510F00C2FCCB /* LettersData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FA4585021E9510F00C2FCCB /* LettersData.json */; };
 		2FA4585321E9513700C2FCCB /* NumbersData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FA4585221E9513700C2FCCB /* NumbersData.json */; };
 		2FA4585A21E968E900C2FCCB /* PracticingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4585921E968E900C2FCCB /* PracticingViewController.swift */; };
@@ -41,7 +41,7 @@
 		2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersViewController+CollectionViewDelegateDataSource.swift"; sourceTree = "<group>"; };
 		2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
-		2FA4584D21E950B600C2FCCB /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		2FA4584D21E950B600C2FCCB /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		2FA4585021E9510F00C2FCCB /* LettersData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LettersData.json; sourceTree = "<group>"; };
 		2FA4585221E9513700C2FCCB /* NumbersData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NumbersData.json; sourceTree = "<group>"; };
 		2FA4585921E968E900C2FCCB /* PracticingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticingViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		2FA4584C21E9509D00C2FCCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2FA4584D21E950B600C2FCCB /* Item.swift */,
+				2FA4584D21E950B600C2FCCB /* Data.swift */,
 				2FA4586121EA548700C2FCCB /* CoreDataManager.swift */,
 			);
 			path = Model;
@@ -361,7 +361,7 @@
 			files = (
 				2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */,
 				2FF1EC1621ED055200781742 /* UIColor.swift in Sources */,
-				2FA4584E21E950B600C2FCCB /* Item.swift in Sources */,
+				2FA4584E21E950B600C2FCCB /* Data.swift in Sources */,
 				2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */,
 				2FA4586221EA548700C2FCCB /* CoreDataManager.swift in Sources */,
 				2FA4584721E94F9D00C2FCCB /* CharactersCollectionViewCell.swift in Sources */,
