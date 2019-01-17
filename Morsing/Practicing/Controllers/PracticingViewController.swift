@@ -53,7 +53,8 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         let done = UIButton()
         done.translatesAutoresizingMaskIntoConstraints = false
         done.setTitle("Done", for: UIControl.State.normal)
-        done.setTitleColor(UIColor.getActionColor(), for: UIControl.State.normal)
+        done.setTitleColor(UIColor.getActionColor(alpha: 1.0), for: UIControl.State.normal)
+        done.setTitleColor(UIColor.getActionColor(alpha: 0.3), for: UIControl.State.highlighted)
         done.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         done.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
         return done
@@ -63,7 +64,8 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         let back = UIButton()
         back.translatesAutoresizingMaskIntoConstraints = false
         back.setTitle("Back", for: UIControl.State.normal)
-        back.setTitleColor(UIColor.getActionColor(), for: UIControl.State.normal)
+        back.setTitleColor(UIColor.getActionColor(alpha: 1.0), for: UIControl.State.normal)
+        back.setTitleColor(UIColor.getActionColor(alpha: 0.3), for: UIControl.State.highlighted)
         back.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         back.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         return back
@@ -73,7 +75,8 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         let next = UIButton()
         next.translatesAutoresizingMaskIntoConstraints = false
         next.setTitle("Next", for: UIControl.State.normal)
-        next.setTitleColor(UIColor.getActionColor(), for: UIControl.State.normal)
+        next.setTitleColor(UIColor.getActionColor(alpha: 1.0), for: UIControl.State.normal)
+        next.setTitleColor(UIColor.getActionColor(alpha: 0.3), for: UIControl.State.highlighted)
         next.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         next.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         return next

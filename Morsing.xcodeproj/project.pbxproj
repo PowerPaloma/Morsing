@@ -188,9 +188,9 @@
 		2FFBC33B21E3EE0E008978CF /* Morsing */ = {
 			isa = PBXGroup;
 			children = (
-				2FA4585621E9682400C2FCCB /* Practicing */,
 				2FA4584F21E950F000C2FCCB /* Recources */,
 				2FA4584C21E9509D00C2FCCB /* Model */,
+				2FA4585621E9682400C2FCCB /* Practicing */,
 				2FA4584421E94EEA00C2FCCB /* Choosing Character */,
 				2FFBC35121E3F386008978CF /* Learning */,
 				D7CA6D1121E80DE200376E65 /* Translate */,
