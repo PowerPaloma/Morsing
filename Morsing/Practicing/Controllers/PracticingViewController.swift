@@ -190,7 +190,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         if let superview = custonToolBar.superview{
             custonToolBar.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor).isActive = true
             custonToolBar.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor).isActive = true
-            custonToolBar.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            custonToolBar.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
             custonToolBar.heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 0.06).isActive = true
         }
         //constraints in custonNavBar

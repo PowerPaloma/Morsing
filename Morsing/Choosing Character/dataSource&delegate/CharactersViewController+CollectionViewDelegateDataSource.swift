@@ -15,7 +15,6 @@ extension CharactersViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharactersCollectionViewCell", for: indexPath) as! CharactersCollectionViewCell
         cell.custonContent.backgroundColor = self.backgroundColor
         cell.textLabel.textColor = self.textColor
