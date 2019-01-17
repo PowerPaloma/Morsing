@@ -75,7 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupCoreData(){
         CoreDataManager.shared.deleteAll()
         guard let letters = Item.letters(), let numbers = Item.numbers() else {return}
-        print(numbers)
         for item in letters {
             let letter = Letters(context: CoreDataManager.shared.getContext())
             letter.done = false
