@@ -98,7 +98,9 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         character.text = "A"
         character.sizeToFit()
         character.font = UIFont.boldSystemFont(ofSize: 330)
-        character.applyGradientWith(startColor: UIColor(red:0.11, green:0.90, blue:0.89, alpha:1.0), endColor: UIColor(red:0.71, green:0.53, blue:0.97, alpha:1.0))
+        let starColor = UIColor(cgColor: AppGradientsVariantions.Default.rawValue[0])
+        let endColor = UIColor(cgColor: AppGradientsVariantions.Default.rawValue[1])
+        _ = character.applyGradientWith(startColor: starColor, endColor: endColor)
         return character
     }()
     
@@ -118,7 +120,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     lazy var codeCollectionView: UICollectionView = {
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: UICollectionViewFlowLayout())
-        collection.backgroundColor = UIColor.getBackgroundViewColor()
+        collection.backgroundColor = .backgoundGray
         collection.alwaysBounceVertical = false
         collection.alwaysBounceHorizontal = false
         collection.showsHorizontalScrollIndicator = false
@@ -143,7 +145,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Settings
     
     private func initialSetup(){
-        view.backgroundColor = UIColor.getBackgroundViewColor()
+        view.backgroundColor = .backgoundGray
         characterLabel.text = self.data[indexItem].getCharacter(isLetter: isLetter)
         guard let itemCoreData: NSManagedObject = getItem(FromCoreDataInIndex: indexItem), let done =  itemCoreData.getDone(isLetter: isLetter) else {return}
         if done {
@@ -309,14 +311,20 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     private func toCount(isTap: Bool){
-        speakTheCode(message: isTap ? [0]: [1])
+        
         guard let itemCoreData: NSManagedObject = getItem(FromCoreDataInIndex: indexItem), let done =  itemCoreData.getDone(isLetter: isLetter) else {return}
         let item = data[indexItem]
         let aux = isTap ? 0 : 1
         guard let morse = item.getMorse(isLetter: isLetter) else {return}
         if(!done && morse[currentIndex] == aux){
+            speakTheCode(message: isTap ? [0]: [1])
+            UIImpactFeedbackGenerator().impactOccurred()
             let cell = codeCollectionView.cellForItem(at: IndexPath.init(row: currentIndex, section: 0)) as! CodeCollectionViewCell
-            cell.codeImage.image = isTap ? UIImage.init(named: "dotColorful") : UIImage.init(named: "hyColorful")
+            
+            UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
+                cell.codeImage.image = isTap ? UIImage.init(named: "dotColorful") : UIImage.init(named: "hyColorful")
+            }, completion: nil)
+            
             if (currentIndex == morse.count - 1){
                 itemCoreData.set(done: true, isLetter: isLetter)
                 self.resetButton.isHighlighted = false
@@ -325,7 +333,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             self.currentIndex += 1
             
         }else{
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+           UINotificationFeedbackGenerator().notificationOccurred(.error)
             
         }
         if (currentIndex == morse.count - 1){

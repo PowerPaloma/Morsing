@@ -17,4 +17,7 @@ extension UIColor{
     static var backgoundGray: UIColor {
         return Color.backgoundGray
     }
+    class func getActionColor(alpha: Double) -> UIColor{
+        return UIColor(red: 50/255, green: 77/255, blue: 92/255, alpha: CGFloat(alpha))
+    }
 }

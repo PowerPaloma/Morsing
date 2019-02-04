@@ -18,7 +18,7 @@ class TranslateViewController: UIViewController {
         scroll.backgroundColor = .clear
         scroll.bounces = true
         scroll.alwaysBounceVertical = true
-    
+        scroll.keyboardDismissMode = .onDrag
         return scroll
     }()
     

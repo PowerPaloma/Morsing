@@ -19,7 +19,6 @@
 		2FA4585D21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4585C21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift */; };
 		2FA4585F21EA506900C2FCCB /* CodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4585E21EA506900C2FCCB /* CodeCollectionViewCell.swift */; };
 		2FA4586221EA548700C2FCCB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4586121EA548700C2FCCB /* CoreDataManager.swift */; };
-		2FF1EC1621ED055200781742 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EC1521ED055200781742 /* UIColor.swift */; };
 		2FF1EC2D21EE69B400781742 /* UILabel+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EC2C21EE69B400781742 /* UILabel+Gradient.swift */; };
 		2FF1EC2F21EFF46F00781742 /* NSManagerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EC2E21EFF46F00781742 /* NSManagerObject.swift */; };
 		2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */; };
@@ -52,7 +51,6 @@
 		2FA4585C21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PracticingViewController+CollectionViewDelegateDataSource.swift"; sourceTree = "<group>"; };
 		2FA4585E21EA506900C2FCCB /* CodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FA4586121EA548700C2FCCB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		2FF1EC1521ED055200781742 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2FF1EC2C21EE69B400781742 /* UILabel+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Gradient.swift"; sourceTree = "<group>"; };
 		2FF1EC2E21EFF46F00781742 /* NSManagerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagerObject.swift; sourceTree = "<group>"; };
 		2FFBC33921E3EE0E008978CF /* Morsing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morsing.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,7 +229,6 @@
 			children = (
 				D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */,
 				D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */,
-				2FF1EC1521ED055200781742 /* UIColor.swift */,
 				2FF1EC2C21EE69B400781742 /* UILabel+Gradient.swift */,
 				2FF1EC2E21EFF46F00781742 /* NSManagerObject.swift */,
 				D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */,
@@ -366,7 +363,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */,
-				2FF1EC1621ED055200781742 /* UIColor.swift in Sources */,
 				2FA4584E21E950B600C2FCCB /* Data.swift in Sources */,
 				2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */,
 				2FA4586221EA548700C2FCCB /* CoreDataManager.swift in Sources */,
@@ -527,7 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MQ922JMCL6;
+				DEVELOPMENT_TEAM = 84MA3JMGLA;
 				INFOPLIST_FILE = Morsing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -546,7 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MQ922JMCL6;
+				DEVELOPMENT_TEAM = 84MA3JMGLA;
 				INFOPLIST_FILE = Morsing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

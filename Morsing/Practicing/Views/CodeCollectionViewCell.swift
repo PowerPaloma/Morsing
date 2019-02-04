@@ -13,7 +13,7 @@ class CodeCollectionViewCell: UICollectionViewCell {
     lazy var custonContainer: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.getBackgroundViewColor()
+        view.backgroundColor = .backgoundGray
         return view
     }()
     
