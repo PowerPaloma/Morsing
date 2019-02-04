@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F7C7F1C2208535000E93AB9 /* beep_long.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F7C7F1A2208534F00E93AB9 /* beep_long.mp3 */; };
+		2F7C7F1D2208535000E93AB9 /* beep_short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F7C7F1B2208534F00E93AB9 /* beep_short.mp3 */; };
 		2FA4584721E94F9D00C2FCCB /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */; };
 		2FA4584921E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */; };
 		2FA4584B21E9505700C2FCCB /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */; };
@@ -18,8 +20,6 @@
 		2FA4585F21EA506900C2FCCB /* CodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4585E21EA506900C2FCCB /* CodeCollectionViewCell.swift */; };
 		2FA4586221EA548700C2FCCB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4586121EA548700C2FCCB /* CoreDataManager.swift */; };
 		2FF1EC1621ED055200781742 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EC1521ED055200781742 /* UIColor.swift */; };
-		2FF1EC1921ED1BA700781742 /* beep_long.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF1EC1721ED1BA700781742 /* beep_long.mp3 */; };
-		2FF1EC1A21ED1BA700781742 /* beep_short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FF1EC1821ED1BA700781742 /* beep_short.mp3 */; };
 		2FF1EC2D21EE69B400781742 /* UILabel+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EC2C21EE69B400781742 /* UILabel+Gradient.swift */; };
 		2FF1EC2F21EFF46F00781742 /* NSManagerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EC2E21EFF46F00781742 /* NSManagerObject.swift */; };
 		2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC33C21E3EE0E008978CF /* AppDelegate.swift */; };
@@ -40,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F7C7F1A2208534F00E93AB9 /* beep_long.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep_long.mp3; sourceTree = "<group>"; };
+		2F7C7F1B2208534F00E93AB9 /* beep_short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep_short.mp3; sourceTree = "<group>"; };
 		2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersViewController+CollectionViewDelegateDataSource.swift"; sourceTree = "<group>"; };
 		2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
@@ -51,8 +53,6 @@
 		2FA4585E21EA506900C2FCCB /* CodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FA4586121EA548700C2FCCB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2FF1EC1521ED055200781742 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		2FF1EC1721ED1BA700781742 /* beep_long.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep_long.mp3; path = ../../../../../Desktop/Morsing/Morsing/Resource/beep_long.mp3; sourceTree = "<group>"; };
-		2FF1EC1821ED1BA700781742 /* beep_short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep_short.mp3; path = ../../../../../Desktop/Morsing/Morsing/Resource/beep_short.mp3; sourceTree = "<group>"; };
 		2FF1EC2C21EE69B400781742 /* UILabel+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Gradient.swift"; sourceTree = "<group>"; };
 		2FF1EC2E21EFF46F00781742 /* NSManagerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagerObject.swift; sourceTree = "<group>"; };
 		2FFBC33921E3EE0E008978CF /* Morsing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morsing.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,8 +115,8 @@
 		2FA4584F21E950F000C2FCCB /* Recources */ = {
 			isa = PBXGroup;
 			children = (
-				2FF1EC1721ED1BA700781742 /* beep_long.mp3 */,
-				2FF1EC1821ED1BA700781742 /* beep_short.mp3 */,
+				2F7C7F1A2208534F00E93AB9 /* beep_long.mp3 */,
+				2F7C7F1B2208534F00E93AB9 /* beep_short.mp3 */,
 				2FA4585021E9510F00C2FCCB /* LettersData.json */,
 				2FA4585221E9513700C2FCCB /* NumbersData.json */,
 			);
@@ -231,14 +231,11 @@
 			children = (
 				D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */,
 				D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */,
-
 				2FF1EC1521ED055200781742 /* UIColor.swift */,
 				2FF1EC2C21EE69B400781742 /* UILabel+Gradient.swift */,
 				2FF1EC2E21EFF46F00781742 /* NSManagerObject.swift */,
-
 				D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */,
 				D7C4831C21ED4EA300D54EEE /* UIViewController+Alert.swift */,
-
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -352,12 +349,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FF1EC1921ED1BA700781742 /* beep_long.mp3 in Resources */,
+				2F7C7F1C2208535000E93AB9 /* beep_long.mp3 in Resources */,
 				2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */,
 				2FA4585321E9513700C2FCCB /* NumbersData.json in Resources */,
 				2FA4585121E9510F00C2FCCB /* LettersData.json in Resources */,
 				2FFBC34721E3EE12008978CF /* Assets.xcassets in Resources */,
-				2FF1EC1A21ED1BA700781742 /* beep_short.mp3 in Resources */,
+				2F7C7F1D2208535000E93AB9 /* beep_short.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,11 +375,8 @@
 				D7CA6D0C21E7F86800376E65 /* UIView+GradientLayer.swift in Sources */,
 				D7CA6D1621E80F6800376E65 /* TranslateMenuView.swift in Sources */,
 				D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */,
-
 				2FF1EC2D21EE69B400781742 /* UILabel+Gradient.swift in Sources */,
-
 				D72AC6AE21EAD3A30049ADA6 /* UIColor+Morsing.swift in Sources */,
-
 				2FA4584921E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift in Sources */,
 				2FA4584B21E9505700C2FCCB /* CharactersViewController.swift in Sources */,
 				D7CA6D1321E80E3600376E65 /* TranslateMenuViewController.swift in Sources */,

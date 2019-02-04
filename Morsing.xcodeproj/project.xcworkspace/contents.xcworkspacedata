@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Morsing.xcodeproj">
+      location = "group:../../../../Desktop/beep_long.mp3">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../Desktop/beep_short.mp3">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
