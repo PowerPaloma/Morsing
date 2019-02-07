@@ -102,7 +102,7 @@ class TranslateView: UIView {
         stack.axis = .horizontal
         stack.distribution = .fillEqually
         stack.alignment = .center
-        stack.spacing = 3
+        stack.spacing = 10
         stack.addArrangedSubview(copyButton)
         stack.addArrangedSubview(sharedButton)
         
@@ -111,7 +111,7 @@ class TranslateView: UIView {
     
     public lazy var hearButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 10
         button.clipsToBounds = true
         button.setImage(UIImage(named: "sound"), for: UIControl.State.normal)
         button.setTitleColor(UIColor.white, for: UIControl.State.normal)
@@ -123,7 +123,7 @@ class TranslateView: UIView {
     
     public lazy var copyButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 10
         button.clipsToBounds = true
         button.setImage(UIImage(named: "copy"), for: UIControl.State.normal)
         button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.25)
@@ -136,7 +136,7 @@ class TranslateView: UIView {
     
     public lazy var sharedButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 10
         button.clipsToBounds = true
         button.setImage(UIImage(named: "shared"), for: UIControl.State.normal)
         button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.25)
