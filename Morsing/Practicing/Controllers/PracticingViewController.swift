@@ -303,7 +303,8 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func soundAction(){
         guard let morse = data[indexItem].getMorse(isLetter: isLetter) else {return}
-        speakTheCode(message: morse)
+        self.player = SoundManager.shared.soundOf(message: morse)
+        player?.play()
     }
     
     @objc private func handleTap(sender: UITapGestureRecognizer? = nil) {
@@ -311,13 +312,13 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
 //            self.tapView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
 //            self.tapView.backgroundColor = UIColor.white
 //        }
-        toCount(isTap: true)
+        manageGesture(isTap: true)
     }
     
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
         switch sender.state {
         case .began:
-            toCount(isTap: false)
+            manageGesture(isTap: false)
         default:
             break
         }
@@ -331,14 +332,14 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         return result[index]
     }
     
-    private func toCount(isTap: Bool){
-        
+    private func manageGesture(isTap: Bool){
         guard let itemCoreData: NSManagedObject = getItem(FromCoreDataInIndex: indexItem), let done =  itemCoreData.getDone(isLetter: isLetter) else {return}
         let item = data[indexItem]
         let aux = isTap ? 0 : 1
         guard let morse = item.getMorse(isLetter: isLetter) else {return}
         if(!done && morse[currentIndex] == aux){
-            speakTheCode(message: isTap ? [0]: [1])
+            self.player = SoundManager.shared.soundOf(message: isTap ? [0]: [1])
+            player?.play()
             UIImpactFeedbackGenerator().impactOccurred()
             let cell = codeCollectionView.cellForItem(at: IndexPath.init(row: currentIndex, section: 0)) as! CodeCollectionViewCell
             
@@ -360,25 +361,5 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         if (currentIndex == morse.count - 1){
             self.resetButton.isHighlighted = true
         }
-    }
-    
-    private func speakTheCode(message: [Int]) {
-        var audioItems: [AVPlayerItem] = []
-        guard let longPath = Bundle.main.path(forResource: "beep_long", ofType: "mp3"),
-            let shortPath = Bundle.main.path(forResource: "beep_short", ofType: "mp3") else {
-                print("Path is not availabel")
-                return
-        }
-        for code in message {
-            if code == 1 {
-                let longBeep = AVPlayerItem(url: URL(fileURLWithPath: longPath))
-                audioItems.append(longBeep)
-            } else {
-                let shortBeep = AVPlayerItem(url: URL(fileURLWithPath: shortPath))
-                audioItems.append(shortBeep)
-            }
-        }
-        player = AVQueuePlayer(items: audioItems)
-        player?.play()
     }
 }

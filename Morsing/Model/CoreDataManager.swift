@@ -63,6 +63,11 @@ class CoreDataManager: NSObject {
         }
     }
     
+    func getItem(InIndex index: Int, isLetter: Bool) -> NSManagedObject? {
+        guard let result = CoreDataManager.shared.fetching(isLetterData: isLetter) else {return nil}
+        return result[index]
+    }
+    
     private func getAll(entity: NSEntityDescription) -> (success: Bool, objects: [NSManagedObject]){
         let context = self.getContext()
         let request: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>()

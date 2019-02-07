@@ -205,6 +205,7 @@ class TranslateView: UIView {
         
     }
     
+    
     fileprivate func setUpConstraints(){
         fristView.translatesAutoresizingMaskIntoConstraints = false
         fristView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true

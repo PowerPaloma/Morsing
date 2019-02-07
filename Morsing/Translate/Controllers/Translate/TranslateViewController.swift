@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TranslateViewController: UIViewController {
     
     public var isTranslateToMorse: Bool = false
+    private var player: AVQueuePlayer?
     
     fileprivate lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -53,6 +55,7 @@ class TranslateViewController: UIViewController {
         _ = isTranslateToMorse ? (navigationBarSetup(name: "Morse"), translateView.setUPMorse()) :  (navigationBarSetup(name: "Text"), translateView.setUPText())
         
         translateView.tap.addTarget(self, action: #selector(chageArrow))
+        translateView.hearButton.addTarget(self, action: #selector(soundAction), for: .touchUpInside)
         translateView.inputTextView.delegate = self
     }
      
@@ -103,6 +106,17 @@ class TranslateViewController: UIViewController {
             navigationItem.title = "Morse"
             translateView.setUPMorse()
         }
+    }
+    @objc private func soundAction(){
+        let morsePartial = translateView.responseTextView.text.replacingOccurrences(of: "-", with: "1")
+        let morse = morsePartial.replacingOccurrences(of: ".", with: "0")
+        let morseArray: [Int?] = Array(morse).map { (char) -> Int? in
+            guard let num =  Int(String(char)) else {return nil}
+            return num
+        }
+        guard let morseSound = morseArray as? [Int] else {return}
+        self.player = SoundManager.shared.soundOf(message: morseSound)
+        self.player?.play()
     }
 
 }
