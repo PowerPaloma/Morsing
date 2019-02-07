@@ -56,6 +56,7 @@ class TranslateViewController: UIViewController {
         
         translateView.tap.addTarget(self, action: #selector(chageArrow))
         translateView.hearButton.addTarget(self, action: #selector(soundAction), for: .touchUpInside)
+        translateView.copyButton.addTarget(self, action: #selector(copyAction), for: .touchUpInside)
         translateView.inputTextView.delegate = self
     }
      
@@ -118,6 +119,11 @@ class TranslateViewController: UIViewController {
         self.player = SoundManager.shared.soundOf(message: morseSound)
         self.player?.play()
     }
+    @objc private func copyAction(){
+       UIPasteboard.general.string = translateView.responseTextView.text
+        self.showAlert(title: "Morse code was copy", menssage: nil, dismissTime: 2)
+    }
+    
 
 }
 extension TranslateViewController: UITextViewDelegate{
