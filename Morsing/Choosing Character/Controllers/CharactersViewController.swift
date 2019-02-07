@@ -38,6 +38,7 @@ class CharactersViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         settingCollectionConstraints()
+        collectionView.reloadData()
     }
     
     
