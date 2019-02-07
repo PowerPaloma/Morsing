@@ -109,7 +109,6 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 10
-        
         // shadow
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 1)
@@ -139,7 +138,25 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         addviews()
         settingConstraints()
         settingsGestures()
-
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {return}
+        if(touch.view == self.tapView){
+            self.tapView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+        }
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {return}
+        if(touch.view == self.tapView){
+            self.tapView.backgroundColor = UIColor.white
+        }
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {return}
+        if(touch.view == self.tapView){
+            self.tapView.backgroundColor = UIColor.white
+        }
     }
     
     // MARK: - Settings
@@ -290,6 +307,10 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc private func handleTap(sender: UITapGestureRecognizer? = nil) {
+//        UIView.animate(withDuration: 0.5) {
+//            self.tapView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+//            self.tapView.backgroundColor = UIColor.white
+//        }
         toCount(isTap: true)
     }
     
