@@ -21,11 +21,7 @@ extension CharactersViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.textLabel.textColor = self.textColor
         cell.textLabel.text = item.getCharacter(isLetter: isLetter)
         guard let done = item.getDone(isLetter: isLetter) else {return UICollectionViewCell()}
-        if done {
-            cell.insignia.isHidden = false
-        }else{
-            cell.insignia.isHidden = true
-        }
+        cell.insignia.isHidden = !done
         return cell
     }
     

@@ -10,6 +10,7 @@
 		2F7C7F1C2208535000E93AB9 /* beep_long.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F7C7F1A2208534F00E93AB9 /* beep_long.mp3 */; };
 		2F7C7F1D2208535000E93AB9 /* beep_short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2F7C7F1B2208534F00E93AB9 /* beep_short.mp3 */; };
 		2F7C7F74220CB5C100E93AB9 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7C7F73220CB5C100E93AB9 /* SoundManager.swift */; };
+		2F7C7F76220F59E900E93AB9 /* TranslateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7C7F75220F59E900E93AB9 /* TranslateManager.swift */; };
 		2FA4584721E94F9D00C2FCCB /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */; };
 		2FA4584921E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */; };
 		2FA4584B21E9505700C2FCCB /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */; };
@@ -43,6 +44,7 @@
 		2F7C7F1A2208534F00E93AB9 /* beep_long.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep_long.mp3; sourceTree = "<group>"; };
 		2F7C7F1B2208534F00E93AB9 /* beep_short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep_short.mp3; sourceTree = "<group>"; };
 		2F7C7F73220CB5C100E93AB9 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		2F7C7F75220F59E900E93AB9 /* TranslateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateManager.swift; sourceTree = "<group>"; };
 		2FA4584621E94F9D00C2FCCB /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FA4584821E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersViewController+CollectionViewDelegateDataSource.swift"; sourceTree = "<group>"; };
 		2FA4584A21E9505700C2FCCB /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				2FA4584D21E950B600C2FCCB /* Data.swift */,
 				2FA4586121EA548700C2FCCB /* CoreDataManager.swift */,
 				2F7C7F73220CB5C100E93AB9 /* SoundManager.swift */,
+				2F7C7F75220F59E900E93AB9 /* TranslateManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				2FF1EC2D21EE69B400781742 /* UILabel+Gradient.swift in Sources */,
 				D72AC6AE21EAD3A30049ADA6 /* UIColor+Morsing.swift in Sources */,
 				2FA4584921E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift in Sources */,
+				2F7C7F76220F59E900E93AB9 /* TranslateManager.swift in Sources */,
 				2FA4584B21E9505700C2FCCB /* CharactersViewController.swift in Sources */,
 				D7CA6D1321E80E3600376E65 /* TranslateMenuViewController.swift in Sources */,
 				D7CA6D1D21E91E9300376E65 /* TranslateView.swift in Sources */,

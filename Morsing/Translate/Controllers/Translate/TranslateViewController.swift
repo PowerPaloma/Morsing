@@ -23,15 +23,6 @@ class TranslateViewController: UIViewController {
         scroll.keyboardDismissMode = .onDrag
         return scroll
     }()
-    
-    private lazy var caracters: [Item] = {
-        var caracters:[Item] = []
-        if let letters = Item.letters(), let numbers = Item.numbers(){
-            caracters.append(contentsOf: letters)
-            caracters.append(contentsOf: numbers)
-        }
-        return caracters
-    }()
     fileprivate lazy var translateView: TranslateView = {
         let view = TranslateView()
         view.backgroundColor = .clear
@@ -147,29 +138,14 @@ extension TranslateViewController: UITextViewDelegate{
         if isTranslateToMorse{
             
         }else{
-            if let text = textView.text {
-                translateView.responseTextView.text = ""
-                for  letters in text{
-                    if (letters == " "){
-                        translateView.responseTextView.text += "/"
-                    }else{
-                        let item = caracters.filter {$0.text == String(letters).capitalized}
-                        if (item.count < 1){
-                            textView.text = textView.text.replacingOccurrences(of: "\(letters)", with: "", options: .literal, range: nil)
-                            self.showAlert(title:"Worng Format", menssage: " \" \(letters) \" is an invalid Character")
-                            
-                        }else{
-                            let morse = item[0].morse
-                            for (index, _) in morse.enumerated(){
-                                if (morse[index] == 1) {
-                                    translateView.responseTextView.text += "-"
-                                }else{
-                                    translateView.responseTextView.text += "."
-                                }
-                            }
-                        }
-                    }
-                }
+            let result = TranslateManager.shared.translate(textToMorse: textView.text)
+            if result.success{
+                translateView.responseTextView.text = result.morse
+            }else{
+                guard let invalidChar = result.invalidChar else {return}
+                 textView.text = textView.text.replacingOccurrences(of: "\(invalidChar)", with: "", options: .literal, range: nil)
+                self.showAlert(title: "Worng Format", menssage: " \" \(String(invalidChar)) \" is an invalid Character", dismissTime: UInt64(2.5))
+
             }
         }
     }
