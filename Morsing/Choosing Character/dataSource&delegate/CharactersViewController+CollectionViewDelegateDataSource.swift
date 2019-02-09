@@ -23,6 +23,8 @@ extension CharactersViewController: UICollectionViewDelegate, UICollectionViewDa
         guard let done = item.getDone(isLetter: isLetter) else {return UICollectionViewCell()}
         if done {
             cell.insignia.isHidden = false
+        }else{
+            cell.insignia.isHidden = true
         }
         return cell
     }

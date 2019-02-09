@@ -25,8 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setup(tabBarController: tabBarController)
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-        
-        setupCoreData()
+        let isDataSetup = UserDefaults.standard.bool(forKey: "isDataSetup")
+        if !isDataSetup{
+            setupCoreData()
+        }
         return true
     }
 
@@ -73,6 +75,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - CoreData Setup
     
     func setupCoreData(){
+        //setting userDefaults
+        UserDefaults.standard.set(true, forKey: "isDataSetup")
+        //setting CoreData
         CoreDataManager.shared.deleteAll()
         guard let letters = Item.letters(), let numbers = Item.numbers() else {return}
         for item in letters {
