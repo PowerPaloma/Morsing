@@ -28,6 +28,11 @@
 		2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34821E3EE12008978CF /* LaunchScreen.storyboard */; };
 		2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC35421E3F3EB008978CF /* LearningViewController.swift */; };
 		D72AC6AE21EAD3A30049ADA6 /* UIColor+Morsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */; };
+		D7405208220A3FFF00A5B8AD /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7405207220A3FFF00A5B8AD /* Onboard.swift */; };
+		D740520C220A423900A5B8AD /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740520B220A423900A5B8AD /* OnboardingCollectionViewCell.swift */; };
+		D740520E220A47ED00A5B8AD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740520D220A47ED00A5B8AD /* OnboardingViewController.swift */; };
+		D7405211220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7405210220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift */; };
+		D7405213220A4F6F00A5B8AD /* UITabBarController+Morsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7405212220A4F6F00A5B8AD /* UITabBarController+Morsing.swift */; };
 		D7C4831D21ED4EA300D54EEE /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C4831C21ED4EA300D54EEE /* UIViewController+Alert.swift */; };
 		D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */; };
 		D7CA6D0C21E7F86800376E65 /* UIView+GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */; };
@@ -62,6 +67,11 @@
 		2FFBC34B21E3EE12008978CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FFBC35421E3F3EB008978CF /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
 		D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Morsing.swift"; sourceTree = "<group>"; };
+		D7405207220A3FFF00A5B8AD /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
+		D740520B220A423900A5B8AD /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		D740520D220A47ED00A5B8AD /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		D7405210220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardCollectionViewDelegate&DataSource.swift"; sourceTree = "<group>"; };
+		D7405212220A4F6F00A5B8AD /* UITabBarController+Morsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Morsing.swift"; sourceTree = "<group>"; };
 		D7C4831C21ED4EA300D54EEE /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+GradientLayer.swift"; sourceTree = "<group>"; };
@@ -190,6 +200,7 @@
 		2FFBC33B21E3EE0E008978CF /* Morsing */ = {
 			isa = PBXGroup;
 			children = (
+				D7405205220A3E7C00A5B8AD /* Onboarding */,
 				2FA4584F21E950F000C2FCCB /* Recources */,
 				2FA4584C21E9509D00C2FCCB /* Model */,
 				2FA4585621E9682400C2FCCB /* Practicing */,
@@ -224,6 +235,41 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		D7405205220A3E7C00A5B8AD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				D7405206220A3FD000A5B8AD /* Structs */,
+				D7405209220A41C700A5B8AD /* Delegates&Datasources */,
+				D740520A220A41F600A5B8AD /* Views */,
+				D740520D220A47ED00A5B8AD /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		D7405206220A3FD000A5B8AD /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				D7405207220A3FFF00A5B8AD /* Onboard.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		D7405209220A41C700A5B8AD /* Delegates&Datasources */ = {
+			isa = PBXGroup;
+			children = (
+				D7405210220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift */,
+			);
+			path = "Delegates&Datasources";
+			sourceTree = "<group>";
+		};
+		D740520A220A41F600A5B8AD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D740520B220A423900A5B8AD /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D7CA6D0621E7F5DC00376E65 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +279,7 @@
 				2FF1EC2E21EFF46F00781742 /* NSManagerObject.swift */,
 				D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */,
 				D7C4831C21ED4EA300D54EEE /* UIViewController+Alert.swift */,
+				D7405212220A4F6F00A5B8AD /* UITabBarController+Morsing.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -362,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7405211220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift in Sources */,
 				2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */,
 				2FA4584E21E950B600C2FCCB /* Data.swift in Sources */,
 				2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */,
@@ -374,6 +422,8 @@
 				2FF1EC2D21EE69B400781742 /* UILabel+Gradient.swift in Sources */,
 				D72AC6AE21EAD3A30049ADA6 /* UIColor+Morsing.swift in Sources */,
 				2FA4584921E9502A00C2FCCB /* CharactersViewController+CollectionViewDelegateDataSource.swift in Sources */,
+				D740520C220A423900A5B8AD /* OnboardingCollectionViewCell.swift in Sources */,
+				D740520E220A47ED00A5B8AD /* OnboardingViewController.swift in Sources */,
 				2FA4584B21E9505700C2FCCB /* CharactersViewController.swift in Sources */,
 				D7CA6D1321E80E3600376E65 /* TranslateMenuViewController.swift in Sources */,
 				D7CA6D1D21E91E9300376E65 /* TranslateView.swift in Sources */,
@@ -383,7 +433,9 @@
 				2FA4585D21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift in Sources */,
 				2FA4585F21EA506900C2FCCB /* CodeCollectionViewCell.swift in Sources */,
 				2FF1EC2F21EFF46F00781742 /* NSManagerObject.swift in Sources */,
+				D7405208220A3FFF00A5B8AD /* Onboard.swift in Sources */,
 				2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */,
+				D7405213220A4F6F00A5B8AD /* UITabBarController+Morsing.swift in Sources */,
 				2FFBC33D21E3EE0E008978CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
