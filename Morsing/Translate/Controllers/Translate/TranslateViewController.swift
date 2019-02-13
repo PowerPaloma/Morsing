@@ -48,6 +48,11 @@ class TranslateViewController: UIViewController {
         translateView.tap.addTarget(self, action: #selector(chageArrow))
         translateView.hearButton.addTarget(self, action: #selector(soundAction), for: .touchUpInside)
         translateView.copyButton.addTarget(self, action: #selector(copyAction), for: .touchUpInside)
+        translateView.spaceLetterButton.addTarget(self, action: #selector(spaceLetter), for: .touchUpInside)
+        translateView.spaceWordButton.addTarget(self, action: #selector(spaceWord), for: .touchUpInside)
+        translateView.dotButton.addTarget(self, action: #selector(dot), for: .touchUpInside)
+        translateView.hyButton.addTarget(self, action: #selector(hy), for: .touchUpInside)
+        translateView.returnButton.addTarget(self, action: #selector(returnKeyboard), for: .touchUpInside)
         translateView.inputTextView.delegate = self
     }
      
@@ -88,6 +93,26 @@ class TranslateViewController: UIViewController {
         tabBarController?.tabBar.isOpaque = false
         
     }
+    //actions custon keyboard
+    @objc private func spaceLetter(){
+      translateView.inputTextView.text = translateView.inputTextView.text + " "
+    }
+    
+    @objc private func spaceWord(){
+        translateView.inputTextView.text = translateView.inputTextView.text + "/"
+    }
+    
+    @objc private func dot(){
+        translateView.inputTextView.text = translateView.inputTextView.text + "."
+    }
+    
+    @objc private func hy(){
+        translateView.inputTextView.text = translateView.inputTextView.text + "-"
+    }
+    
+    @objc private func returnKeyboard(){
+        
+    }
     @objc private func chageArrow(){
         if isTranslateToMorse {
             isTranslateToMorse = false
@@ -118,6 +143,15 @@ class TranslateViewController: UIViewController {
 
 }
 extension TranslateViewController: UITextViewDelegate{
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        return isTranslateToMorse
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return false
+    }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Type something..."
@@ -136,6 +170,7 @@ extension TranslateViewController: UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
 
         if isTranslateToMorse{
+            
             
         }else{
             let result = TranslateManager.shared.translate(textToMorse: textView.text)

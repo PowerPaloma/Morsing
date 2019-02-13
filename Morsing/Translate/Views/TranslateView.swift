@@ -57,6 +57,73 @@ class TranslateView: UIView {
         return view
     }()
     
+    fileprivate lazy var custonKeyboard: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: UIScreen.main.bounds.height*0.23))
+        view.backgroundColor = UIColor(red: 209/255, green: 213/255, blue: 220/255, alpha: 1.0)
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    lazy var dotButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+//        button.setTitle(".", for: .normal)
+//        button.setTitleColor(UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0), for: .normal)
+//        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+//        button.titleLabel?.textAlignment = NSTextAlignment.justified
+        button.setImage(#imageLiteral(resourceName: "dot-1"), for: .normal)
+        button.isUserInteractionEnabled = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+     lazy var hyButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.setImage(#imageLiteral(resourceName: "hy-1"), for: .normal)
+//        button.setTitle("-", for: .normal)
+//        button.titleLabel?.textAlignment = .center
+//        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+//        button.setTitleColor(UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0), for: .normal)
+        button.isUserInteractionEnabled = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var returnButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(red: 166/255, green: 172/255, blue: 182/255, alpha: 1.0)
+        button.setTitle("return", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.sizeToFit()
+        button.isUserInteractionEnabled = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var spaceLetterButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("space letter", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.setTitleColor(UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0), for: .normal)
+        button.backgroundColor = .white
+        button.isUserInteractionEnabled = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var spaceWordButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("space word", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.setTitleColor(UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0), for: .normal)
+        button.backgroundColor = .white
+        button.clipsToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     fileprivate lazy var labelsStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -177,6 +244,8 @@ class TranslateView: UIView {
         translateLabel.text = "Morse"
         responseTextView.text = "Response goes here..."
         inputTextView.text = nil
+        inputTextView.inputView = nil
+        inputTextView.reloadInputViews()
         animateRowToRight()
     }
     
@@ -189,6 +258,8 @@ class TranslateView: UIView {
         translateLabel.text = "Text"
         responseTextView.text = "Response goes here..."
         inputTextView.text = nil
+        inputTextView.inputView = custonKeyboard
+        inputTextView.reloadInputViews()
         animateRowToleft()
     }
     
@@ -202,6 +273,12 @@ class TranslateView: UIView {
         responseView.addSubview(translateLabel)
         responseView.addSubview(responseTextView)
         responseView.addSubview(buttonsStackView)
+        
+        custonKeyboard.addSubview(dotButton)
+        custonKeyboard.addSubview(hyButton)
+        custonKeyboard.addSubview(spaceWordButton)
+        custonKeyboard.addSubview(spaceLetterButton)
+        custonKeyboard.addSubview(returnButton)
         
     }
     
@@ -264,7 +341,38 @@ class TranslateView: UIView {
                                 padding: UIEdgeInsets.zero,
                                 size: .zero)
         buttonsStackView.widthAnchor.constraint(equalTo: responseView.safeAreaLayoutGuide.widthAnchor, multiplier: 0.4).isActive = true
-
+        if let superview = dotButton.superview{
+            //spaceWord
+            spaceLetterButton.topAnchor.constraint(equalTo: dotButton.bottomAnchor, constant: 32).isActive = true
+            spaceLetterButton.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -8).isActive = true
+            spaceLetterButton.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 8).isActive = true
+            spaceLetterButton.trailingAnchor.constraint(equalTo: spaceWordButton.leadingAnchor, constant: -8).isActive = true
+            spaceLetterButton.widthAnchor.constraint(equalTo: spaceWordButton.widthAnchor, multiplier: 1.0).isActive = true
+            
+            //spaceWord
+            spaceWordButton.leadingAnchor.constraint(equalTo: spaceLetterButton.trailingAnchor, constant: 8).isActive = true
+            spaceWordButton.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -8).isActive = true
+            spaceWordButton.topAnchor.constraint(equalTo: hyButton.bottomAnchor, constant: 32).isActive = true
+            spaceWordButton.trailingAnchor.constraint(equalTo: returnButton.leadingAnchor, constant: -8).isActive = true
+            
+            //returnButton
+            returnButton.widthAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.2).isActive = true
+            returnButton.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -8).isActive = true
+            returnButton.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -8).isActive = true
+            
+            //dotButton
+            dotButton.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 8).isActive = true
+            dotButton.widthAnchor.constraint(equalTo: hyButton.widthAnchor, multiplier: 1.0).isActive = true
+            dotButton.trailingAnchor.constraint(equalTo: hyButton.leadingAnchor, constant: -8).isActive = true
+            dotButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//            dotButton.bottomAnchor.constraint(equalTo: spaceLetterButton.topAnchor, constant: -16).isActive = true
+            
+            //hyButton
+            hyButton.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -8).isActive = true
+            hyButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//            hyButton.bottomAnchor.constraint(equalTo: spaceLetterButton.topAnchor, constant: -16).isActive = true
+            
+        }
     }
     
     private func configureShadow() {
@@ -272,7 +380,11 @@ class TranslateView: UIView {
         self.applyShadow(view: self.fristView,width: CGFloat(0), height: CGFloat(0))
         self.applyShadow(view: self.responseView,width: CGFloat(0), height: CGFloat(0))
         self.applyShadow(view: self.stackBackgorudView, width: CGFloat(0), height: CGFloat(7), opacity: 0.15, radius: 5.0)
-        
+        self.applyShadowAndCorner(view: self.spaceLetterButton, width: CGFloat(0), height: CGFloat(2), opacity: 1.0, radius: 0.0, corner: CGFloat(10), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.25))
+        self.applyShadowAndCorner(view: self.spaceWordButton, width: CGFloat(0), height: CGFloat(2), opacity: 1.0, radius: 0.0, corner: CGFloat(10), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.25))
+        self.applyShadowAndCorner(view: self.returnButton, width: CGFloat(0), height: CGFloat(2), opacity: 1.0, radius: 0.0, corner: CGFloat(10), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.25))
+        self.applyShadowAndCorner(view: self.dotButton, width: CGFloat(0), height: CGFloat(2), opacity: 1.0, radius: 0.0, corner: CGFloat(10), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.25))
+        self.applyShadowAndCorner(view: self.hyButton, width: CGFloat(0), height: CGFloat(2), opacity: 1.0, radius: 0.0, corner: CGFloat(10), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.25))
     }
     private func applyShadow(view: UIView, width: CGFloat, height: CGFloat, opacity: Float = 0.3, radius: CGFloat = 3.0) {
         
@@ -283,7 +395,14 @@ class TranslateView: UIView {
         view.layer.shadowOffset = CGSize(width: width, height: height)
         view.layer.shadowOpacity = opacity
         view.layer.shadowPath = shadowPath.cgPath
-        
+    }
+    private func applyShadowAndCorner(view: UIView, width: CGFloat, height: CGFloat, opacity: Float = 0.3, radius: CGFloat = 3.0, corner: CGFloat, color: UIColor) {
+        view.layer.shadowColor = color.cgColor
+        view.layer.shadowOffset = CGSize(width: width, height: height)
+        view.layer.shadowOpacity = 1.0
+        view.layer.shadowRadius = radius
+        view.layer.masksToBounds = false
+        view.layer.cornerRadius = corner
     }
     
     fileprivate func animateRowToRight(){
