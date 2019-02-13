@@ -16,9 +16,16 @@ extension CharactersViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharactersCollectionViewCell", for: indexPath) as! CharactersCollectionViewCell
+        let item = self.data[indexPath.row]
         cell.custonContent.backgroundColor = self.backgroundColor
         cell.textLabel.textColor = self.textColor
-        cell.textLabel.text = self.data[indexPath.row].getCharacter(isLetter: isLetter)
+        cell.textLabel.text = item.getCharacter(isLetter: isLetter)
+        guard let done = item.getDone(isLetter: isLetter) else {return UICollectionViewCell()}
+        if done {
+            cell.insignia.isHidden = false
+        }else{
+            cell.insignia.isHidden = true
+        }
         return cell
     }
     

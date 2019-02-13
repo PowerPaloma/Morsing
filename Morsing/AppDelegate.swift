@@ -26,7 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let tabBarController = UITabBarController()
             tabBarController.setup()
             window?.rootViewController = tabBarController
-            
+            let isDataSetup = UserDefaults.standard.bool(forKey: "isDataSetup")
+            if !isDataSetup{
+                setupCoreData()
+            }
             
         }else{
             let onboardingViewController = OnboardingViewController()
@@ -35,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         setupCoreData()
+
         return true
     }
 
@@ -65,6 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - CoreData Setup
     
     func setupCoreData(){
+        //setting userDefaults
+        UserDefaults.standard.set(true, forKey: "isDataSetup")
+        //setting CoreData
         CoreDataManager.shared.deleteAll()
         guard let letters = Item.letters(), let numbers = Item.numbers() else {return}
         for item in letters {

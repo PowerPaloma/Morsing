@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController{
     
-    func showAlert(title: String? = nil, menssage: String? = nil){
+    func showAlert(title: String? = nil, menssage: String? = nil, dismissTime: UInt64 = 2){
         
         let alert = UIAlertController(title: title, message: menssage, preferredStyle: .alert)
         
@@ -24,8 +24,8 @@ extension UIViewController{
             self.present(alert, animated: true, completion: nil)
         }
         
-        let when = DispatchTime.now() + 2
-        DispatchQueue.main.asyncAfter(deadline: when){
+        let when = DispatchTime.now().uptimeNanoseconds + dismissTime
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: when)){
             alert.dismiss(animated: true, completion: nil)
             
         }

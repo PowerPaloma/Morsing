@@ -14,7 +14,12 @@ class CharactersViewController: UIViewController {
     var isLetter: Bool!
     var backgroundColor = UIColor()
     var textColor = UIColor()
-    var data: [NSManagedObject] = []
+    var data: [NSManagedObject] {
+        get{
+            guard let result = CoreDataManager.shared.fetching(isLetterData: isLetter) else {return []}
+            return result
+        }
+    }
     
     lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: UICollectionViewFlowLayout())
@@ -38,14 +43,13 @@ class CharactersViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         settingCollectionConstraints()
+        collectionView.reloadData()
     }
     
     
     // MARK: - Settings
     
     private func settingData(){
-        guard let data = CoreDataManager.shared.fetching(isLetterData: isLetter) else{return}
-        self.data = data
         if isLetter {
             textColor = UIColor(red: 50/255, green: 77/255, blue: 92/255, alpha: 1)
             backgroundColor = UIColor(red: 29/255, green: 229/255, blue: 226/255, alpha: 1)
@@ -74,18 +78,6 @@ class CharactersViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CharactersCollectionViewCell.self, forCellWithReuseIdentifier: "CharactersCollectionViewCell")
-        
-    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    }  
     
 }

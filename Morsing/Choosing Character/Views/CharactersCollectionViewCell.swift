@@ -30,6 +30,14 @@ class CharactersCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    lazy var insignia: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "badge")
+        image.isHidden = true
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -46,6 +54,12 @@ class CharactersCollectionViewCell: UICollectionViewCell {
             custonContent.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
             custonContent.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
         }
+        if let superview = insignia.superview {
+            insignia.topAnchor.constraint(equalTo: custonContent.topAnchor, constant: 4).isActive = true
+            insignia.heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 0.25).isActive = true
+            insignia.widthAnchor.constraint(equalTo: insignia.heightAnchor).isActive = true
+            insignia.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -4).isActive = true
+        }
         textLabel.centerXAnchor.constraint(equalTo: custonContent.centerXAnchor).isActive = true
         textLabel.centerYAnchor.constraint(equalTo: custonContent.centerYAnchor).isActive = true
     }
@@ -53,6 +67,7 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     private func setup(){
         addSubview(custonContent)
         custonContent.addSubview(textLabel)
+        custonContent.addSubview(insignia)
         addConstraint()
     }
     
