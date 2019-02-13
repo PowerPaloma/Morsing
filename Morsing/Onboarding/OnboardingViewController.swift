@@ -61,7 +61,7 @@ class OnboardingViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.spacing = 0
-        stack.distribution = .fillProportionally
+        stack.distribution = .fillEqually
         return stack
     }()
     
