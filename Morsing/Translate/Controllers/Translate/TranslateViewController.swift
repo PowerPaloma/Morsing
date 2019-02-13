@@ -13,6 +13,7 @@ class TranslateViewController: UIViewController {
     
     public var isTranslateToMorse: Bool = false
     private var player: AVQueuePlayer?
+    private var sequence: [Int] = []
     
     fileprivate lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -95,23 +96,41 @@ class TranslateViewController: UIViewController {
     }
     //actions custon keyboard
     @objc private func spaceLetter(){
-      translateView.inputTextView.text = translateView.inputTextView.text + " "
+        translateView.inputTextView.text = translateView.inputTextView.text + " "
+        let result = TranslateManager.shared.translate(morseToText: sequence)
+        if result.succes{
+            if let character = result.character{
+                translateView.responseTextView.text += character
+                sequence.removeAll()
+            }
+        }else{
+            showAlert(title: "Character not identified!", menssage: nil, dismissTime: UInt64(3))
+            translateView.inputTextView.text = String(translateView.inputTextView.text.dropLast(sequence.count - 1))
+         
+        }
     }
     
     @objc private func spaceWord(){
         translateView.inputTextView.text = translateView.inputTextView.text + "/"
+        translateView.responseTextView.text += " "
     }
     
     @objc private func dot(){
+        self.player = SoundManager.shared.soundOf(message: [0])
+        player?.play()
         translateView.inputTextView.text = translateView.inputTextView.text + "."
+        sequence.append(0)
     }
     
     @objc private func hy(){
+        self.player = SoundManager.shared.soundOf(message: [1])
+        player?.play()
         translateView.inputTextView.text = translateView.inputTextView.text + "-"
+        sequence.append(1)
     }
     
     @objc private func returnKeyboard(){
-        
+        translateView.inputTextView.resignFirstResponder()
     }
     @objc private func chageArrow(){
         if isTranslateToMorse {
@@ -165,6 +184,7 @@ extension TranslateViewController: UITextViewDelegate{
             textView.text = nil
             textView.textColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
         }
+        translateView.responseTextView.text = ""
     }
     
     func textViewDidChange(_ textView: UITextView) {

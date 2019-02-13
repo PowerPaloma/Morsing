@@ -11,7 +11,7 @@ import UIKit
 class TranslateManager: NSObject {
     
     static let shared = TranslateManager()
-    private var characters: [Item] = []
+    var characters: [Item] = []
     
     override init() {
         if let letters = Item.letters(), let numbers = Item.numbers(){
@@ -38,5 +38,19 @@ class TranslateManager: NSObject {
             }
         }
         return (true, morseResult, nil)
+    }
+    
+    func translate(morseToText morse: [Int]) -> (succes: Bool, character: String?){
+        let itens: [Item] = TranslateManager.shared.characters.filter { (item) -> Bool in
+            return morse == item.morse
+        }
+        if !itens.isEmpty{
+            if let letter = itens.first{
+                return (true, letter.text)
+            }
+            return (false, nil)
+        }else{
+            return (false, nil)
+        }
     }
 }

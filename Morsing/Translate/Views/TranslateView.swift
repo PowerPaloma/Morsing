@@ -67,11 +67,13 @@ class TranslateView: UIView {
     lazy var dotButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .white
+        button.adjustsImageWhenHighlighted = true
 //        button.setTitle(".", for: .normal)
 //        button.setTitleColor(UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0), for: .normal)
 //        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
 //        button.titleLabel?.textAlignment = NSTextAlignment.justified
-        button.setImage(#imageLiteral(resourceName: "dot-1"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "dotKeyboard1"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "dotKeyboard"), for: .highlighted)
         button.isUserInteractionEnabled = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -80,7 +82,9 @@ class TranslateView: UIView {
      lazy var hyButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .white
-        button.setImage(#imageLiteral(resourceName: "hy-1"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "hyKeyboard1"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "hyKeyboard"), for: .highlighted)
+        button.adjustsImageWhenHighlighted = true
 //        button.setTitle("-", for: .normal)
 //        button.titleLabel?.textAlignment = .center
 //        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
@@ -91,7 +95,7 @@ class TranslateView: UIView {
     }()
     
     lazy var returnButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: UIButton.ButtonType.system)
         button.backgroundColor = UIColor(red: 166/255, green: 172/255, blue: 182/255, alpha: 1.0)
         button.setTitle("return", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
@@ -103,7 +107,7 @@ class TranslateView: UIView {
     }()
     
     lazy var spaceLetterButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: UIButton.ButtonType.system)
         button.setTitle("space letter", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.setTitleColor(UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0), for: .normal)
@@ -114,7 +118,7 @@ class TranslateView: UIView {
     }()
     
     lazy var spaceWordButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: UIButton.ButtonType.system)
         button.setTitle("space word", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.setTitleColor(UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0), for: .normal)
