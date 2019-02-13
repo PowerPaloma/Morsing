@@ -113,7 +113,7 @@ class TranslateView: UIView {
         let button = UIButton()
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        button.setImage(UIImage(named: "sound"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "hear"), for: UIControl.State.normal)
         button.setTitleColor(UIColor.white, for: UIControl.State.normal)
         button.setTitleColor(UIColor(red:0.93, green:0.95, blue:0.96, alpha:1.0), for: UIControl.State.highlighted)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 32)
