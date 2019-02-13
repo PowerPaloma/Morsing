@@ -54,6 +54,7 @@ class TranslateViewController: UIViewController {
         translateView.dotButton.addTarget(self, action: #selector(dot), for: .touchUpInside)
         translateView.hyButton.addTarget(self, action: #selector(hy), for: .touchUpInside)
         translateView.returnButton.addTarget(self, action: #selector(returnKeyboard), for: .touchUpInside)
+        translateView.backSpaceButton.addTarget(self, action: #selector(backspace), for: .touchUpInside)
         translateView.inputTextView.delegate = self
     }
      
@@ -132,6 +133,11 @@ class TranslateViewController: UIViewController {
     @objc private func returnKeyboard(){
         translateView.inputTextView.resignFirstResponder()
     }
+    
+    @objc private func backspace(){
+        translateView.inputTextView.text = String(translateView.inputTextView.text.dropLast())
+    }
+    
     @objc private func chageArrow(){
         if isTranslateToMorse {
             isTranslateToMorse = false

@@ -85,10 +85,18 @@ class TranslateView: UIView {
         button.setImage(#imageLiteral(resourceName: "hyKeyboard1"), for: .normal)
         button.setImage(#imageLiteral(resourceName: "hyKeyboard"), for: .highlighted)
         button.adjustsImageWhenHighlighted = true
-//        button.setTitle("-", for: .normal)
-//        button.titleLabel?.textAlignment = .center
-//        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
-//        button.setTitleColor(UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0), for: .normal)
+        button.isUserInteractionEnabled = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var backSpaceButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(red: 166/255, green: 172/255, blue: 182/255, alpha: 1.0)
+        button.setImage(#imageLiteral(resourceName: "backspace-2"), for: .normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 9, bottom: 8, right: 9)
+//        button.setImage(#imageLiteral(resourceName: "hyKeyboard"), for: .highlighted)
+        button.adjustsImageWhenHighlighted = true
         button.isUserInteractionEnabled = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -283,6 +291,7 @@ class TranslateView: UIView {
         custonKeyboard.addSubview(spaceWordButton)
         custonKeyboard.addSubview(spaceLetterButton)
         custonKeyboard.addSubview(returnButton)
+        custonKeyboard.addSubview(backSpaceButton)
         
     }
     
@@ -372,9 +381,16 @@ class TranslateView: UIView {
 //            dotButton.bottomAnchor.constraint(equalTo: spaceLetterButton.topAnchor, constant: -16).isActive = true
             
             //hyButton
-            hyButton.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -8).isActive = true
+//            hyButton.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -8).isActive = true
             hyButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//            hyButton.bottomAnchor.constraint(equalTo: spaceLetterButton.topAnchor, constant: -16).isActive = true
+//
+            //backSpaceButton
+            backSpaceButton.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -8).isActive = true
+            backSpaceButton.leadingAnchor.constraint(equalTo: hyButton.trailingAnchor, constant: 8).isActive = true
+            backSpaceButton.widthAnchor.constraint(equalTo: superview.widthAnchor, multiplier: 0.15).isActive = true
+            backSpaceButton.bottomAnchor.constraint(equalTo: returnButton.topAnchor, constant: -32).isActive = true
+            backSpaceButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            
             
         }
     }
@@ -389,6 +405,7 @@ class TranslateView: UIView {
         self.applyShadowAndCorner(view: self.returnButton, width: CGFloat(0), height: CGFloat(2), opacity: 1.0, radius: 0.0, corner: CGFloat(10), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.25))
         self.applyShadowAndCorner(view: self.dotButton, width: CGFloat(0), height: CGFloat(2), opacity: 1.0, radius: 0.0, corner: CGFloat(10), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.25))
         self.applyShadowAndCorner(view: self.hyButton, width: CGFloat(0), height: CGFloat(2), opacity: 1.0, radius: 0.0, corner: CGFloat(10), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.25))
+        self.applyShadowAndCorner(view: self.backSpaceButton, width: CGFloat(0), height: CGFloat(2), opacity: 1.0, radius: 0.0, corner: CGFloat(10), color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.25))
     }
     private func applyShadow(view: UIView, width: CGFloat, height: CGFloat, opacity: Float = 0.3, radius: CGFloat = 3.0) {
         
