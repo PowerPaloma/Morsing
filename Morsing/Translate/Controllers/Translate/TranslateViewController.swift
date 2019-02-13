@@ -102,18 +102,18 @@ class TranslateViewController: UIViewController {
         if result.succes{
             if let character = result.character{
                 translateView.responseTextView.text += character
-                sequence.removeAll()
             }
         }else{
             showAlert(title: "Character not identified!", menssage: nil, dismissTime: UInt64(3))
-            translateView.inputTextView.text = String(translateView.inputTextView.text.dropLast(sequence.count - 1))
-         
+            translateView.inputTextView.text = String(translateView.inputTextView.text.dropLast(sequence.count+1))
         }
+        sequence.removeAll()
     }
     
     @objc private func spaceWord(){
         translateView.inputTextView.text = translateView.inputTextView.text + "/"
         translateView.responseTextView.text += " "
+        sequence.removeAll()
     }
     
     @objc private func dot(){
@@ -135,7 +135,11 @@ class TranslateViewController: UIViewController {
     }
     
     @objc private func backspace(){
-        translateView.inputTextView.text = String(translateView.inputTextView.text.dropLast())
+        let droped = String(translateView.inputTextView.text.dropLast())
+        if droped == "." || droped == "-"{
+            sequence.removeLast()
+        }
+        translateView.inputTextView.text = droped
     }
     
     @objc private func chageArrow(){
