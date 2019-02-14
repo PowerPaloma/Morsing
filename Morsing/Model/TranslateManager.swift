@@ -40,7 +40,29 @@ class TranslateManager: NSObject {
         return (true, morseResult, nil)
     }
     
-    func translate(morseToText morse: [Int]) -> (succes: Bool, character: String?){
+    func translate(morseToText morse: [Int]) -> (succes: Bool, characters: String?){
+        let splitedWord = morse.split(separator: 3)
+        var characters = ""
+        for letters in Array(splitedWord){
+            let splitedLetters = Array(letters.split(separator: 2))
+            for letter in splitedLetters{
+                let result = morseToText(morse: Array(letter))
+                if result.succes {
+                    if let char = result.characters{
+                        characters += char
+                    }else{
+                        return (false, nil)
+                    }
+                }else{
+                    return (false, nil)
+                }
+            }
+            characters += " "
+        }
+        return (true, characters)
+    }
+    
+    private func morseToText(morse: [Int]) -> (succes: Bool, characters: String?){
         let itens: [Item] = TranslateManager.shared.characters.filter { (item) -> Bool in
             return morse == item.morse
         }

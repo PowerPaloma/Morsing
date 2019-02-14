@@ -14,6 +14,7 @@ class TranslateViewController: UIViewController {
     public var isTranslateToMorse: Bool = false
     private var player: AVQueuePlayer?
     private var sequence: [Int] = []
+    private var actualSequence: [Int] = []
     
     fileprivate lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -100,34 +101,41 @@ class TranslateViewController: UIViewController {
         translateView.inputTextView.text = translateView.inputTextView.text + " "
         let result = TranslateManager.shared.translate(morseToText: sequence)
         if result.succes{
-            if let character = result.character{
-                translateView.responseTextView.text += character
+            if let character = result.characters{
+                translateView.responseTextView.text = character
             }
         }else{
             showAlert(title: "Character not identified!", menssage: nil, dismissTime: UInt64(3))
-            translateView.inputTextView.text = String(translateView.inputTextView.text.dropLast(sequence.count+1))
+            translateView.inputTextView.text = String(translateView.inputTextView.text.dropLast(actualSequence.count+1))
+            var splited = sequence.split(separator: 2)
+            sequence = Array(splited.removeLast())
         }
-        sequence.removeAll()
+        sequence.append(2)
+        actualSequence.removeAll()
     }
     
     @objc private func spaceWord(){
         translateView.inputTextView.text = translateView.inputTextView.text + "/"
         translateView.responseTextView.text += " "
-        sequence.removeAll()
+        sequence.append(2)
+        sequence.append(3)
+        actualSequence.removeAll()
     }
     
     @objc private func dot(){
         self.player = SoundManager.shared.soundOf(message: [0])
         player?.play()
-        translateView.inputTextView.text = translateView.inputTextView.text + "."
+        translateView.inputTextView.text += "."
+        actualSequence.append(0)
         sequence.append(0)
     }
     
     @objc private func hy(){
         self.player = SoundManager.shared.soundOf(message: [1])
         player?.play()
-        translateView.inputTextView.text = translateView.inputTextView.text + "-"
+        translateView.inputTextView.text += "-"
         sequence.append(1)
+        actualSequence.append(1)
     }
     
     @objc private func returnKeyboard(){
@@ -135,11 +143,21 @@ class TranslateViewController: UIViewController {
     }
     
     @objc private func backspace(){
-        let droped = String(translateView.inputTextView.text.dropLast())
-        if droped == "." || droped == "-"{
+        if actualSequence.isEmpty{
+            if sequence.last == 2 || sequence.last == 3 {
+                let result = TranslateManager.shared.translate(morseToText: sequence)
+                if result.succes{
+                    if let character = result.characters{
+                        translateView.responseTextView.text = character
+                    }
+                }
+            }
+            sequence.removeLast()
+        }else{
+            actualSequence.removeLast()
             sequence.removeLast()
         }
-        translateView.inputTextView.text = droped
+        translateView.inputTextView.text = String(translateView.inputTextView.text.dropLast())
     }
     
     @objc private func chageArrow(){
