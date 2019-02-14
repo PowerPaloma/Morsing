@@ -117,7 +117,6 @@ class TranslateViewController: UIViewController {
     @objc private func spaceWord(){
         translateView.inputTextView.text = translateView.inputTextView.text + "/"
         translateView.responseTextView.text += " "
-        sequence.append(2)
         sequence.append(3)
         actualSequence.removeAll()
     }
