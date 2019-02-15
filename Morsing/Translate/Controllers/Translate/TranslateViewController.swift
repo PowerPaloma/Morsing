@@ -211,7 +211,6 @@ extension TranslateViewController: UITextViewDelegate{
             textView.text = nil
             textView.textColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
         }
-        translateView.responseTextView.text = ""
     }
     
     func textViewDidChange(_ textView: UITextView) {
