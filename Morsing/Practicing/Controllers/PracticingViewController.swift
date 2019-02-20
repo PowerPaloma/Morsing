@@ -232,9 +232,9 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
              soundButton.topAnchor.constraint(equalTo: custonNaviBar.bottomAnchor, constant: 20).isActive = true
             soundButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
             soundButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+            //constraints settingButton
         }
         //constraints backButton
-        
         backButton.leadingAnchor.constraint(equalTo: soundButton.leadingAnchor, constant: 8).isActive = true
         backButton.centerYAnchor.constraint(equalTo: custonToolBar.centerYAnchor).isActive = true
         //constraints nextButton
@@ -252,13 +252,13 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             codeCollectionView.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
             codeCollectionView.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
             codeCollectionView.bottomAnchor.constraint(equalTo: tapView.topAnchor, constant: -10).isActive = true
-            codeCollectionView.topAnchor.constraint(equalTo: characterLabel.bottomAnchor, constant: 10).isActive = true
+            codeCollectionView.topAnchor.constraint(equalTo: characterLabel.bottomAnchor, constant: 12).isActive = true
             codeCollectionView.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07).isActive = true
         }
         //constraints in characterLabel
         if let superview = characterLabel.superview{
             characterLabel.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
-            characterLabel.topAnchor.constraint(equalTo: custonNaviBar.bottomAnchor, constant: 16).isActive = true
+            characterLabel.topAnchor.constraint(equalTo: soundButton.bottomAnchor, constant: 4).isActive = true
         }
     }
     
@@ -274,6 +274,10 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func doneAction(){
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func settingAction(){
+        
     }
     
     @objc func nextAction(){
