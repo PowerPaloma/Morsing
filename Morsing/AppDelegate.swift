@@ -30,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if !isDataSetup{
                 setupCoreData()
             }
+            let configUser = UserDefaults.standard.bool(forKey: "setupConfigUser")
+            if !configUser{
+                setupConfigUser()
+            }
             
         }else{
             let onboardingViewController = OnboardingViewController()
@@ -66,9 +70,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CoreDataManager.shared.saveContext()
     }
     
-    // MARK: - CoreData Setup
+    // MARK: - Setups
+    private func setupConfigUser(){
+         UserDefaults.standard.set(true, forKey: "isDataSetup")
+        SettingManager.setSound(true)
+        SettingManager.setVibrating(true)
+    }
     
-    func setupCoreData(){
+    private func setupCoreData(){
         //setting userDefaults
         UserDefaults.standard.set(true, forKey: "isDataSetup")
         //setting CoreData

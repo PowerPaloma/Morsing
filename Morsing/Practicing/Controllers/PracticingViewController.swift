@@ -341,12 +341,17 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         let item = data[indexItem]
         let aux = isTap ? 0 : 1
         guard let morse = item.getMorse(isLetter: isLetter) else {return}
+        let isSound = UserDefaults.standard.bool(forKey: "isSound")
+        let isVibrating = UserDefaults.standard.bool(forKey: "isVibrating")
         if(!done && morse[currentIndex] == aux){
-            self.player = SoundManager.shared.soundOf(message: isTap ? [0]: [1])
-            player?.play()
-            UIImpactFeedbackGenerator().impactOccurred()
+            if isSound{
+                self.player = SoundManager.shared.soundOf(message: isTap ? [0]: [1])
+                player?.play()
+            }
+            if isVibrating {
+                UIImpactFeedbackGenerator().impactOccurred()
+            }
             let cell = codeCollectionView.cellForItem(at: IndexPath.init(row: currentIndex, section: 0)) as! CodeCollectionViewCell
-            
             UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
                 cell.codeImage.image = isTap ? UIImage.init(named: "dotColorful") : UIImage.init(named: "hyColorful")
             }, completion: nil)
@@ -359,8 +364,9 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             self.currentIndex += 1
             
         }else{
-           UINotificationFeedbackGenerator().notificationOccurred(.error)
-            
+            if isVibrating {
+                UINotificationFeedbackGenerator().notificationOccurred(.error)
+            }
         }
         if (currentIndex == morse.count - 1){
             self.resetButton.isHighlighted = true

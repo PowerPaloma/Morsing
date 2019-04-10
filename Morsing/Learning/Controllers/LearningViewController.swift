@@ -86,7 +86,8 @@ class LearningViewController: UIViewController {
     }
     
     @objc func settingAction(){
-        
+        let settingVC = SettingViewController()
+        navigationController?.pushViewController(settingVC, animated: true)
     }
     
     
