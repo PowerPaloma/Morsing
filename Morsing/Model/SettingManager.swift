@@ -12,7 +12,7 @@ class SettingManager: NSObject {
 
     
     static func setVibrating(_ vibration: Bool){
-        UserDefaults.standard.set(vibration, forKey: "vibration")
+        UserDefaults.standard.set(vibration, forKey: "isVibrating")
     }
     static func getVibration() -> Bool {
         return UserDefaults.standard.bool(forKey: "isVibrating")

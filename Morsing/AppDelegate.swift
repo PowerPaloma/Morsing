@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Setups
     private func setupConfigUser(){
-         UserDefaults.standard.set(true, forKey: "isDataSetup")
+         UserDefaults.standard.set(true, forKey: "setupConfigUser")
         SettingManager.setSound(true)
         SettingManager.setVibrating(true)
     }
