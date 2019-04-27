@@ -20,6 +20,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         let item = settingOptions[indexPath.row]
         cell.textLabel?.text = item
         let switchAccessory = UISwitch()
+        switchAccessory.tag = indexPath.row
+        switchAccessory.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
         switch item {
         case "Vibrations":
             switchAccessory.isOn = SettingManager.getVibration()
@@ -35,24 +37,23 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath){
-        if let cell = tableView.cellForRow(at: indexPath) {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    //switch Changed
+    @objc private func switchChanged(sender: UISwitch) {
+        if let cell = tableView.cellForRow(at: IndexPath(row: sender.tag, section: 0)) {
             guard let text = cell.textLabel?.text else {return}
-            if let switchAcces = cell.accessoryView as? UISwitch {
-                switchAcces.isOn = !switchAcces.isOn
+                sender.isOn = !sender.isOn
                 switch text {
                 case "Vibrations":
-                    SettingManager.setVibrating(!switchAcces.isOn)
+                    SettingManager.setVibrating(sender.isOn)
                 case "Sound":
-                    SettingManager.setSound(!switchAcces.isOn)
+                    SettingManager.setSound(sender.isOn)
                 default:
                     break
                 }
-            }
         }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
     }
 }
