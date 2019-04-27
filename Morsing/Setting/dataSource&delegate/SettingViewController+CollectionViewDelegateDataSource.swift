@@ -30,6 +30,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             break
         }
+        cell.selectionStyle = .none
         cell.accessoryView =  switchAccessory
         return cell
     }
@@ -54,5 +55,4 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    
 }
