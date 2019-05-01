@@ -15,6 +15,8 @@ class TranslateViewController: UIViewController {
     private var player: AVQueuePlayer?
     private var sequence: [Int] = []
     private var actualSequence: [Int] = []
+    private var isSound = false
+    private var isVibrating = false
     
     fileprivate lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -94,6 +96,8 @@ class TranslateViewController: UIViewController {
     fileprivate func addViews(){
         view.addSubview(scrollView)
         scrollView.addSubview(translateView)
+        isSound = UserDefaults.standard.bool(forKey: "isSound")
+        isVibrating = UserDefaults.standard.bool(forKey: "isVibrating")
         
         
     }
@@ -161,16 +165,20 @@ class TranslateViewController: UIViewController {
     }
     
     @objc private func dot(){
-        self.player = SoundManager.shared.soundOf(message: [0])
-        player?.play()
+        if isSound {
+            self.player = SoundManager.shared.soundOf(message: [0])
+            player?.play()
+        }
         translateView.inputTextView.text += "."
         actualSequence.append(0)
         sequence.append(0)
     }
     
     @objc private func hy(){
-        self.player = SoundManager.shared.soundOf(message: [1])
-        player?.play()
+        if isSound {
+            self.player = SoundManager.shared.soundOf(message: [1])
+            player?.play()
+        }
         translateView.inputTextView.text += "-"
         sequence.append(1)
         actualSequence.append(1)

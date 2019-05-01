@@ -19,18 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .backgoundGray
-        
+        //setup coredata
+        let isDataSetup = UserDefaults.standard.bool(forKey: "isDataSetup")
+        if !isDataSetup{
+            setupCoreData()
+        }
+        //setup configs
+        let configUser = UserDefaults.standard.bool(forKey: "setupConfigUser")
+        if !configUser{
+            setupConfigUser()
+        }
+        //checking if launched before
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore  {
-
+        if launchedBefore {
             let tabBarController = UITabBarController()
             tabBarController.setup()
             window?.rootViewController = tabBarController
-            let isDataSetup = UserDefaults.standard.bool(forKey: "isDataSetup")
-            if !isDataSetup{
-                setupCoreData()
-            }
-            
         }else{
             let onboardingViewController = OnboardingViewController()
             window?.rootViewController = onboardingViewController
@@ -66,9 +70,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CoreDataManager.shared.saveContext()
     }
     
-    // MARK: - CoreData Setup
+    // MARK: - Setups
+    private func setupConfigUser(){
+         UserDefaults.standard.set(true, forKey: "setupConfigUser")
+        SettingManager.setSound(true)
+        SettingManager.setVibrating(true)
+    }
     
-    func setupCoreData(){
+    private func setupCoreData(){
         //setting userDefaults
         UserDefaults.standard.set(true, forKey: "isDataSetup")
         //setting CoreData

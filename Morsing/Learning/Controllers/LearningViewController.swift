@@ -22,9 +22,17 @@ class LearningViewController: UIViewController {
         return tap
     }()
     
+    fileprivate lazy var setting: UIBarButtonItem = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "settings"), for: .normal)
+        button.addTarget(self, action: #selector(settingAction), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setGradientToView(opition: .Default)
+        navigationItem.setRightBarButton(setting, animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
         setUp()
@@ -63,6 +71,8 @@ class LearningViewController: UIViewController {
         return false
     }
     
+    // MARK: - Actions
+    
     @objc fileprivate func tapAction(_ sender: UITapGestureRecognizer){
         let tapLocation = sender.location(in: boxView)
         let charactersVC = CharactersViewController()
@@ -73,6 +83,11 @@ class LearningViewController: UIViewController {
             charactersVC.isLetter = false
         }
         navigationController?.pushViewController(charactersVC, animated: true)
+    }
+    
+    @objc func settingAction(){
+        let settingVC = SettingViewController()
+        navigationController?.pushViewController(settingVC, animated: true)
     }
     
     

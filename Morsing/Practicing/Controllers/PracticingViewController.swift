@@ -232,9 +232,9 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
              soundButton.topAnchor.constraint(equalTo: custonNaviBar.bottomAnchor, constant: 20).isActive = true
             soundButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
             soundButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+            //constraints settingButton
         }
         //constraints backButton
-        
         backButton.leadingAnchor.constraint(equalTo: soundButton.leadingAnchor, constant: 8).isActive = true
         backButton.centerYAnchor.constraint(equalTo: custonToolBar.centerYAnchor).isActive = true
         //constraints nextButton
@@ -252,13 +252,13 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             codeCollectionView.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
             codeCollectionView.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
             codeCollectionView.bottomAnchor.constraint(equalTo: tapView.topAnchor, constant: -10).isActive = true
-            codeCollectionView.topAnchor.constraint(equalTo: characterLabel.bottomAnchor, constant: 10).isActive = true
+            codeCollectionView.topAnchor.constraint(equalTo: characterLabel.bottomAnchor, constant: 12).isActive = true
             codeCollectionView.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07).isActive = true
         }
         //constraints in characterLabel
         if let superview = characterLabel.superview{
             characterLabel.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
-            characterLabel.topAnchor.constraint(equalTo: custonNaviBar.bottomAnchor, constant: 16).isActive = true
+            characterLabel.topAnchor.constraint(equalTo: soundButton.bottomAnchor, constant: 4).isActive = true
         }
     }
     
@@ -274,6 +274,10 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func doneAction(){
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func settingAction(){
+        
     }
     
     @objc func nextAction(){
@@ -337,12 +341,17 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         let item = data[indexItem]
         let aux = isTap ? 0 : 1
         guard let morse = item.getMorse(isLetter: isLetter) else {return}
+        let isSound = UserDefaults.standard.bool(forKey: "isSound")
+        let isVibrating = UserDefaults.standard.bool(forKey: "isVibrating")
         if(!done && morse[currentIndex] == aux){
-            self.player = SoundManager.shared.soundOf(message: isTap ? [0]: [1])
-            player?.play()
-            UIImpactFeedbackGenerator().impactOccurred()
+            if isSound{
+                self.player = SoundManager.shared.soundOf(message: isTap ? [0]: [1])
+                player?.play()
+            }
+            if isVibrating {
+                UIImpactFeedbackGenerator().impactOccurred()
+            }
             let cell = codeCollectionView.cellForItem(at: IndexPath.init(row: currentIndex, section: 0)) as! CodeCollectionViewCell
-            
             UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
                 cell.codeImage.image = isTap ? UIImage.init(named: "dotColorful") : UIImage.init(named: "hyColorful")
             }, completion: nil)
@@ -355,8 +364,9 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             self.currentIndex += 1
             
         }else{
-           UINotificationFeedbackGenerator().notificationOccurred(.error)
-            
+            if isVibrating {
+                UINotificationFeedbackGenerator().notificationOccurred(.error)
+            }
         }
         if (currentIndex == morse.count - 1){
             self.resetButton.isHighlighted = true
