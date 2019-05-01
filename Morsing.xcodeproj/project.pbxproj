@@ -39,8 +39,6 @@
 		D7405211220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7405210220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift */; };
 		D7405213220A4F6F00A5B8AD /* UITabBarController+Morsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7405212220A4F6F00A5B8AD /* UITabBarController+Morsing.swift */; };
 		D79F1AF4226A59D9005D27EF /* UIView+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F1AF3226A59D9005D27EF /* UIView+CGPoint.swift */; };
-		D79F1AF9226A82A8005D27EF /* DimmingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F1AF8226A82A8005D27EF /* DimmingView.swift */; };
-		D7A59C4122230CC100618457 /* CutOutShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A59C4022230CC100618457 /* CutOutShape.swift */; };
 		D7C4831D21ED4EA300D54EEE /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C4831C21ED4EA300D54EEE /* UIViewController+Alert.swift */; };
 		D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */; };
 		D7CA6D0C21E7F86800376E65 /* UIView+GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */; };
@@ -86,8 +84,6 @@
 		D7405210220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardCollectionViewDelegate&DataSource.swift"; sourceTree = "<group>"; };
 		D7405212220A4F6F00A5B8AD /* UITabBarController+Morsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Morsing.swift"; sourceTree = "<group>"; };
 		D79F1AF3226A59D9005D27EF /* UIView+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CGPoint.swift"; sourceTree = "<group>"; };
-		D79F1AF8226A82A8005D27EF /* DimmingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingView.swift; sourceTree = "<group>"; };
-		D7A59C4022230CC100618457 /* CutOutShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutOutShape.swift; sourceTree = "<group>"; };
 		D7C4831C21ED4EA300D54EEE /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+GradientLayer.swift"; sourceTree = "<group>"; };
@@ -315,14 +311,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		D79F1AF7226A8285005D27EF /* test */ = {
-			isa = PBXGroup;
-			children = (
-				D79F1AF8226A82A8005D27EF /* DimmingView.swift */,
-			);
-			path = test;
-			sourceTree = "<group>";
-		};
 		D7CA6D0621E7F5DC00376E65 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,7 +337,6 @@
 		D7CA6D1121E80DE200376E65 /* Translate */ = {
 			isa = PBXGroup;
 			children = (
-				D79F1AF7226A8285005D27EF /* test */,
 				D7CA6D1721E80F6E00376E65 /* Views */,
 				D7CA6D1421E80E7600376E65 /* Controllers */,
 			);
@@ -370,7 +357,6 @@
 			children = (
 				D7CA6D1521E80F6800376E65 /* TranslateMenuView.swift */,
 				D7CA6D1C21E91E9300376E65 /* TranslateView.swift */,
-				D7A59C4022230CC100618457 /* CutOutShape.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -469,8 +455,6 @@
 				2FFBC33F21E3EE0E008978CF /* ViewController.swift in Sources */,
 				2FA4584E21E950B600C2FCCB /* Data.swift in Sources */,
 				2FFBC34521E3EE0E008978CF /* Morsing.xcdatamodeld in Sources */,
-				D79F1AF9226A82A8005D27EF /* DimmingView.swift in Sources */,
-				D7A59C4122230CC100618457 /* CutOutShape.swift in Sources */,
 				2FA4586221EA548700C2FCCB /* CoreDataManager.swift in Sources */,
 				2FA4584721E94F9D00C2FCCB /* CharactersCollectionViewCell.swift in Sources */,
 				D79F1AF4226A59D9005D27EF /* UIView+CGPoint.swift in Sources */,
