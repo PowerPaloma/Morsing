@@ -50,7 +50,7 @@ class TranslateViewController: UIViewController {
         let object = translateView.arrowImage
         let location = object.getPosition(inView: self.view)
         let roundedPath = UIBezierPath(ovalIn: CGRect(x: location.x, y: location.y, width: 65, height: 65))
-        
+
         let view = DimmingView(frame: self.view.frame, opacity: 0.7, visiblePath: roundedPath)
         view.nextButton.addTarget(self, action: #selector(goNext(_:)), for: UIControl.Event.touchUpInside)
         return view
@@ -66,7 +66,7 @@ class TranslateViewController: UIViewController {
         setUp()
     }
     override func viewDidAppear(_ animated: Bool) {
-        tutorial()
+        //tutorial()
 
     }
     override func viewDidLayoutSubviews() {
@@ -105,7 +105,7 @@ class TranslateViewController: UIViewController {
     fileprivate func tutorial(){
         view.addSubview(dimmingDynamicView)
         dimmingDynamicView.fillSuperview()
-        
+
     }
     
     fileprivate func setUPConstraints(){
@@ -234,7 +234,7 @@ class TranslateViewController: UIViewController {
     }
     
     @objc func goNext(_ sender: UIButton){
-        //tutorialView.moveTo(element: translateView.copyButton, paternView: self.view)
+//        tutorialView.moveTo(element: translateView.copyButton, paternView: self.view)
 //        self.dimmingDynamicView.visiblePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(location.x-50, location.y-50,
 //            100, 100)];
         let object = translateView.copyButton
@@ -247,11 +247,11 @@ class TranslateViewController: UIViewController {
 extension TranslateViewController: UITextViewDelegate{
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        return isTranslateToMorse
+        return true
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return false
+        return !isTranslateToMorse
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
