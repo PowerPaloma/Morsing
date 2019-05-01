@@ -25,11 +25,35 @@ class TranslateViewController: UIViewController {
         scroll.keyboardDismissMode = .onDrag
         return scroll
     }()
+    
     fileprivate lazy var translateView: TranslateView = {
         let view = TranslateView()
         view.backgroundColor = .clear
         return view
     }()
+    
+//    fileprivate lazy var tutorialView: CutOutShape = {
+//
+//        let object = translateView.arrowImage
+//
+//        let view = CutOutShape(frame: self.view.frame,
+//                               fristObjectLocation: object.getPosition(inView: self.view),
+//                               withRadius: object.frame.width)
+//        view.nextButton.addTarget(self, action: #selector(goNext(_:)), for: UIControl.Event.touchUpInside)
+//
+//        return view
+//    }()
+    
+    fileprivate lazy var dimmingDynamicView: DimmingView = {
+        let object = translateView.arrowImage
+        let location = object.getPosition(inView: self.view)
+        let roundedPath = UIBezierPath(ovalIn: CGRect(x: location.x, y: location.y, width: 65, height: 65))
+        
+        let view = DimmingView(frame: self.view.frame, opacity: 0.7, visiblePath: roundedPath)
+        view.nextButton.addTarget(self, action: #selector(goNext(_:)), for: UIControl.Event.touchUpInside)
+        return view
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +63,15 @@ class TranslateViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setUp()
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        tutorial()
+
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        translateView.layoutSubviews()
+
+    }
     fileprivate func setUp(){
         tabBarSetup()
         addViews()
@@ -62,6 +94,13 @@ class TranslateViewController: UIViewController {
     fileprivate func addViews(){
         view.addSubview(scrollView)
         scrollView.addSubview(translateView)
+        
+        
+    }
+    
+    fileprivate func tutorial(){
+        view.addSubview(dimmingDynamicView)
+        dimmingDynamicView.fillSuperview()
         
     }
     
@@ -184,6 +223,15 @@ class TranslateViewController: UIViewController {
     @objc private func copyAction(){
        UIPasteboard.general.string = translateView.responseTextView.text
         self.showAlert(title: "Morse code was copy", menssage: nil, dismissTime: 2)
+    }
+    
+    @objc func goNext(_ sender: UIButton){
+        //tutorialView.moveTo(element: translateView.copyButton, paternView: self.view)
+//        self.dimmingDynamicView.visiblePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(location.x-50, location.y-50,
+//            100, 100)];
+        let object = translateView.copyButton
+        let position = object.getPosition(inView: self.view)
+        self.dimmingDynamicView.visiblePath = UIBezierPath(rect: CGRect(x: position.x, y: position.y, width: 65, height: 65))
     }
     
 

@@ -24,7 +24,7 @@ class TranslateView: UIView {
         return view
     }()
     
-    fileprivate lazy var fristLabel: UILabel = {
+    private(set) lazy var fristLabel: UILabel = {
         let label = UILabel()
         label.text = "Text"
         label.numberOfLines = 1
@@ -33,7 +33,7 @@ class TranslateView: UIView {
         return label
     }()
     
-    fileprivate lazy var secondLabel: UILabel = {
+    private(set) lazy var secondLabel: UILabel = {
         let label = UILabel()
         label.text = "Morse"
         label.numberOfLines = 1
@@ -42,7 +42,7 @@ class TranslateView: UIView {
         return label
     }()
     
-    fileprivate lazy var arrowImage: UIImageView = {
+    fileprivate(set) lazy var arrowImage: UIImageView = {
         let imageView = UIImageView()
         let image = UIImage(named: "singleArrow")
         imageView.image = image
@@ -50,7 +50,7 @@ class TranslateView: UIView {
         return imageView
     }()
     
-    fileprivate lazy var stackBackgorudView: UIView = {
+    fileprivate(set) lazy var stackBackgorudView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 8
@@ -136,7 +136,7 @@ class TranslateView: UIView {
         return button
     }()
     
-    fileprivate lazy var labelsStackView: UIStackView = {
+    fileprivate(set) lazy var labelsStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.distribution = .equalCentering
@@ -176,7 +176,7 @@ class TranslateView: UIView {
         return textView
     }()
     
-    fileprivate lazy var buttonsStackView: UIStackView = {
+    fileprivate(set) lazy var buttonsStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.distribution = .fillEqually
