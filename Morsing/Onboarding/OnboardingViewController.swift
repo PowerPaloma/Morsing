@@ -26,7 +26,7 @@ class OnboardingViewController: UIViewController {
         let pageControl = UIPageControl(frame: .zero)
         pageControl.numberOfPages = 3
         pageControl.currentPage = 0
-        pageControl.currentPageIndicatorTintColor = .black
+        pageControl.currentPageIndicatorTintColor = .purple
         pageControl.pageIndicatorTintColor = .gray
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         return pageControl
@@ -68,7 +68,7 @@ class OnboardingViewController: UIViewController {
     lazy var getStarted: UIButton = {
         let button = UIButton()
         button.setTitle("Get Started", for: UIControl.State.normal)
-        button.setTitleColor(.red, for: UIControl.State.normal)
+        button.setTitleColor(.purple, for: UIControl.State.normal)
         button.addTarget(self, action: #selector(getStart), for: UIControl.Event.touchUpInside)
         button.setTitleColor(UIColor(red:0.12, green:0.27, blue:0.24, alpha:1.0), for: UIControl.State.highlighted)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
@@ -78,17 +78,17 @@ class OnboardingViewController: UIViewController {
     
     lazy var content : [Onboard] = {
         var array = [Onboard]()
-        let material: Onboard = Onboard(title: "De tudo um pouco 💫",
-                                        description: "Tenha acesso a diversas matérias de diversos conteúdos de forma prática e fácil.",
-                                        assetName: "material",
+        let material: Onboard = Onboard(title: "Learn more about morse",
+                                        description: "Don't be lost when you need! Learn basic words and numbers in Morse.",
+                                        assetName: "Artboard",
                                         assetKind: .image)
-        let Progresso: Onboard = Onboard(title: "Acompanhe o seu progresso 🚀",
-                                         description: "Veja como você está se saindo nas suas matérias e obtenha várias recompensas.",
-                                         assetName: "progresso",
+        let Progresso: Onboard = Onboard(title: "Translate words anytime, anywhere",
+                                         description: "Here we have a translator to help you learning morse and yours featue like code to text and text to code.",
+                                         assetName: "Artboard2",
                                          assetKind: .image)
-        let inicio: Onboard = Onboard(title: "Eai, bora comreça? 🎉",
-                                      description: "Venha ver como você é capaz de aprender de verdade a matéria que você tanto gosta.",
-                                      assetName: "inicio",
+        let inicio: Onboard = Onboard(title: "It's time to improve yourself 💪",
+                                      description: "Your frist step begins now, let's improve your habilits and understand morse .",
+                                      assetName: "Artboard3",
                                       assetKind: .image)
         array.append(material)
         array.append(Progresso)
