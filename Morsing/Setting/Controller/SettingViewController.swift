@@ -62,7 +62,7 @@ class SettingViewController: UIViewController {
 //            }
 //        }
 //    }
-    fileprivate func navigationBarSetup(){
+    fileprivate func navigationBarSetup(){                  
         navigationItem.title = "Settings"
         navigationController?.navigationBar.tintColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
         navigationController?.navigationBar.barTintColor = UIColor.white
