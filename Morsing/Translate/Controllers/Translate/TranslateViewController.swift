@@ -65,10 +65,7 @@ class TranslateViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setUp()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        //tutorial()
-
-    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         translateView.layoutSubviews()
@@ -127,7 +124,6 @@ class TranslateViewController: UIViewController {
     fileprivate func navigationBarSetup(name: String) {
         
         navigationItem.title = name
-        navigationController?.navigationBar.tintColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
         navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.isOpaque = false

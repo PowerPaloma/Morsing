@@ -24,7 +24,8 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     
     fileprivate lazy var imageCell: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
+        imageView.backgroundColor = .clear
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -33,6 +34,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         label.text = "description"
         label.textColor = .black
         label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 18)
         label.numberOfLines = 0
         return label
     }()
@@ -40,6 +42,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .black
         label.textAlignment = .center
         return label

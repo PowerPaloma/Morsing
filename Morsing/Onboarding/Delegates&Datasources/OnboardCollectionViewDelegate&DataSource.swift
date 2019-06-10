@@ -22,6 +22,7 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
         
         cell.titleLabel.text = content[indexPath.row].title
         cell.descriptionLabel.text = content[indexPath.row].description
+        cell.setImage(name: content[indexPath.row].assetName)
         
         return cell
     }

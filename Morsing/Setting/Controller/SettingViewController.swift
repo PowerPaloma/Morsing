@@ -28,6 +28,7 @@ class SettingViewController: UIViewController {
         view.backgroundColor = .white
         settingConstraints()
         settingTable()
+        navigationBarSetup()
     }
     
     private func settingConstraints(){
@@ -61,6 +62,14 @@ class SettingViewController: UIViewController {
 //            }
 //        }
 //    }
+    fileprivate func navigationBarSetup(){                  
+        navigationItem.title = "Settings"
+        navigationController?.navigationBar.tintColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
+        navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.isOpaque = false
+        
+    }
 
 
 }

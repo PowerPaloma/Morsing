@@ -37,6 +37,8 @@ class LearningViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setUp()
         tap.addTarget(self, action: #selector(tapAction))
+        tabBarSetup()
+        navigationBarSetup()
     }
     
     // MARK: - Setups
@@ -90,5 +92,16 @@ class LearningViewController: UIViewController {
         navigationController?.pushViewController(settingVC, animated: true)
     }
     
+    fileprivate func tabBarSetup(){
+        tabBarController?.tabBar.barTintColor = nil
+        tabBarController?.tabBar.isTranslucent = true
+        tabBarController?.tabBar.isOpaque = true
+    }
     
+    fileprivate func navigationBarSetup(){
+        navigationController?.navigationBar.barTintColor = nil
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.isOpaque = true
+        
+    }
 }

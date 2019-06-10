@@ -21,8 +21,12 @@ extension UITabBarController {
         let translateItem = UITabBarItem(title: "Translate", image: #imageLiteral(resourceName: "translate"), tag: 1)
         let learningTabNavControler = UINavigationController.init(rootViewController: learningViewController)
         let translateTabNavControler = UINavigationController.init(rootViewController: translateViewController)
+        learningTabNavControler.navigationBar.tintColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
+        translateTabNavControler.navigationBar.tintColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
         learningTabNavControler.tabBarItem = learningItem
         translateTabNavControler.tabBarItem = translateItem
         self.viewControllers = [learningTabNavControler, translateTabNavControler]
+        self.tabBar.tintColor = UIColor(red:0.20, green:0.30, blue:0.36, alpha:1.0)
+
     }
 }
