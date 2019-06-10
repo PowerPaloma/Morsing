@@ -185,7 +185,7 @@ class TranslateViewController: UIViewController {
     }
     
     @objc private func backspace(){
-        if actualSequence.isEmpty{
+        if actualSequence.isEmpty {
             if sequence.last == 2 || sequence.last == 3 {
                 let result = TranslateManager.shared.translate(morseToText: sequence)
                 if result.succes{
@@ -194,10 +194,14 @@ class TranslateViewController: UIViewController {
                     }
                 }
             }
-            sequence.removeLast()
+            if !sequence.isEmpty {
+                sequence.removeLast()
+            }
         }else{
-            actualSequence.removeLast()
-            sequence.removeLast()
+            if !sequence.isEmpty && !actualSequence.isEmpty {
+                actualSequence.removeLast()
+                sequence.removeLast()
+            }
         }
         translateView.inputTextView.text = String(translateView.inputTextView.text.dropLast())
     }
