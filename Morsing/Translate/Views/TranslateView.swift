@@ -475,5 +475,4 @@ class TranslateView: UIView {
         sharedButton.setGradientToView(opition: .Default)
 
     }
-
 }

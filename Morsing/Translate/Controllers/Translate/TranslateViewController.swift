@@ -214,15 +214,21 @@ class TranslateViewController: UIViewController {
         }
     }
     @objc private func soundAction(){
-        let morsePartial = translateView.responseTextView.text.replacingOccurrences(of: "-", with: "1")
-        let morse = morsePartial.replacingOccurrences(of: ".", with: "0")
-        let morseArray: [Int?] = Array(morse).map { (char) -> Int? in
-            guard let num =  Int(String(char)) else {return nil}
-            return num
+        var morse = translateView.responseTextView.text.replacingOccurrences(of: "-", with: "1")
+        morse = morse.replacingOccurrences(of: ".", with: "0")
+        morse = morse.replacingOccurrences(of: "/", with: "")
+        let morseArray: [Int?] = Array(morse).map { (char) -> Int in
+            return Int(String(char))!
         }
         guard let morseSound = morseArray as? [Int] else {return}
-        self.player = SoundManager.shared.soundOf(message: morseSound)
-        self.player?.play()
+        let isSound = UserDefaults.standard.bool(forKey: "isSound")
+        if isSound {
+            self.player = SoundManager.shared.soundOf(message: morseSound)
+            player?.play()
+        } else {
+            self.showAlert(title: "Sound is Off", menssage: nil, dismissTime: 3)
+        }
+        
     }
     @objc private func copyAction(){
        UIPasteboard.general.string = translateView.responseTextView.text
