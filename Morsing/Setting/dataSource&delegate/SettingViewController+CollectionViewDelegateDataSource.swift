@@ -11,30 +11,63 @@ import UIKit
 
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingOptions.count
+        if section == 0 {
+            return settingOptions.count
+        } else if section == 1 {
+            return 1
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Settings"
+        case 1:
+            return "About"
+        default:
+            return ""
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let item = settingOptions[indexPath.row]
-        cell.textLabel?.text = item
-        let switchAccessory = UISwitch()
-        switchAccessory.tag = indexPath.row
-        switchAccessory.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
-        switch item {
-        case "Vibrations":
-            switchAccessory.isOn = SettingManager.getVibration()
-            break
-        case "Sound":
-            switchAccessory.isOn = SettingManager.getSound()
-            break
-        default:
-            break
+        if indexPath.section == 0 {
+            let item = settingOptions[indexPath.row]
+            cell.textLabel?.text = item
+            let switchAccessory = UISwitch()
+            switchAccessory.tag = indexPath.row
+            switchAccessory.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+            switch item {
+            case "Vibrations":
+                switchAccessory.isOn = SettingManager.getVibration()
+                break
+            case "Sound":
+                switchAccessory.isOn = SettingManager.getSound()
+                break
+            default:
+                break
+            }
+            cell.selectionStyle = .none
+            cell.accessoryView =  switchAccessory
+            return cell
+        } else {
+            cell.textLabel?.text = "Start Tutorial"
+            return cell
         }
-        cell.selectionStyle = .none
-        cell.accessoryView =  switchAccessory
-        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            present(OnboardingViewController(), animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

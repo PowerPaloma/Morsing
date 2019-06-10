@@ -46,16 +46,16 @@ class TranslateViewController: UIViewController {
 //        return view
 //    }()
     
-    fileprivate lazy var dimmingDynamicView: DimmingView = {
-        let object = translateView.arrowImage
-        let location = object.getPosition(inView: self.view)
-        let roundedPath = UIBezierPath(ovalIn: CGRect(x: location.x, y: location.y, width: 65, height: 65))
-
-        let view = DimmingView(frame: self.view.frame, opacity: 0.7, visiblePath: roundedPath)
-        view.nextButton.addTarget(self, action: #selector(goNext(_:)), for: UIControl.Event.touchUpInside)
-        return view
-    }()
-    
+//    fileprivate lazy var dimmingDynamicView: DimmingView = {
+//        let object = translateView.arrowImage
+//        let location = object.getPosition(inView: self.view)
+//        let roundedPath = UIBezierPath(ovalIn: CGRect(x: location.x, y: location.y, width: 65, height: 65))
+//
+//        let view = DimmingView(frame: self.view.frame, opacity: 0.7, visiblePath: roundedPath)
+//        view.nextButton.addTarget(self, action: #selector(goNext(_:)), for: UIControl.Event.touchUpInside)
+//        return view
+//    }()
+//
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,8 +100,8 @@ class TranslateViewController: UIViewController {
     }
     
     fileprivate func tutorial(){
-        view.addSubview(dimmingDynamicView)
-        dimmingDynamicView.fillSuperview()
+        //view.addSubview(dimmingDynamicView)
+        //dimmingDynamicView.fillSuperview()
 
     }
     
@@ -235,7 +235,7 @@ class TranslateViewController: UIViewController {
 //            100, 100)];
         let object = translateView.copyButton
         let position = object.getPosition(inView: self.view)
-        self.dimmingDynamicView.visiblePath = UIBezierPath(rect: CGRect(x: position.x, y: position.y, width: 65, height: 65))
+        //self.dimmingDynamicView.visiblePath = UIBezierPath(rect: CGRect(x: position.x, y: position.y, width: 65, height: 65))
     }
     
 
