@@ -88,6 +88,7 @@ class TranslateViewController: UIViewController {
         translateView.returnButton.addTarget(self, action: #selector(returnKeyboard), for: .touchUpInside)
         translateView.backSpaceButton.addTarget(self, action: #selector(backspace), for: .touchUpInside)
         translateView.inputTextView.delegate = self
+        translateView.sharedButton.addTarget(self, action: #selector(shareAction), for: .touchUpInside)
     }
      
     fileprivate func addViews(){
@@ -234,9 +235,33 @@ class TranslateViewController: UIViewController {
         }
         
     }
+    
+    @objc private func shareAction(_ sender: UIButton) {
+        
+        guard let input = translateView.inputTextView.text, let output = translateView.responseTextView.text else { return }
+        var text = "Você sabia que "
+        
+        if !isTranslateToMorse {
+            text += "o texto: \n\(input) \nem código morse fica: \n\(output)"
+        } else {
+            text += "este código morse: \n\(input) \nsignifica: \n\(output)"
+        }
+        
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+//        // exclude some activity types from the list (optional)
+//        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
     @objc private func copyAction(){
        UIPasteboard.general.string = translateView.responseTextView.text
-        self.showAlert(title: "Morse code was copy", menssage: nil, dismissTime: 2)
+        self.showAlert(title: "Morse code was copy", menssage: nil, dismissTime: 3)
     }
     
     @objc func goNext(_ sender: UIButton){
@@ -287,7 +312,7 @@ extension TranslateViewController: UITextViewDelegate{
             }else{
                 guard let invalidChar = result.invalidChar else {return}
                  textView.text = textView.text.replacingOccurrences(of: "\(invalidChar)", with: "", options: .literal, range: nil)
-                self.showAlert(title: "Worng Format", menssage: " \" \(String(invalidChar)) \" is an invalid Character", dismissTime: UInt64(2.5))
+                self.showAlert(title: "Worng Format", menssage: " \" \(String(invalidChar)) \" is an invalid Character", dismissTime: UInt64(3))
 
             }
         }
