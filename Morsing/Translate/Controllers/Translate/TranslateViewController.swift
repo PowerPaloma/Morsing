@@ -238,13 +238,18 @@ class TranslateViewController: UIViewController {
     
     @objc private func shareAction(_ sender: UIButton) {
         
+        if translateView.inputTextView.text == ""{
+            self.showAlert(title: "There's nothig to share", menssage: nil, dismissTime: 3)
+            return
+        }
         guard let input = translateView.inputTextView.text, let output = translateView.responseTextView.text else { return }
-        var text = "Você sabia que "
         
+        var text = "Aprenda algo novo, aprenda código morse. \n"
+   
         if !isTranslateToMorse {
-            text += "o texto: \n\(input) \nem código morse fica: \n\(output)"
+            text += "\(input) \n em código morse é \n\(output)"
         } else {
-            text += "este código morse: \n\(input) \nsignifica: \n\(output)"
+            text += "\(output) em código morse \n\(input)"
         }
         
         // set up activity view controller
