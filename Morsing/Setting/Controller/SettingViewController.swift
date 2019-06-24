@@ -18,13 +18,14 @@ class SettingViewController: UIViewController {
         table.backgroundColor = .clear
         table.alwaysBounceVertical = true
         table.showsVerticalScrollIndicator = false
+        table.contentInsetAdjustmentBehavior = .never
         table.tableFooterView = UIView()
-        view.addSubview(table)
         return table
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(tableView)
         view.backgroundColor = .backgoundGray
         settingConstraints()
         settingTable()

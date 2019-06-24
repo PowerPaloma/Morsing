@@ -92,9 +92,9 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     lazy var doneButton: UIButton = {
         let done = UIButton()
         done.translatesAutoresizingMaskIntoConstraints = false
-        done.setTitle("Done", for: UIControl.State.normal)
-        done.setTitleColor(UIColor.getActionColor(alpha: 1.0), for: UIControl.State.normal)
-        done.setTitleColor(UIColor.getActionColor(alpha: 0.3), for: UIControl.State.highlighted)
+        done.setTitle("Exit", for: UIControl.State.normal)
+        done.setTitleColor(UIColor(red: 226/255, green: 17/255, blue: 17/255, alpha: 1.0), for: UIControl.State.normal)
+        done.setTitleColor(UIColor(red: 226/255, green: 17/255, blue: 17/255, alpha: 0.3), for: UIControl.State.highlighted)
         done.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         done.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
         return done
@@ -320,9 +320,9 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             custonNaviBar.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1).isActive = true
         }
         //constraints in doneButton
-        doneButton.trailingAnchor.constraint(equalTo: custonNaviBar.trailingAnchor, constant: -16).isActive = true
-        doneButton.leadingAnchor.constraint(greaterThanOrEqualTo: resetButton.trailingAnchor, constant: 8).isActive = true
-        doneButton.centerYAnchor.constraint(equalTo: custonNaviBar.centerYAnchor, constant: 8).isActive = true
+        resetButton.trailingAnchor.constraint(equalTo: custonNaviBar.trailingAnchor, constant: -16).isActive = true
+        resetButton.leadingAnchor.constraint(greaterThanOrEqualTo: doneButton.trailingAnchor, constant: 8).isActive = true
+        resetButton.centerYAnchor.constraint(equalTo: custonNaviBar.centerYAnchor, constant: 8).isActive = true
         //constraints in resetButton
         resetButton.leadingAnchor.constraint(equalTo: custonNaviBar.leadingAnchor, constant: 16).isActive = true
         resetButton.centerYAnchor.constraint(equalTo: doneButton.centerYAnchor).isActive = true
