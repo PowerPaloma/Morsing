@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,7 +33,10 @@
 		2FFBC34721E3EE12008978CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34621E3EE12008978CF /* Assets.xcassets */; };
 		2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBC34821E3EE12008978CF /* LaunchScreen.storyboard */; };
 		2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBC35421E3F3EB008978CF /* LearningViewController.swift */; };
+		3BC1426B5E9E3DBB674494AA /* Pods_Morsing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A1A4959F2A11312E665718 /* Pods_Morsing.framework */; };
 		D72AC6AE21EAD3A30049ADA6 /* UIColor+Morsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */; };
+		D737E5A522C15A0200BE01E5 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D737E5A422C15A0200BE01E5 /* Lottie.framework */; };
+		D737E5AF22C15EFD00BE01E5 /* done.json in Resources */ = {isa = PBXBuildFile; fileRef = D737E5AE22C15EFD00BE01E5 /* done.json */; };
 		D7405208220A3FFF00A5B8AD /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7405207220A3FFF00A5B8AD /* Onboard.swift */; };
 		D740520C220A423900A5B8AD /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740520B220A423900A5B8AD /* OnboardingCollectionViewCell.swift */; };
 		D740520E220A47ED00A5B8AD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740520D220A47ED00A5B8AD /* OnboardingViewController.swift */; };
@@ -80,6 +83,8 @@
 		2FFBC34B21E3EE12008978CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FFBC35421E3F3EB008978CF /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
 		D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Morsing.swift"; sourceTree = "<group>"; };
+		D737E5A422C15A0200BE01E5 /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D737E5AE22C15EFD00BE01E5 /* done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done.json; sourceTree = "<group>"; };
 		D7405207220A3FFF00A5B8AD /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
 		D740520B220A423900A5B8AD /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		D740520D220A47ED00A5B8AD /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +99,9 @@
 		D7CA6D1521E80F6800376E65 /* TranslateMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateMenuView.swift; sourceTree = "<group>"; };
 		D7CA6D1821E91D3400376E65 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		D7CA6D1C21E91E9300376E65 /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
+		D948094FB744A24B7AD1CDDE /* Pods-Morsing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morsing.debug.xcconfig"; path = "Target Support Files/Pods-Morsing/Pods-Morsing.debug.xcconfig"; sourceTree = "<group>"; };
+		EA249FB815A49BBE1659EECF /* Pods-Morsing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Morsing.release.xcconfig"; path = "Target Support Files/Pods-Morsing/Pods-Morsing.release.xcconfig"; sourceTree = "<group>"; };
+		F4A1A4959F2A11312E665718 /* Pods_Morsing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Morsing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D737E5A522C15A0200BE01E5 /* Lottie.framework in Frameworks */,
+				3BC1426B5E9E3DBB674494AA /* Pods_Morsing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +175,7 @@
 		2FA4584F21E950F000C2FCCB /* Recources */ = {
 			isa = PBXGroup;
 			children = (
+				D737E5AE22C15EFD00BE01E5 /* done.json */,
 				2F7C7F1A2208534F00E93AB9 /* beep_long.mp3 */,
 				2F7C7F1B2208534F00E93AB9 /* beep_short.mp3 */,
 				2FA4585021E9510F00C2FCCB /* LettersData.json */,
@@ -228,6 +239,8 @@
 			children = (
 				2FFBC33B21E3EE0E008978CF /* Morsing */,
 				2FFBC33A21E3EE0E008978CF /* Products */,
+				E998E0C13F0CFC56ADF9BD6D /* Pods */,
+				42672DFA9983C9CDD5696C18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -276,6 +289,15 @@
 				2FFBC35421E3F3EB008978CF /* LearningViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		42672DFA9983C9CDD5696C18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D737E5A422C15A0200BE01E5 /* Lottie.framework */,
+				F4A1A4959F2A11312E665718 /* Pods_Morsing.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D7405205220A3E7C00A5B8AD /* Onboarding */ = {
@@ -380,6 +402,15 @@
 			path = Translate;
 			sourceTree = "<group>";
 		};
+		E998E0C13F0CFC56ADF9BD6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D948094FB744A24B7AD1CDDE /* Pods-Morsing.debug.xcconfig */,
+				EA249FB815A49BBE1659EECF /* Pods-Morsing.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -387,9 +418,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FFBC34E21E3EE12008978CF /* Build configuration list for PBXNativeTarget "Morsing" */;
 			buildPhases = (
+				235D37045BB9D3153D88E9DB /* [CP] Check Pods Manifest.lock */,
 				2FFBC33521E3EE0E008978CF /* Sources */,
 				2FFBC33621E3EE0E008978CF /* Frameworks */,
 				2FFBC33721E3EE0E008978CF /* Resources */,
+				C8D3706D6C28A1964F4EE323 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -441,6 +474,7 @@
 				2F7C7F1C2208535000E93AB9 /* beep_long.mp3 in Resources */,
 				2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */,
 				2FA4585321E9513700C2FCCB /* NumbersData.json in Resources */,
+				D737E5AF22C15EFD00BE01E5 /* done.json in Resources */,
 				2FA4585121E9510F00C2FCCB /* LettersData.json in Resources */,
 				2FFBC34721E3EE12008978CF /* Assets.xcassets in Resources */,
 				2F7C7F1D2208535000E93AB9 /* beep_short.mp3 in Resources */,
@@ -448,6 +482,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		235D37045BB9D3153D88E9DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Morsing-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8D3706D6C28A1964F4EE323 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Morsing/Pods-Morsing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Morsing/Pods-Morsing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Morsing/Pods-Morsing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2FFBC33521E3EE0E008978CF /* Sources */ = {
@@ -559,7 +635,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -614,7 +690,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -626,10 +702,11 @@
 		};
 		2FFBC34F21E3EE12008978CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D948094FB744A24B7AD1CDDE /* Pods-Morsing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MQ922JMCL6;
+				DEVELOPMENT_TEAM = 84MA3JMGLA;
 				INFOPLIST_FILE = Morsing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -645,10 +722,11 @@
 		};
 		2FFBC35021E3EE12008978CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA249FB815A49BBE1659EECF /* Pods-Morsing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MQ922JMCL6;
+				DEVELOPMENT_TEAM = 84MA3JMGLA;
 				INFOPLIST_FILE = Morsing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
