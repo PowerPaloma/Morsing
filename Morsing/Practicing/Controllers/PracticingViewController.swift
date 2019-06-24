@@ -10,6 +10,8 @@ import UIKit
 import AudioToolbox
 import AVFoundation
 import CoreData
+import Lottie
+
 
 class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -20,6 +22,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     var isLetter: Bool!
     var indexItem = 0
     var isFirstTime = true
+    
     
     
     lazy var custonToolBar: UIView = {
@@ -187,6 +190,13 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         return collection
     }()
     
+    lazy var animationView: LOTAnimationView = {
+        let animationView = LOTAnimationView(name: "done", bundle: Bundle.main)
+        animationView.animationSpeed = 0.7
+        animationView.contentMode = .scaleAspectFit
+        return animationView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -301,9 +311,9 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             tutorialLabel.leadingAnchor.constraint(equalTo: tutorialView.leadingAnchor, constant: 16).isActive = true
             tutorialLabel.topAnchor.constraint(equalTo: tutorialImageView.bottomAnchor, constant: 4).isActive = true
             
-            tapHereLabel.centerXAnchor.constraint(equalTo: tapView.centerXAnchor).isActive = true
-            tapHereLabel.centerYAnchor.constraint(equalTo: tapView.centerYAnchor).isActive = true
         }
+        tapHereLabel.centerXAnchor.constraint(equalTo: tapView.centerXAnchor).isActive = true
+        tapHereLabel.centerYAnchor.constraint(equalTo: tapView.centerYAnchor).isActive = true
         
         // constraints in toolBar
         if let superview = custonToolBar.superview{
@@ -471,6 +481,13 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
                 itemCoreData.set(done: true, isLetter: isLetter)
                 self.resetButton.isHighlighted = false
                 self.resetButton.isEnabled = true
+                self.view.addSubview(animationView)
+                animationView.center = self.view.center
+
+                animationView.play(fromFrame: 0, toFrame: 21, withCompletion: { (finished) in
+                    /// Animation finished
+                    self.animationView.removeFromSuperview()
+                })
             }
             self.currentIndex += 1
             
@@ -481,6 +498,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         if (currentIndex == morse.count - 1){
             self.resetButton.isHighlighted = true
+            
         }
     }
 }
