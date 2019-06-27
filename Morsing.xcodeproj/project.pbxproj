@@ -24,7 +24,6 @@
 		2FA4585D21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4585C21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift */; };
 		2FA4585F21EA506900C2FCCB /* CodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4585E21EA506900C2FCCB /* CodeCollectionViewCell.swift */; };
 		2FA4586221EA548700C2FCCB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4586121EA548700C2FCCB /* CoreDataManager.swift */; };
-		2FB4FEF322C115DF00B3F0EB /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4FEF222C115DF00B3F0EB /* UIView+RoundCorners.swift */; };
 		2FC3FE3E221D9309000F21D4 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC3FE3D221D9309000F21D4 /* SettingManager.swift */; };
 		2FF1EC2D21EE69B400781742 /* UILabel+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EC2C21EE69B400781742 /* UILabel+Gradient.swift */; };
 		2FF1EC2F21EFF46F00781742 /* NSManagerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF1EC2E21EFF46F00781742 /* NSManagerObject.swift */; };
@@ -72,7 +71,6 @@
 		2FA4585C21EA4F8700C2FCCB /* PracticingViewController+CollectionViewDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PracticingViewController+CollectionViewDelegateDataSource.swift"; sourceTree = "<group>"; };
 		2FA4585E21EA506900C2FCCB /* CodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FA4586121EA548700C2FCCB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		2FB4FEF222C115DF00B3F0EB /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		2FC3FE3D221D9309000F21D4 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
 		2FF1EC2C21EE69B400781742 /* UILabel+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Gradient.swift"; sourceTree = "<group>"; };
 		2FF1EC2E21EFF46F00781742 /* NSManagerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagerObject.swift; sourceTree = "<group>"; };
@@ -349,7 +347,6 @@
 				D7405212220A4F6F00A5B8AD /* UITabBarController+Morsing.swift */,
 				D79F1AF3226A59D9005D27EF /* UIView+CGPoint.swift */,
 				2F97A0E222AF4BE900195E3F /* NSMutableAttributedString.swift */,
-				2FB4FEF222C115DF00B3F0EB /* UIView+RoundCorners.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -566,7 +563,6 @@
 				2FA4585F21EA506900C2FCCB /* CodeCollectionViewCell.swift in Sources */,
 				2FF1EC2F21EFF46F00781742 /* NSManagerObject.swift in Sources */,
 				2F23758D221D7B8400E85739 /* SettingViewController.swift in Sources */,
-				2FB4FEF322C115DF00B3F0EB /* UIView+RoundCorners.swift in Sources */,
 				D7405208220A3FFF00A5B8AD /* Onboard.swift in Sources */,
 				2FFBC35521E3F3EB008978CF /* LearningViewController.swift in Sources */,
 				D7405213220A4F6F00A5B8AD /* UITabBarController+Morsing.swift in Sources */,
@@ -710,7 +706,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 84MA3JMGLA;
+				DEVELOPMENT_TEAM = MQ922JMCL6;
 				INFOPLIST_FILE = Morsing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -730,7 +726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 84MA3JMGLA;
+				DEVELOPMENT_TEAM = MQ922JMCL6;
 				INFOPLIST_FILE = Morsing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
