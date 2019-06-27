@@ -319,13 +319,13 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             custonNaviBar.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
             custonNaviBar.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1).isActive = true
         }
-        //constraints in doneButton
+        //constraints in resetButton
         resetButton.trailingAnchor.constraint(equalTo: custonNaviBar.trailingAnchor, constant: -16).isActive = true
         resetButton.leadingAnchor.constraint(greaterThanOrEqualTo: doneButton.trailingAnchor, constant: 8).isActive = true
         resetButton.centerYAnchor.constraint(equalTo: custonNaviBar.centerYAnchor, constant: 8).isActive = true
-        //constraints in resetButton
-        resetButton.leadingAnchor.constraint(equalTo: custonNaviBar.leadingAnchor, constant: 16).isActive = true
-        resetButton.centerYAnchor.constraint(equalTo: doneButton.centerYAnchor).isActive = true
+        //constraints in doneButton
+        doneButton.leadingAnchor.constraint(equalTo: custonNaviBar.leadingAnchor, constant: 16).isActive = true
+        doneButton.centerYAnchor.constraint(equalTo: resetButton.centerYAnchor).isActive = true
         //constraints soundButton
         if let superview = soundButton.superview{
             soundButton.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true

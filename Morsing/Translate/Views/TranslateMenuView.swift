@@ -13,10 +13,15 @@ class TranslateMenuView: UIView {
     public lazy var textButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 6.0
+        button.layer.masksToBounds = false
         button.setTitle("Text", for: UIControl.State.normal)
-        button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.25)
-        button.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        button.setTitleColor(UIColor(red:0.93, green:0.95, blue:0.96, alpha:1.0), for: UIControl.State.highlighted)
+        button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.71)
+        button.setTitleColor(UIColor.getActionColor(alpha: 1.0), for: UIControl.State.normal)
+        button.setTitleColor(UIColor.getActionColor(alpha: 0.5), for: UIControl.State.highlighted)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 32)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -25,10 +30,15 @@ class TranslateMenuView: UIView {
     public lazy var morseButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 6.0
+        button.layer.masksToBounds = false
         button.setTitle("Morse", for: UIControl.State.normal)
-        button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.25)
-        button.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        button.setTitleColor(UIColor(red:0.93, green:0.95, blue:0.96, alpha:1.0), for: UIControl.State.highlighted)
+        button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.71)
+        button.setTitleColor(UIColor.getActionColor(alpha: 1.0), for: UIControl.State.normal)
+        button.setTitleColor(UIColor.getActionColor(alpha: 0.5), for: UIControl.State.highlighted)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 32)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
