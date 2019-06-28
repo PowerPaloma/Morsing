@@ -45,6 +45,11 @@ extension PracticingViewController: UICollectionViewDelegate, UICollectionViewDa
                 self.resetButton.isEnabled = false
             }
         }
+        if !isFirstTime {
+            cell.codeImage.alpha = 0.1
+        } else {
+            cell.codeImage.alpha = 1.0
+        }
         return cell
     }
     

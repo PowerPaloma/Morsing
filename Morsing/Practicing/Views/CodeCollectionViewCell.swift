@@ -13,7 +13,7 @@ class CodeCollectionViewCell: UICollectionViewCell {
     lazy var custonContainer: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .backgoundGray
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -34,6 +34,7 @@ class CodeCollectionViewCell: UICollectionViewCell {
     }
     
     private func setup(){
+        self.backgroundColor = .clear
         addSubview(custonContainer)
         custonContainer.addSubview(codeImage)
         settingConstraints()
@@ -42,7 +43,7 @@ class CodeCollectionViewCell: UICollectionViewCell {
     private func settingConstraints(){
         custonContainer.fillSuperview(safeArea: false)
         codeImage.fillSuperview(safeArea: false)
-        
+ 
     }
     
     
