@@ -226,6 +226,8 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func initialSetup(){
         view.backgroundColor = .backgoundGray
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
         self.isFirstTime = UserDefaults.standard.bool(forKey: "isFirstTime")
         characterLabel.text = self.data[indexItem].getCharacter(isLetter: isLetter)
         guard let itemCoreData: NSManagedObject = getItem(FromCoreDataInIndex: indexItem), let done =  itemCoreData.getDone(isLetter: isLetter) else {return}
@@ -372,7 +374,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func doneAction(){
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func settingAction(){

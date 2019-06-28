@@ -68,7 +68,7 @@ class TranslateViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        translateView.layoutSubviews()
+        //translateView.layoutSubviews()
 
     }
     fileprivate func setUp(){
@@ -96,7 +96,6 @@ class TranslateViewController: UIViewController {
         scrollView.addSubview(translateView)
         isSound = UserDefaults.standard.bool(forKey: "isSound")
         isVibrating = UserDefaults.standard.bool(forKey: "isVibrating")
-        
         
     }
     

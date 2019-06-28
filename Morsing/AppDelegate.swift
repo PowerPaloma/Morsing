@@ -37,11 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = tabBarController
         }else{
             let onboardingViewController = OnboardingViewController()
-            window?.rootViewController = onboardingViewController
+             let onboardingNavControler = UINavigationController.init(rootViewController: onboardingViewController)
+            
+            window?.rootViewController = onboardingNavControler
         }
         
         window?.makeKeyAndVisible()
-        setupCoreData()
+        //setupCoreData()
 
         return true
     }

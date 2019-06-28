@@ -47,7 +47,9 @@ extension CharactersViewController: UICollectionViewDelegate, UICollectionViewDa
         practicingVC.indexItem = indexSelect
         practicingVC.data = self.data
         practicingVC.isLetter = self.isLetter
-        self.present(practicingVC, animated: true, completion: nil)
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.pushViewController(practicingVC, animated: true)
+        
     }
     
 }
