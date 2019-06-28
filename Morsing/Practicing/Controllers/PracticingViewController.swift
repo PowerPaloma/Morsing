@@ -203,6 +203,17 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         settingsGestures()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.hidesBackButton = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {return}
         if(touch.view == self.tapView){
@@ -226,8 +237,6 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func initialSetup(){
         view.backgroundColor = .backgoundGray
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = true
         self.isFirstTime = UserDefaults.standard.bool(forKey: "isFirstTime")
         characterLabel.text = self.data[indexItem].getCharacter(isLetter: isLetter)
         guard let itemCoreData: NSManagedObject = getItem(FromCoreDataInIndex: indexItem), let done =  itemCoreData.getDone(isLetter: isLetter) else {return}

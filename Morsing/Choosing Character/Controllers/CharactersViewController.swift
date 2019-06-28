@@ -41,6 +41,7 @@ class CharactersViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.hidesBackButton = false
         super.viewWillAppear(animated)
         settingCollectionConstraints()
         collectionView.reloadData()
