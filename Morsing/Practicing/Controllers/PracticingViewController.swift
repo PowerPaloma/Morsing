@@ -22,6 +22,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     var isLetter: Bool!
     var indexItem = 0
     var isFirstTime = true
+    var backTutorial = 0
     
     
     
@@ -36,36 +37,28 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         return toolBar
     }()
     
-    lazy var tutorialView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.white
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 10
-        return view
-    }()
+//    lazy var tutorialBackgroundView: UIView = {
+//        let view = UIView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.backgroundColor = UIColor(red: 107/255, green: 107/255, blue: 107/255, alpha: 0.65)
+//        return view
+//    }()
+
     
-    lazy var tutorialImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "Artboard3")
-        return imageView
-    }()
-    
-    lazy var tutorialLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        let text = NSMutableAttributedString()
-            .appendWith(weight: .regular, ofSize: 16, "Hey buddy! It's a pleasure have you here. Let's learn morse code? It's very simple. Just use ")
-            .appendWith(weight: .bold, ofSize: 16, "tap for dot")
-            .appendWith(weight: .regular, ofSize: 16, " and ")
-            .appendWith(weight: .bold, ofSize: 16, "long press for hairline. ")
-            .appendWith(weight: .regular, ofSize: 16, "Good luck!")
-        
-        label.attributedText = text
-        label.numberOfLines = 0
-        return label
-    }()
+//    lazy var tutorialLabel: UILabel = {
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        let text = NSMutableAttributedString()
+//            .appendWith(weight: .regular, ofSize: 16, "Hey buddy! It's a pleasure have you here. Let's learn morse code? It's very simple. Just use ")
+//            .appendWith(weight: .bold, ofSize: 16, "tap for dot")
+//            .appendWith(weight: .regular, ofSize: 16, " and ")
+//            .appendWith(weight: .bold, ofSize: 16, "long press for hairline. ")
+//            .appendWith(weight: .regular, ofSize: 16, "Good luck!")
+//
+//        label.attributedText = text
+//        label.numberOfLines = 0
+//        return label
+//    }()
     
     lazy var opaqueView: UIView = {
         let view = UIView()
@@ -84,20 +77,20 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     lazy var resetButton: UIButton = {
         let reset = UIButton()
         reset.translatesAutoresizingMaskIntoConstraints = false
-        reset.setTitle("Reset", for: UIControl.State.normal)
-        reset.setTitleColor(UIColor(red: 226/255, green: 17/255, blue: 17/255, alpha: 1.0), for: UIControl.State.normal)
-        reset.setTitleColor(UIColor(red: 226/255, green: 17/255, blue: 17/255, alpha: 0.3), for: UIControl.State.highlighted)
-        reset.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        reset.clipsToBounds = true
+        reset.layer.cornerRadius = 10
+        reset.setImage(UIImage(named: "reset"), for: .normal)
         reset.addTarget(self, action: #selector(resetAction), for: .touchUpInside)
         return reset
+        
     }()
     
     lazy var doneButton: UIButton = {
         let done = UIButton()
         done.translatesAutoresizingMaskIntoConstraints = false
-        done.setTitle("Done", for: UIControl.State.normal)
-        done.setTitleColor(UIColor.getActionColor(alpha: 1.0), for: UIControl.State.normal)
-        done.setTitleColor(UIColor.getActionColor(alpha: 0.3), for: UIControl.State.highlighted)
+        done.setTitle("Close", for: UIControl.State.normal)
+        done.setTitleColor(UIColor(red: 226/255, green: 17/255, blue: 17/255, alpha: 1.0), for: UIControl.State.normal)
+        done.setTitleColor(UIColor(red: 226/255, green: 17/255, blue: 17/255, alpha: 0.3), for: UIControl.State.highlighted)
         done.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         done.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
         return done
@@ -150,20 +143,25 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     lazy var tapHereLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Tap Here!"
+        label.text = ""
+        label.textColor = UIColor.getActionColor(alpha: 1.0)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        
         return label
     }()
     
-    fileprivate var skipButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Got it", for: UIControl.State.normal)
-        button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(dismissTutorial), for: UIControl.Event.touchUpInside)
-        button.setTitleColor(.purple, for: UIControl.State.normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    fileprivate var skipButton: UIButton = {
+//        let button = UIButton()
+//        button.setTitle("Got it", for: UIControl.State.normal)
+//        button.backgroundColor = .clear
+//        button.addTarget(self, action: #selector(dismissTutorial), for: UIControl.Event.touchUpInside)
+//        button.setTitleColor(.purple, for: UIControl.State.normal)
+//        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
     
     lazy var tapView: UIView = {
         let view = UIView()
@@ -172,15 +170,17 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         view.layer.cornerRadius = 10
         // shadow
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 1)
-        view.layer.shadowOpacity = 0.2
-        view.layer.shadowRadius = 3.0
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowRadius = 1.5
+        view.layer.borderWidth = 1.5
+        view.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
         return view
     }()
     
     lazy var codeCollectionView: UICollectionView = {
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: UICollectionViewFlowLayout())
-        collection.backgroundColor = .backgoundGray
+        collection.backgroundColor = .clear
         collection.alwaysBounceVertical = false
         collection.alwaysBounceHorizontal = false
         collection.showsHorizontalScrollIndicator = false
@@ -191,9 +191,10 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     }()
     
     lazy var animationView: LOTAnimationView = {
-        let animationView = LOTAnimationView(name: "done", bundle: Bundle.main)
-        animationView.animationSpeed = 0.7
+        let animationView = LOTAnimationView(name: "data", bundle: Bundle.main)
+        animationView.animationSpeed = 1
         animationView.contentMode = .scaleAspectFit
+        animationView.transform = CGAffineTransform.identity.scaledBy(x: 2, y: 2)
         return animationView
     }()
     
@@ -204,6 +205,17 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         addviews()
         settingConstraints()
         settingsGestures()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.hidesBackButton = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -246,23 +258,36 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         view.addSubview(custonNaviBar)
         view.addSubview(custonToolBar)
         view.addSubview(soundButton)
+        view.addSubview(resetButton)
         view.addSubview(codeCollectionView)
         view.addSubview(characterLabel)
         custonNaviBar.addSubview(doneButton)
-        custonNaviBar.addSubview(resetButton)
         custonToolBar.addSubview(backButton)
         custonToolBar.addSubview(nextButton)
-        view.bringSubviewToFront(custonToolBar)
         view.addSubview(tapView)
+        view.bringSubviewToFront(custonToolBar)
+        
         if !isFirstTime {
-            UserDefaults.standard.set(true, forKey: "isFirstTime")
-            view.addSubview(opaqueView)
-            opaqueView.addSubview(tutorialView)
-            tutorialView.addSubview(tutorialLabel)
-            tutorialView.addSubview(tutorialImageView)
-            tutorialView.addSubview(skipButton)
+            setupTutorial()
         }
         
+    }
+    
+    private func setupTutorial() {
+        view.addSubview(opaqueView)
+        view.bringSubviewToFront(tapView)
+        view.bringSubviewToFront(codeCollectionView)
+        if let isDot = isDot(inIndex: 0){
+            self.backTutorial = isDot ? 0 : 1
+            tapHereLabel.text = isDot ? "Tap in this area to\n perform the point!" : "Press this area to\n perform the hairline!"
+        }
+    }
+    
+    private func isDot(inIndex index: Int) -> Bool? {
+        if let morseArray = data[indexItem].getMorse(isLetter: isLetter) {
+            return morseArray[index] == 0
+        }
+        return nil
     }
     
     private func settingsGestures(){
@@ -286,34 +311,13 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func settingConstraints(){
         if !isFirstTime {
-            opaqueView.fillSuperview(safeArea: false)
-            
-            skipButton.trailingAnchor.constraint(equalTo: opaqueView.trailingAnchor).isActive = true
-            skipButton.leadingAnchor.constraint(equalTo: opaqueView.leadingAnchor).isActive = true
-            skipButton.topAnchor.constraint(equalTo: tutorialLabel.bottomAnchor, constant: 8).isActive = true
-            skipButton.bottomAnchor.constraint(equalTo: tutorialView.bottomAnchor, constant: -8).isActive = true
-            
-            tutorialView.centerXAnchor.constraint(equalTo: opaqueView.centerXAnchor).isActive = true
-            tutorialView.centerYAnchor.constraint(equalTo: opaqueView.centerYAnchor).isActive = true
-            tutorialView.heightAnchor.constraint(equalTo: opaqueView.heightAnchor, multiplier: 0.5).isActive = true
-            tutorialView.trailingAnchor.constraint(equalTo: opaqueView.trailingAnchor, constant: -30).isActive = true
-            tutorialView.leadingAnchor.constraint(equalTo: opaqueView.leadingAnchor, constant: 30).isActive = true
-            
-            tutorialImageView.topAnchor.constraint(equalTo: tutorialView.topAnchor, constant: 16).isActive = true
-            tutorialImageView.leadingAnchor.constraint(equalTo: tutorialView.leadingAnchor, constant: 16).isActive = true
-            tutorialImageView.trailingAnchor.constraint(equalTo: tutorialView.trailingAnchor, constant: -16).isActive = true
-            tutorialImageView.heightAnchor.constraint(equalTo: tutorialView.heightAnchor, multiplier: 0.4).isActive = true
-            
-            tutorialLabel.centerXAnchor.constraint(equalTo: tutorialView.centerXAnchor).isActive = true
-
-            
-            tutorialLabel.trailingAnchor.constraint(equalTo: tutorialView.trailingAnchor, constant: -16).isActive = true
-            tutorialLabel.leadingAnchor.constraint(equalTo: tutorialView.leadingAnchor, constant: 16).isActive = true
-            tutorialLabel.topAnchor.constraint(equalTo: tutorialImageView.bottomAnchor, constant: 4).isActive = true
-            
-        }
+        opaqueView.fillSuperview(safeArea: false)
+        
         tapHereLabel.centerXAnchor.constraint(equalTo: tapView.centerXAnchor).isActive = true
         tapHereLabel.centerYAnchor.constraint(equalTo: tapView.centerYAnchor).isActive = true
+        tapHereLabel.trailingAnchor.constraint(equalTo: tapView.trailingAnchor, constant: -24).isActive = true
+        tapHereLabel.leadingAnchor.constraint(equalTo: tapView.leadingAnchor, constant: 24).isActive = true
+        }
         
         // constraints in toolBar
         if let superview = custonToolBar.superview{
@@ -329,14 +333,24 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
             custonNaviBar.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
             custonNaviBar.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1).isActive = true
         }
-        //constraints in doneButton
-        doneButton.trailingAnchor.constraint(equalTo: custonNaviBar.trailingAnchor, constant: -16).isActive = true
-        doneButton.leadingAnchor.constraint(greaterThanOrEqualTo: resetButton.trailingAnchor, constant: 8).isActive = true
-        doneButton.centerYAnchor.constraint(equalTo: custonNaviBar.centerYAnchor, constant: 8).isActive = true
+        
         //constraints in resetButton
-        resetButton.leadingAnchor.constraint(equalTo: custonNaviBar.leadingAnchor, constant: 16).isActive = true
-        resetButton.centerYAnchor.constraint(equalTo: doneButton.centerYAnchor).isActive = true
+//        resetButton.trailingAnchor.constraint(equalTo: custonNaviBar.trailingAnchor, constant: -16).isActive = true
+//        resetButton.leadingAnchor.constraint(greaterThanOrEqualTo: doneButton.trailingAnchor, constant: 8).isActive = true
+//        resetButton.centerYAnchor.constraint(equalTo: custonNaviBar.centerYAnchor, constant: 8).isActive = true
+        if let superview = resetButton.superview{
+            resetButton.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
+            resetButton.topAnchor.constraint(equalTo: custonNaviBar.bottomAnchor, constant: 20).isActive = true
+            resetButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            resetButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+            //constraints settingButton
+        }
+        
+        //constraints in doneButton
+        doneButton.leadingAnchor.constraint(equalTo: custonNaviBar.leadingAnchor, constant: 16).isActive = true
+        doneButton.topAnchor.constraint(equalTo: custonNaviBar.topAnchor, constant: 20).isActive = true
         //constraints soundButton
+        
         if let superview = soundButton.superview{
             soundButton.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
              soundButton.topAnchor.constraint(equalTo: custonNaviBar.bottomAnchor, constant: 20).isActive = true
@@ -354,8 +368,8 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         if let superview = tapView.superview{
             tapView.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
             tapView.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-            tapView.bottomAnchor.constraint(equalTo: custonToolBar.topAnchor, constant: 6).isActive = true
-            tapView.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.25).isActive = true
+            tapView.bottomAnchor.constraint(equalTo: custonToolBar.topAnchor, constant: 10).isActive = true
+            tapView.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2).isActive = true
         }
         //constraints in CodeCollection
         if let superview = codeCollectionView.superview{
@@ -383,7 +397,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func doneAction(){
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func settingAction(){
@@ -426,12 +440,12 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
 //            self.tapView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
 //            self.tapView.backgroundColor = UIColor.white
 //        }
-        tapHereLabel.isHidden = true
+        //tapHereLabel.isHidden = true
         manageGesture(isTap: true)
     }
     
     @objc private func handleLongPress(sender: UILongPressGestureRecognizer) {
-        tapHereLabel.isHidden = true
+        //tapHereLabel.isHidden = true
         switch sender.state {
         case .began:
             manageGesture(isTap: false)
@@ -473,6 +487,30 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
                 UIImpactFeedbackGenerator().impactOccurred()
             }
             let cell = codeCollectionView.cellForItem(at: IndexPath.init(row: currentIndex, section: 0)) as! CodeCollectionViewCell
+            if !isFirstTime {
+                cell.codeImage.alpha = 1.0
+                if currentIndex != morse.count - 1 {
+                    guard let isDot = isDot(inIndex: currentIndex + 1) else { return }
+                    if backTutorial == 0, !isDot {
+                        tapHereLabel.text = "Great job! Now hold down to execute the hairline"
+                    } else if backTutorial == 1, isDot {
+                        tapHereLabel.text = "Great job! Now tap to execute the hairline"
+                    } else {
+                        tapHereLabel.text = "Great job! Now you know what to do, hum?"
+                    }
+                    backTutorial = isTap ? 0 : 1
+                } else {
+                    if let letter = item.getCharacter(isLetter: isLetter) {
+                        tapHereLabel.text = "Terrific! You know the letter \(letter) in morse code, keep going!"
+                    } else {
+                        tapHereLabel.text = "Terrific! You know a new letter in morse code, keep going!"
+                    }
+                    
+                    
+                }
+                
+            }
+            
             UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut], animations: {
                 cell.codeImage.image = isTap ? UIImage.init(named: "dotColorful") : UIImage.init(named: "hyColorful")
             }, completion: nil)
@@ -481,14 +519,33 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
                 itemCoreData.set(done: true, isLetter: isLetter)
                 self.resetButton.isHighlighted = false
                 self.resetButton.isEnabled = true
-                self.view.addSubview(animationView)
-                animationView.center = self.view.center
+                if !isFirstTime {
+                    cell.codeImage.alpha = 1.0
+                    view.bringSubviewToFront(characterLabel)
+                    UserDefaults.standard.set(true, forKey: "isFirstTime")
+                    let when = DispatchTime.now().uptimeNanoseconds + 3000000000 // 4 secs
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: when)) {
+                        UIView.animate(withDuration: 2, animations: {
+                            self.opaqueView.alpha = 0
+                            self.tapHereLabel.alpha = 0
+                        }, completion: { (_) in
+                            self.tapHereLabel.removeFromSuperview()
+                            self.opaqueView.removeFromSuperview()
+                            self.view.sendSubviewToBack(self.tapView)
+                        })
+                    }
+                    
+                } else {
+                    self.view.addSubview(animationView)
+                    animationView.center = self.view.center
+                    animationView.play(fromFrame: 0, toFrame: 40, withCompletion: { (finished) in
+                        /// Animation finished
+                        self.animationView.removeFromSuperview()
+                    })
 
-                animationView.play(fromFrame: 0, toFrame: 21, withCompletion: { (finished) in
-                    /// Animation finished
-                    self.animationView.removeFromSuperview()
-                })
-            }
+                }
+
+                            }
             self.currentIndex += 1
             
         }else{

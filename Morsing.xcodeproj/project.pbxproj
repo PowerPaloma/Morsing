@@ -36,13 +36,13 @@
 		3BC1426B5E9E3DBB674494AA /* Pods_Morsing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A1A4959F2A11312E665718 /* Pods_Morsing.framework */; };
 		D72AC6AE21EAD3A30049ADA6 /* UIColor+Morsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */; };
 		D737E5A522C15A0200BE01E5 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D737E5A422C15A0200BE01E5 /* Lottie.framework */; };
-		D737E5AF22C15EFD00BE01E5 /* done.json in Resources */ = {isa = PBXBuildFile; fileRef = D737E5AE22C15EFD00BE01E5 /* done.json */; };
 		D7405208220A3FFF00A5B8AD /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7405207220A3FFF00A5B8AD /* Onboard.swift */; };
 		D740520C220A423900A5B8AD /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740520B220A423900A5B8AD /* OnboardingCollectionViewCell.swift */; };
 		D740520E220A47ED00A5B8AD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D740520D220A47ED00A5B8AD /* OnboardingViewController.swift */; };
 		D7405211220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7405210220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift */; };
 		D7405213220A4F6F00A5B8AD /* UITabBarController+Morsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7405212220A4F6F00A5B8AD /* UITabBarController+Morsing.swift */; };
 		D79F1AF4226A59D9005D27EF /* UIView+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F1AF3226A59D9005D27EF /* UIView+CGPoint.swift */; };
+		D7AD773122C8177800710324 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = D7AD773022C8177700710324 /* data.json */; };
 		D7C4831D21ED4EA300D54EEE /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C4831C21ED4EA300D54EEE /* UIViewController+Alert.swift */; };
 		D7CA6D0821E7F5F400376E65 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */; };
 		D7CA6D0C21E7F86800376E65 /* UIView+GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */; };
@@ -84,13 +84,13 @@
 		2FFBC35421E3F3EB008978CF /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
 		D72AC6AD21EAD3A30049ADA6 /* UIColor+Morsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Morsing.swift"; sourceTree = "<group>"; };
 		D737E5A422C15A0200BE01E5 /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D737E5AE22C15EFD00BE01E5 /* done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done.json; sourceTree = "<group>"; };
 		D7405207220A3FFF00A5B8AD /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
 		D740520B220A423900A5B8AD /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		D740520D220A47ED00A5B8AD /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		D7405210220A499900A5B8AD /* OnboardCollectionViewDelegate&DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardCollectionViewDelegate&DataSource.swift"; sourceTree = "<group>"; };
 		D7405212220A4F6F00A5B8AD /* UITabBarController+Morsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Morsing.swift"; sourceTree = "<group>"; };
 		D79F1AF3226A59D9005D27EF /* UIView+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CGPoint.swift"; sourceTree = "<group>"; };
+		D7AD773022C8177700710324 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		D7C4831C21ED4EA300D54EEE /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		D7CA6D0721E7F5F400376E65 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		D7CA6D0B21E7F86800376E65 /* UIView+GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+GradientLayer.swift"; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 		2FA4584F21E950F000C2FCCB /* Recources */ = {
 			isa = PBXGroup;
 			children = (
-				D737E5AE22C15EFD00BE01E5 /* done.json */,
+				D7AD773022C8177700710324 /* data.json */,
 				2F7C7F1A2208534F00E93AB9 /* beep_long.mp3 */,
 				2F7C7F1B2208534F00E93AB9 /* beep_short.mp3 */,
 				2FA4585021E9510F00C2FCCB /* LettersData.json */,
@@ -474,7 +474,7 @@
 				2F7C7F1C2208535000E93AB9 /* beep_long.mp3 in Resources */,
 				2FFBC34A21E3EE12008978CF /* LaunchScreen.storyboard in Resources */,
 				2FA4585321E9513700C2FCCB /* NumbersData.json in Resources */,
-				D737E5AF22C15EFD00BE01E5 /* done.json in Resources */,
+				D7AD773122C8177800710324 /* data.json in Resources */,
 				2FA4585121E9510F00C2FCCB /* LettersData.json in Resources */,
 				2FFBC34721E3EE12008978CF /* Assets.xcassets in Resources */,
 				2F7C7F1D2208535000E93AB9 /* beep_short.mp3 in Resources */,
@@ -706,7 +706,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 84MA3JMGLA;
+				DEVELOPMENT_TEAM = MQ922JMCL6;
 				INFOPLIST_FILE = Morsing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -726,7 +726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 84MA3JMGLA;
+				DEVELOPMENT_TEAM = MQ922JMCL6;
 				INFOPLIST_FILE = Morsing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

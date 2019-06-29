@@ -41,8 +41,11 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        let pageIndex = round(scrollView.contentOffset.x/onboardingCollectionView.frame.width)
-        pageControl.currentPage = Int(pageIndex)
+        if onboardingCollectionView.frame.width != 0 {
+            let pageIndex = round(scrollView.contentOffset.x/onboardingCollectionView.frame.width)
+            pageControl.currentPage = Int(pageIndex)
+        }
+        
         
         let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
         let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x

@@ -10,7 +10,7 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
-    let settingOptions = ["Vibrations", "Sound"]
+    var settingOptions: [String] = []
     
     lazy var tableView: UITableView = {
         let table = UITableView()
@@ -18,17 +18,27 @@ class SettingViewController: UIViewController {
         table.backgroundColor = .clear
         table.alwaysBounceVertical = true
         table.showsVerticalScrollIndicator = false
+        table.contentInsetAdjustmentBehavior = .never
         table.tableFooterView = UIView()
-        view.addSubview(table)
         return table
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .backgoundGray
+        initialSetup()
         settingConstraints()
         settingTable()
         navigationBarSetup()
+    }
+    
+    private func initialSetup() {
+        view.backgroundColor = .backgoundGray
+        view.addSubview(tableView)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            settingOptions = ["Sound"]
+        }else{
+            settingOptions = ["Vibrations", "Sound"]
+        }
     }
     
     private func settingConstraints(){

@@ -98,9 +98,9 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .backgoundGray
         initialSetup()
+        self.navigationController?.navigationBar.isHidden = true
         // Do any additional setup after loading the view.
     }
     
@@ -122,7 +122,8 @@ class OnboardingViewController: UIViewController {
     }
     
     fileprivate func setUpCollectionViewConstraints(){
-        onboardingCollectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor)
+        onboardingCollectionView.anchor(top: view.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor)
+//        onboardingCollectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor)
         onboardingCollectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8).isActive = true
     }
     
@@ -169,9 +170,9 @@ class OnboardingViewController: UIViewController {
         let tabBarController = UITabBarController()
         tabBarController.setup()
         UserDefaults.standard.set(true, forKey: "launchedBefore")
-        
-        
-        present(tabBarController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(tabBarController, animated: true)
+        self.navigationItem.hidesBackButton = true
+        //present(tabBarController, animated: false, completion: nil)
         
     }
     

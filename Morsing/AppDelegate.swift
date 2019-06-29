@@ -37,11 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = tabBarController
         }else{
             let onboardingViewController = OnboardingViewController()
-            window?.rootViewController = onboardingViewController
+             let onboardingNavControler = UINavigationController.init(rootViewController: onboardingViewController)
+            
+            window?.rootViewController = onboardingNavControler
         }
         
         window?.makeKeyAndVisible()
-        setupCoreData()
+        //setupCoreData()
 
         return true
     }
@@ -81,7 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //setting userDefaults
         UserDefaults.standard.set(true, forKey: "isDataSetup")
         //setting CoreData
-        CoreDataManager.shared.deleteAll()
         guard let letters = Item.letters(), let numbers = Item.numbers() else {return}
         for item in letters {
             let letter = Letters(context: CoreDataManager.shared.getContext())
