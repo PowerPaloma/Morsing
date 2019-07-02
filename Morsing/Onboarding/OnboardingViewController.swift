@@ -79,15 +79,15 @@ class OnboardingViewController: UIViewController {
     lazy var content : [Onboard] = {
         var array = [Onboard]()
         let material: Onboard = Onboard(title: "Learn more about morse",
-                                        description: "Don't be lost when you need! Learn basic words and numbers in Morse.",
+                                        description: "Don't be lost when you need! Learn basic words and numbers in Morse code.",
                                         assetName: "Artboard",
                                         assetKind: .image)
         let Progresso: Onboard = Onboard(title: "Translate words anytime, anywhere",
-                                         description: "Here we have a translator to help you learning morse and yours featue like code to text and text to code.",
+                                         description: "Would you like to know your name in more code? Just type in the translator and find out!",
                                          assetName: "Artboard2",
                                          assetKind: .image)
         let inicio: Onboard = Onboard(title: "It's time to improve yourself 💪",
-                                      description: "Your frist step begins now, let's improve your habilits and understand morse .",
+                                      description: "Your first step begins now, let's improve your habilits.",
                                       assetName: "Artboard3",
                                       assetKind: .image)
         array.append(material)

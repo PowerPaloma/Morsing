@@ -21,7 +21,14 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     var firtAccess = false
     var isLetter: Bool!
     var indexItem = 0
-    var isFirstTime = true
+    var isFirstTime: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "isFirstTime")
+        }
+//        set (rawValue) {
+//            UserDefaults.standard.set(rawValue, forKey: "isFirstTime")
+//        }
+    }
     var backTutorial = 0
     
     
@@ -241,7 +248,6 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func initialSetup(){
         view.backgroundColor = .backgoundGray
-        self.isFirstTime = UserDefaults.standard.bool(forKey: "isFirstTime")
         characterLabel.text = self.data[indexItem].getCharacter(isLetter: isLetter)
         guard let itemCoreData: NSManagedObject = getItem(FromCoreDataInIndex: indexItem), let done =  itemCoreData.getDone(isLetter: isLetter) else {return}
         if done {
@@ -292,12 +298,10 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     private func settingsGestures(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(sender:)))
-        let tapDismiss = UITapGestureRecognizer(target: self, action: #selector(dismissTutorial))
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(sender:)))
         longPress.minimumPressDuration = 0.5
         tap.delegate = self
-        
-        opaqueView.addGestureRecognizer(tapDismiss)
+    
         tapView.addGestureRecognizer(tap)
         tapView.addGestureRecognizer(longPress)
     }
@@ -348,7 +352,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         
         //constraints in doneButton
         doneButton.leadingAnchor.constraint(equalTo: custonNaviBar.leadingAnchor, constant: 16).isActive = true
-        doneButton.topAnchor.constraint(equalTo: custonNaviBar.topAnchor, constant: 20).isActive = true
+        doneButton.bottomAnchor.constraint(equalTo: custonNaviBar.bottomAnchor, constant: -10).isActive = true
         //constraints soundButton
         
         if let superview = soundButton.superview{
@@ -454,15 +458,6 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    @objc private func dismissTutorial() {
-        UIView.animate(withDuration: 1, animations: {
-            self.opaqueView.alpha = 0
-            //self.tutorialView.frame.origin.y = UIScreen.main.bounds.height
-        }) { (_) in
-            self.opaqueView.removeFromSuperview()
-        }
-    }
-    
     
     // MARK: - Help Functions
     
@@ -506,7 +501,6 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
                         tapHereLabel.text = "Terrific! You know a new letter in morse code, keep going!"
                     }
                     
-                    
                 }
                 
             }
@@ -523,7 +517,7 @@ class PracticingViewController: UIViewController, UIGestureRecognizerDelegate {
                     cell.codeImage.alpha = 1.0
                     view.bringSubviewToFront(characterLabel)
                     UserDefaults.standard.set(true, forKey: "isFirstTime")
-                    let when = DispatchTime.now().uptimeNanoseconds + 3000000000 // 4 secs
+                    let when = DispatchTime.now().uptimeNanoseconds + 2000000000 // 4 secs
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: when)) {
                         UIView.animate(withDuration: 2, animations: {
                             self.opaqueView.alpha = 0
