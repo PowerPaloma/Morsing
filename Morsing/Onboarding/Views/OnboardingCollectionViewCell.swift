@@ -104,8 +104,8 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
 //        self.animationView.addSubview(animationView)
 //        animationView.fillSuperview(safeArea: true)
 //        animationView.play()
-//    }
-    
+//    }    
+   
     func setImage(name: String){
         self.imageCell.image = UIImage(named: name)
     }
